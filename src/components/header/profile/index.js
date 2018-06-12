@@ -14,7 +14,6 @@ const LoginSignUp = () => (
     <div className="user">
       <span className="name">Login</span>
       <span className="name">Sign Up</span>
-
     </div>
   </div>
 )
