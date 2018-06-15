@@ -1,13 +1,17 @@
 import React from 'react'
 
+import { Grid } from 'react-bootstrap'
 import HeaderLogo from './logo'
+import HeaderNav from './navigation'
+
 
 import './styles.css'
 
 const Header = () => (
-  <div className="header">
+  <Grid className="header">
     <HeaderLogo />
-  </div>
+    <HeaderNav />
+  </Grid>
 )
 
 export default Header

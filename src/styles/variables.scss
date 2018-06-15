@@ -1,4 +1,8 @@
 
+ol, ul {
+  list-style: none;
+}
+
 // Colors
 $voyago-primary: #39bcbc;
 $voyago-pink: #f1557e;
@@ -21,5 +25,7 @@ $font-stack:    Avenir, sans-serif;
 
 // Values
 $full-width: 100vw;
+$half-width: $full-width / 2;
+$fourth-width: $full-width / 4;
 $eighth-width: $full-width / 8;
 $tenth-width: $full-width / 10;
