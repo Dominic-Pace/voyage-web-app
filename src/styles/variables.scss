@@ -1,0 +1,25 @@
+
+// Colors
+$voyago-primary: #39bcbc;
+$voyago-pink: #f1557e;
+$voyago-salmon: #e95d5f;
+$voyago-dark-purple: #3c3756;
+$voyago-dark: #1a1a1f;
+$voyago-grey: #798089;
+$voyago-lighter-grey: #949494;
+$voyago-off-white: #dbdbdb;
+$voyago-white: #FFFFFF;
+
+// Typography
+$font-stack:    Avenir, sans-serif;
+
+// Common Styles
+%vertical-align-underneath {
+  align-items: center;
+  display: flex;
+}
+
+// Values
+$full-width: 100vw;
+$eighth-width: $full-width / 8;
+$tenth-width: $full-width / 10;

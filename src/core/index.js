@@ -1,15 +1,14 @@
 import React, { Component } from 'react'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
 
-import { Grid, Row } from 'react-bootstrap'
+import LandingPage from './landing'
 import Header from '../components/header'
 
 class App extends Component {
   render () {
     return (
-      <div>
+      <div id="app-container">
         <Header />
-        <div style={{ height: 15000 }} />
+        <LandingPage />
       </div>
     )
   }

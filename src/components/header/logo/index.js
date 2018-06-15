@@ -1,7 +1,9 @@
 import React from 'react'
 
+import VoyagoText from '../../../assets/images/voyago-text.png'
+
 const HeaderLogo = () => (
-  <img className="logo" src="https://www.logoai.com/uploads/icon/2017/06/21/14980299516702536.svg" alt="Voyago"/>
+  <img className="header-logo" src={VoyagoText} alt="Voyago"/>
 )
 
 export default HeaderLogo

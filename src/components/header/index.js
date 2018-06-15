@@ -1,17 +1,13 @@
 import React from 'react'
 
 import HeaderLogo from './logo'
-import NavigationTabs from './navigation'
-import RightNavigation from './profile'
+
 import './styles.css'
 
-
 const Header = () => (
-  <header className="header">
+  <div className="header">
     <HeaderLogo />
-    <NavigationTabs />
-    <RightNavigation />
-  </header>
+  </div>
 )
 
 export default Header
