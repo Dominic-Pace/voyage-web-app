@@ -6,7 +6,7 @@ const SectionFour = () => (
   <Grid
     className="section-four-container"
   >
-    <div>Hello World</div>
+    <div>Custom Vacation Quote</div>
   </Grid>
 )
 

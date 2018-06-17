@@ -1,0 +1,13 @@
+@import '../../styles/common.scss';
+
+.rounded-btn {
+  background-color: $voyago-primary;
+  border-radius: 20px;
+  color: white;
+  &-transparent {
+    border-radius: 20px;
+    background-color: transparent;
+    border: $voyago-primary solid 1px;
+    color: white;
+  }
+}

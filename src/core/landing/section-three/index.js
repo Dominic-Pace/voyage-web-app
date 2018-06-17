@@ -9,7 +9,7 @@ const SectionThree = () => (
     bgImage={SectionThreeBanner}
     height={800}
   >
-    <div>Hello World</div>
+    <div>All Packages</div>
   </Banner>
 )
 

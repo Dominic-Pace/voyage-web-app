@@ -1,6 +1,7 @@
 @import '../../styles/common.scss';
 
 .header {
+  max-width: 100vw;
   * {
     color: $voyago-white;
     font-weight: 200;

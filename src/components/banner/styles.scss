@@ -1,7 +1,9 @@
 @import '../../styles/common.scss';
 
 .banner-background {
+  align-items: center;
   background-position-x: right;
   background-size: cover;
-  margin: 0 -10px 0 -10px;
+  display: flex;
+  max-width: 100vw;
 }

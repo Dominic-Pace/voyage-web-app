@@ -1,7 +1,4 @@
-
-ol, ul {
-  list-style: none;
-}
+@import '~bootstrap/dist/css/bootstrap.css';
 
 // Colors
 $voyago-primary: #39bcbc;
@@ -21,6 +18,12 @@ $font-stack:    Avenir, sans-serif;
 %vertical-align-underneath {
   align-items: center;
   display: flex;
+}
+
+%center-align-all {
+  align-items: center;
+  display: flex;
+  justify-content: center;
 }
 
 // Values

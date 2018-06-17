@@ -6,7 +6,7 @@ const SectionSix = () => (
   <Grid
     className="section-six-container"
   >
-    <div>Hello World</div>
+    <div>Footer</div>
   </Grid>
 )
 

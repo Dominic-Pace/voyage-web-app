@@ -9,7 +9,7 @@ const SectionFive = () => (
     bgImage={SectionFiveBanner}
     height={300}
   >
-    <div>Hello World</div>
+    <div>Sign up for Emails</div>
   </Banner>
 )
 

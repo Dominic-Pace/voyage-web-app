@@ -1,5 +1,9 @@
 @import '../../styles/common.scss';
 
+.centered-container {
+  @extend %center-align-all;
+}
+
 .section-two {
   &-container {
     height: 450px;

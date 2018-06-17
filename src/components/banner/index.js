@@ -1,8 +1,10 @@
 import React from 'react'
 
+import { Grid } from 'react-bootstrap'
+
 import './styles.css'
 const Banner = ({ bgImage, children, height, style }) => (
-  <div
+  <Grid
     className="banner-background"
     style={{
       backgroundImage: `url(${bgImage})`,
@@ -11,7 +13,7 @@ const Banner = ({ bgImage, children, height, style }) => (
     }}
   >
     { children}
-  </div>
+  </Grid>
 )
 
 export default Banner
