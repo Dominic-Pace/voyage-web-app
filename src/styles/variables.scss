@@ -7,7 +7,8 @@ $voyago-salmon: #e95d5f;
 $voyago-dark-purple: #3c3756;
 $voyago-dark: #1a1a1f;
 $voyago-grey: #798089;
-$voyago-lighter-grey: #949494;
+$voyago-light-grey: #949494;
+$voyago-lighter-grey: #C7C7C7;
 $voyago-off-white: #dbdbdb;
 $voyago-white: #FFFFFF;
 
@@ -15,16 +16,21 @@ $voyago-white: #FFFFFF;
 $font-stack:    Avenir, sans-serif;
 
 // Common Styles
-%vertical-align-underneath {
-  align-items: center;
-  display: flex;
-}
-
 %center-align-all {
   align-items: center;
   display: flex;
   justify-content: center;
 }
+
+%vertical-align-underneath {
+  align-items: center;
+  display: flex;
+}
+
+%white-text {
+  color: $voyago-white;
+}
+
 
 // Values
 $full-width: 100vw;

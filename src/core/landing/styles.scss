@@ -2,11 +2,27 @@
 
 .centered-container {
   @extend %center-align-all;
+  @extend %white-text;
 }
 
 .section-two {
+  justify-content: center;
   &-container {
-    height: 450px;
+    height: 500px;
+    @extend %vertical-align-underneath;
+  }
+  &-step-card {
+    padding-right: 55px;
+    padding-left: 55px;
+  }
+  &-footer-text {
+    color: $voyago-light-grey;
+    font-size: 2.5rem;
+    font-style: italic;
+    &-go {
+      color: $voyago-primary;
+      font-weight: 600;
+    }
   }
 }
 

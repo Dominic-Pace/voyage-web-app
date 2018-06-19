@@ -1,0 +1,26 @@
+@import '../../styles/common.scss';
+
+* {
+}
+.header-xl {
+  font-size: 2rem;
+  font-weight: 100;
+  text-transform: uppercase;
+}
+
+.header-lg {
+  font-size: 1.5rem;
+  font-weight: 100;
+}
+
+.header-md {
+  font-size: 1.25rem;
+  font-weight: 200;
+  text-align: center;
+}
+
+.general-text {
+  font-size: 1rem;
+  font-weight: 200;
+  text-align: center;
+}
