@@ -1,15 +1,20 @@
 @import '../../styles/common.scss';
 
 .centered-container {
-  @extend %center-align-all;
+  @extend %align-all;
   @extend %white-text;
+}
+
+.custom-package-form {
+  @extend %center-align;
+  padding: 10px;
 }
 
 .section-two {
   justify-content: center;
   &-container {
     height: 500px;
-    @extend %vertical-align-underneath;
+    @extend %vertical-align;
   }
   &-step-card {
     padding-right: 55px;
@@ -27,7 +32,9 @@
 }
 
 .section-four {
+  @extend %center-align;
   &-container {
+    @extend %center-align;
     height: 500px;
   }
 }

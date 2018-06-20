@@ -1,11 +1,13 @@
 import React from 'react'
 
 import NeedVacation from './vectors/need-a-vacation.svg'
+import SendMessage from './vectors/send-message.svg'
 import TravelBaggage from './vectors/travel-baggage.svg'
 import WorldAwaits from './vectors/world-awaits.svg'
 
 const types = {
   needAVacation: NeedVacation,
+  send: SendMessage,
   travelBaggage: TravelBaggage,
   worldAwaits: WorldAwaits,
 }

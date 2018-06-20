@@ -2,6 +2,8 @@
 
 // Colors
 $voyago-primary: #39bcbc;
+$voyago-error: #BD3939;
+$voyago-warning: #ff571a;
 $voyago-pink: #f1557e;
 $voyago-salmon: #e95d5f;
 $voyago-dark-purple: #3c3756;
@@ -16,13 +18,18 @@ $voyago-white: #FFFFFF;
 $font-stack:    Avenir, sans-serif;
 
 // Common Styles
-%center-align-all {
+%align-all {
   align-items: center;
   display: flex;
   justify-content: center;
 }
 
-%vertical-align-underneath {
+%center-align {
+  display: flex;
+  justify-content: center;
+}
+
+%vertical-align {
   align-items: center;
   display: flex;
 }
