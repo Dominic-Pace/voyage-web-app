@@ -63,8 +63,8 @@ const CustomRequestForm = () => {
             }}
           />
           <TextInputField
-            model=".location"
-            placeholder="Preferred Location (optional)"
+            model=".destination"
+            placeholder="Preferred Destination (optional)"
           />
           <TextInputField
             model=".numberOfPeople"
@@ -85,12 +85,6 @@ const CustomRequestForm = () => {
             model=".totalBudget"
             number
             placeholder="Total Budget for Trip (Leave blank for flexible)"
-            validation={{
-              isNumber: {
-                errorMessage: errorMessages.isNumber,
-                validator: isNumber,
-              }
-            }}
           />
         </Col>
         <Col md={6}>

@@ -1,9 +1,9 @@
 export const customPackageForm = {
   totalBudget: undefined,
   comments: '',
+  destination: '',
   email: '',
   homeAirport: '',
-  location: '',
   name: '',
   numberOfPeople: undefined,
   preferredNumberOfDays: undefined,
