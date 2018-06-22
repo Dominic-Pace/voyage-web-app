@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Col, Row } from 'react-bootstrap'
+import { Row } from 'react-bootstrap'
 import Image from '../../../../../components/image'
 
 const FacebookURL = 'https://www.facebook.com/bonvoyago'
