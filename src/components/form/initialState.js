@@ -9,3 +9,8 @@ export const customPackageForm = {
   preferredNumberOfDays: undefined,
   tags: []
 }
+
+export const joinMailListForm = {
+  email: '',
+}
+

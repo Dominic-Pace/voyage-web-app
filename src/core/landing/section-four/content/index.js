@@ -11,7 +11,6 @@ const SectionFourContent = () => (
     <CustomRequestForm />
     <FormButton
       center
-      icon
       label={<span><Icon type="send" size={22}/> Get Your Quote Today!</span>}
       formState={{valid: true}}
     />

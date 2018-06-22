@@ -77,7 +77,7 @@ export const Text = ({ bold, center, color, children, style }) => (
       style={{
         ...{
           color: color || null,
-          fontWeight: bold ? '600' : null,
+          fontWeight: bold ? '600' : '100',
         }, ...style
       }}
     >

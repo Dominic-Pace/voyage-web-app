@@ -1,15 +1,16 @@
 import React from 'react'
 
 import Banner from '../../../components/banner'
-
 import SectionFiveBanner from '../../../assets/images/landing/five-banner.png'
+import StepFiveContent from './content'
 
 const SectionFive = () => (
   <Banner
     bgImage={SectionFiveBanner}
+    className="section-five-container"
     height={300}
   >
-    <div>Sign up for Emails</div>
+    <StepFiveContent />
   </Banner>
 )
 

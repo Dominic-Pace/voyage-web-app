@@ -5,7 +5,7 @@
   @extend %white-text;
 }
 
-.custom-package-form {
+.landing-form {
   @extend %center-align;
   padding: 10px;
 }
@@ -37,6 +37,11 @@
     @extend %center-align;
     height: 500px;
   }
+}
+
+.section-five-container {
+  color: $voyago-white;
+  justify-content: center;
 }
 
 .section-six {

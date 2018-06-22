@@ -8,59 +8,25 @@ import {
 } from '../../../../components/form'
 
 import {
-  errorMessages,
-  isNumber,
-  isEmail,
-  maxLength,
-  required,
-} from '../../../../components/form/validators'
-import {
   BASE_FORM_REDUCER,
   CUSTOM_PACKAGE_FORM
 } from '../../../../components/form/constants'
-
-const MAX_EMAIL_LENGTH = 254
-const MAX_NAME_LENGTH = 254
 
 const CustomRequestForm = () => {
   return(
     <Row className="section-four">
       <Form
-        className="custom-package-form"
+        className="landing-form"
         model={`${BASE_FORM_REDUCER}${CUSTOM_PACKAGE_FORM}`}
       >
         <Col md={6}>
           <TextInputField
             model=".name"
             placeholder="Name"
-            validation={{
-              maxLength: {
-                errorMessage: errorMessages.maxLength(MAX_NAME_LENGTH),
-                validator: () => maxLength(MAX_NAME_LENGTH)
-              },
-              required: {
-                errorMessage: errorMessages.required,
-                validator: required
-              }
-            }}
           />
           <TextInputField
             model=".email"
             placeholder="Email Address"
-            validation={{
-              isEmail: {
-                errorMessage: errorMessages.isEmail,
-                validator: isEmail,
-              },
-              maxLength: {
-                errorMessage: errorMessages.maxLength(MAX_EMAIL_LENGTH),
-                validator: () => maxLength(MAX_EMAIL_LENGTH),
-              },
-              required: {
-                errorMessage: errorMessages.required,
-                validator: required,
-              }
-            }}
           />
           <TextInputField
             model=".destination"
@@ -70,16 +36,6 @@ const CustomRequestForm = () => {
             model=".numberOfPeople"
             number
             placeholder="Number of Travelers"
-            validation={{
-              isNumber: {
-                errorMessage: errorMessages.isNumber,
-                validator: isNumber,
-              },
-              required: {
-                errorMessage: errorMessages.required,
-                validator: required
-              }
-            }}
           />
           <TextInputField
             model=".totalBudget"
