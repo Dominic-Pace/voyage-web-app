@@ -14,7 +14,7 @@ const types = {
 
 const Icon = ({ onClick, pointer, size, style, type }) => (
   <img
-    alt='type'
+    alt={type}
     className={(pointer && type === 'menu' ? 'mobile-menu' : (pointer ? 'icon-link' : null))}
     onClick={onClick}
     src={types[type]}

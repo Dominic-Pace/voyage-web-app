@@ -5,6 +5,42 @@
   @extend %white-text;
 }
 
+.footer {
+  @extend %center-align;
+  width: 80vw;
+  &-contact-btn {
+    @extend %center-align;
+  }
+  &-container {
+    height: 450px;
+  }
+  &-content {
+    height: 250px;
+    &-container {
+      @extend %align-all;
+      display: grid;
+      padding-top: 20px;
+    }
+  }
+  &-menu {
+    &-container {
+      @extend %align-all
+    }
+  }
+  &-social {
+    @extend %vertical-align;
+    padding: 4px;
+    width: 28px;
+  }
+  &-text {
+    @extend %center-align;
+    &-social {
+      @extend %center-align;
+      padding-bottom: 10px;
+    }
+  }
+}
+
 .landing-form {
   @extend %center-align;
   padding: 10px;
@@ -19,15 +55,6 @@
   &-step-card {
     padding-right: 55px;
     padding-left: 55px;
-  }
-  &-footer-text {
-    color: $voyago-light-grey;
-    font-size: 2.5rem;
-    font-style: italic;
-    &-go {
-      color: $voyago-primary;
-      font-weight: 600;
-    }
   }
 }
 
@@ -44,8 +71,20 @@
   justify-content: center;
 }
 
-.section-six {
-  &-container {
-    height: 450px;
+.voyago {
+  &-footer {
+    &-text {
+      color: $voyago-light-grey;
+      font-size: 2.5rem;
+      font-style: italic;
+      &-go {
+        color: $voyago-primary;
+        font-weight: 600;
+      }
+    }
+    &-logo {
+      margin-top: -32px;
+      width: 25vw;
+    }
   }
 }

@@ -1,3 +1,10 @@
+export const contactUsForm = {
+  comments: '',
+  email: '',
+  name: '',
+  subject: '',
+}
+
 export const customPackageForm = {
   totalBudget: undefined,
   comments: '',
@@ -7,10 +14,9 @@ export const customPackageForm = {
   name: '',
   numberOfPeople: undefined,
   preferredNumberOfDays: undefined,
-  tags: []
+  tags: [],
 }
 
 export const joinMailListForm = {
   email: '',
 }
-

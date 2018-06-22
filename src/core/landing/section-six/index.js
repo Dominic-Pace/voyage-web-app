@@ -1,12 +1,11 @@
 import React from 'react'
 
 import { Grid } from 'react-bootstrap'
+import SectionSixContent from './content'
 
 const SectionSix = () => (
-  <Grid
-    className="section-six-container"
-  >
-    <div>Footer</div>
+  <Grid className="footer-container">
+    <SectionSixContent />
   </Grid>
 )
 

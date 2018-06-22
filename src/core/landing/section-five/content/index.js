@@ -11,13 +11,12 @@ import { BASE_FORM_REDUCER, JOIN_MAIL_FORM } from '../../../../components/form/c
 const SectionFiveContent = () => (
   <div>
     <SectionFiveHeader />
-
     <Form
       className="landing-form"
       model={`${BASE_FORM_REDUCER}${JOIN_MAIL_FORM}`}
     >
       <TextInputField
-        model=".email"
+        model="email"
         placeholder="Enter Email Address"
         width="50vw"
       />

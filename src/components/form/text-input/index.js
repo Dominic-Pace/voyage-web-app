@@ -20,7 +20,7 @@ export const TextInputField = (
   <Row className="text-form-container">
     <Control
       className="text-form-field"
-      model={model}
+      model={`.${model}`}
       placeholder={placeholder}
       style={{
         ...{
@@ -34,7 +34,7 @@ export const TextInputField = (
       <Errors
         component={ErrorMessage}
         className="errors"
-        model={model}
+        model={`.${model}`}
         show="touched"
         messages={scrubValidatorForErrorMessage(validation)}
       />
@@ -46,7 +46,7 @@ export const TextAreaField = ({ height, model, placeholder, style, width }) => (
   <Row className="text-form-container">
     <Control.textarea
       className="text-form-field"
-      model={model}
+      model={`.${model}`}
       placeholder={placeholder}
       style={{
         ...{
@@ -57,7 +57,7 @@ export const TextAreaField = ({ height, model, placeholder, style, width }) => (
     />
     <Errors
       className="errors"
-      model={model}
+      model={`.${model}`}
       show="touched"
       messages={{
         required: 'Required',

@@ -21,40 +21,40 @@ const CustomRequestForm = () => {
       >
         <Col md={6}>
           <TextInputField
-            model=".name"
+            model="name"
             placeholder="Name"
           />
           <TextInputField
-            model=".email"
+            model="email"
             placeholder="Email Address"
           />
           <TextInputField
-            model=".destination"
+            model="destination"
             placeholder="Preferred Destination (optional)"
           />
           <TextInputField
-            model=".numberOfPeople"
+            model="numberOfPeople"
             number
             placeholder="Number of Travelers"
           />
           <TextInputField
-            model=".totalBudget"
+            model="totalBudget"
             number
             placeholder="Total Budget for Trip (Leave blank for flexible)"
           />
         </Col>
         <Col md={6}>
           <TextInputField
-            model=".homeAirport"
+            model="homeAirport"
             placeholder="Home Airport"
           />
           <TextInputField
-            model=".tags"
+            model="tags"
             placeholder="What would you love in your next getaway? (optional)"
           />
           <TextAreaField
             height={143}
-            model=".comments"
+            model="comments"
             placeholder="Additional Comments (optional)"
           />
         </Col>

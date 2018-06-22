@@ -1,9 +1,13 @@
 import React from 'react'
 
-import VoyagoText from '../../../assets/images/voyago-text.png'
+import Image from '../../image'
 
 const HeaderLogo = () => (
-  <img className="header-logo" src={VoyagoText} alt="Voyago"/>
+  <Image
+    className="header-logo"
+    image="voyago"
+    alt="Voyago"
+  />
 )
 
 export default HeaderLogo

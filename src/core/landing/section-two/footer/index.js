@@ -4,9 +4,9 @@ import { Row } from 'react-bootstrap'
 
 const SectionTwoFooter = () => (
   <Row style={{ justifyContent: 'center', paddingTop: 20 }}>
-    <span className="section-two-footer-text">
+    <span className="voyago-footer-text">
       BON VOYA
-      <span className="section-two-footer-text-go">
+      <span className="voyago-footer-text-go">
         GO!
       </span>
     </span>
