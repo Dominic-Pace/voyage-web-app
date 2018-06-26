@@ -7,7 +7,7 @@ import StepFiveContent from './content'
 const SectionFive = () => (
   <Banner
     bgImage={SectionFiveBanner}
-    className="section-five-container"
+    className="section-center-container"
     height={300}
   >
     <StepFiveContent />

@@ -2,7 +2,7 @@ import React from 'react'
 import { Row } from 'react-bootstrap'
 
 import './styles.css'
-export const H1 = ({ bold, center, color, children, style }) => (
+export const H1 = ({ bold, center, className, color, children, style }) => (
   <Row
     md={12}
     style={{
@@ -10,7 +10,7 @@ export const H1 = ({ bold, center, color, children, style }) => (
     }}
   >
     <p
-      className="header-xl"
+      className={className ? `header-xl ${className}`: 'header-xl'}
       style={{
         ...{
           color: color || null,
@@ -23,7 +23,7 @@ export const H1 = ({ bold, center, color, children, style }) => (
   </Row>
 )
 
-export const H2 = ({ bold, center, color, children, style }) => (
+export const H2 = ({ bold, center, className, color, children, style }) => (
   <Row
     md={12}
     style={{
@@ -31,7 +31,7 @@ export const H2 = ({ bold, center, color, children, style }) => (
     }}
   >
     <p
-      className="header-lg"
+      className={className ? `header-lg ${className}`: 'header-lg'}
       style={{
         ...{
           color: color || null,
@@ -44,15 +44,16 @@ export const H2 = ({ bold, center, color, children, style }) => (
   </Row>
 )
 
-export const H3 = ({ bold, center, color, children, style }) => (
+export const H3 = ({ bold, center, className, color, children, rowClassName, style }) => (
   <Row
+    className={rowClassName}
     md={12}
     style={{
       justifyContent: center ? 'center' : null,
     }}
   >
     <p
-      className="header-md"
+      className={className ? `header-md ${className}`: 'header-md'}
       style={{
         ...{
           color: color || null,
@@ -65,7 +66,7 @@ export const H3 = ({ bold, center, color, children, style }) => (
   </Row>
 )
 
-export const Text = ({ bold, center, color, children, style }) => (
+export const Text = ({ bold, center, color, children, className, style }) => (
   <Row
     md={12}
     style={{
@@ -73,7 +74,7 @@ export const Text = ({ bold, center, color, children, style }) => (
     }}
   >
     <p
-      className="general-text"
+      className={className ? `general-text ${className}`: 'general-text'}
       style={{
         ...{
           color: color || null,

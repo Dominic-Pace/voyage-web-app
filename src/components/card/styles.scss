@@ -1,0 +1,93 @@
+@import '../../styles/common.scss';
+
+.package-card {
+  background-color: oldlace;
+  border: 1px solid $voyago-grey;
+  box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2), 6px 12px 20px 6px rgba(0, 0, 0, 0.19);
+  height: 400px;
+  margin: 10px;
+  width: 352px;
+  &:hover {
+    border: 1px solid $voyago-white;
+  }
+  &-darken {
+    background-position-x: center;
+    background-size: cover;
+    border-bottom: 1px $voyago-white solid;
+    height: 250px;
+    max-width: 100%;
+    object-fit: cover;
+  }
+  &-info-container {
+    background-image: url(https://images.pexels.com/photos/235985/pexels-photo-235985.jpeg);
+    background-size: cover;
+    background-position-y: center;
+    height: 148px;
+  }
+  &-name {
+    margin-top: 12px;
+    text-shadow: 1px 1px 4px $voyago-dark;
+  }
+  &-rating {
+    color: $voyago-pink;
+    @extend %center-align;
+    font-size: 8px;
+  }
+  &-sale-tag {
+    display: inline-block;
+    box-sizing: content-box;
+    height: 22px;
+    position: relative;
+    content: "";
+    cursor: pointer;
+    margin-top: 100px;
+    padding: 10px 20px 10px 8px;
+    border: none;
+    color: rgba(255,255,255,1);
+    text-align: center;
+    text-transform: uppercase;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    background: $voyago-primary;
+    top:20px;
+    width: fit-content;
+    &:before {
+      display: inline-block;
+      box-sizing: content-box;
+      z-index: 1;
+      width: 30px;
+      height: 30px;
+      position: absolute;
+      content: "";
+      cursor: pointer;
+      top: 6px;
+      right: -16px;
+      border: none;
+      border-radius: 1px 1px 4px;
+      color: red;
+      -o-text-overflow: clip;
+      text-overflow: clip;
+      background: $voyago-primary;
+      text-shadow: none;
+      transform: rotateY(1deg) rotateZ(-45deg);
+    }
+    &:after {
+      display: inline-block;
+      box-sizing: content-box;
+      z-index: 2;
+      width: 12px;
+      height: 12px;
+      position: absolute;
+      content: "";
+      cursor: pointer;
+      top: 16px;
+      right: 0;
+      border: none;
+      border-radius: 10px;
+      -o-text-overflow: clip;
+      text-overflow: clip;
+      background: rgba(255,255,255,1);
+      text-shadow: none;
+    }
+  }
+}
