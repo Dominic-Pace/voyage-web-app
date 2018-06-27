@@ -66,7 +66,7 @@ export const H3 = ({ bold, center, className, color, children, rowClassName, sty
   </Row>
 )
 
-export const Text = ({ bold, center, color, children, className, style }) => (
+export const Text = ({ bold, center, color, children, className, size, style }) => (
   <Row
     md={12}
     style={{
@@ -79,6 +79,7 @@ export const Text = ({ bold, center, color, children, className, style }) => (
         ...{
           color: color || null,
           fontWeight: bold ? '600' : '100',
+          fontSize: size || null
         }, ...style
       }}
     >

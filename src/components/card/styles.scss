@@ -9,6 +9,7 @@
   width: 352px;
   &:hover {
     border: 1px solid $voyago-white;
+    cursor: pointer;
   }
   &-darken {
     background-position-x: center;
@@ -19,7 +20,7 @@
     object-fit: cover;
   }
   &-info-container {
-    background-image: url(https://images.pexels.com/photos/235985/pexels-photo-235985.jpeg);
+    background-image: url(https://image.ibb.co/gfZY78/card_bg_2.png);
     background-size: cover;
     background-position-y: center;
     height: 148px;

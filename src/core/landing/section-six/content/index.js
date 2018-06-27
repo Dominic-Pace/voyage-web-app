@@ -1,9 +1,10 @@
 import React from 'react'
 
 import { Row } from 'react-bootstrap'
+import BrandContent from './brand'
 import ContactContent from './contact'
 import CopyrightContent from './copyright'
-import BrandContent from './brand'
+import MadeContent from './made'
 import MenuContent from './menu'
 import SocialContent from './social'
 
@@ -15,6 +16,7 @@ const SectionSixContent = () => (
       <ContactContent />
     </Row>
     <SocialContent />
+    <MadeContent />
     <CopyrightContent />
   </div>
 )

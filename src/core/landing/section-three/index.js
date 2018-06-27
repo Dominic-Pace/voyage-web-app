@@ -9,7 +9,8 @@ const SectionThree = () => (
   <Banner
     bgImage={SectionThreeBanner}
     className="section-center-container"
-    height={800}
+    name="packages"
+    height={650}
   >
     <StepThreeContent />
   </Banner>
