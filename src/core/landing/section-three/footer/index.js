@@ -6,7 +6,7 @@ import { Row } from 'react-bootstrap'
 const SectionThreeFooter = () => (
   <div>
     <Row className="package-footer">
-      <H2>View All</H2>
+      <H2 style={{ cursor: 'pointer' }}>View All Categories</H2>
     </Row>
     <Text
       center

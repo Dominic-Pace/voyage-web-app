@@ -6,16 +6,23 @@ import { Row } from 'react-bootstrap'
 const SectionThreeSlider = () => (
   <Row>
     <PackageCard
-      imageUrl="https://images.pexels.com/photos/462370/pexels-photo-462370.jpeg"
-      location="Seattle, WA"
+      amountAvailable={8}
+      imageUrl="https://images.pexels.com/photos/248797/pexels-photo-248797.jpeg"
+      location="Tropical"
       nightlyPrice={89}
       rating={3.7}
     />
     <PackageCard
-      imageUrl="https://images.pexels.com/photos/414136/pexels-photo-414136.jpeg"
-      location="Phoenix, AZ"
-      nightlyPrice={78}
+      amountAvailable={10}
+      imageUrl="https://images.pexels.com/photos/533930/pexels-photo-533930.jpeg"
+      location="City Lifestyle"
       rating={4.4}
+    />
+    <PackageCard
+      amountAvailable={10}
+      imageUrl="https://images.pexels.com/photos/771079/pexels-photo-771079.jpeg"
+      location="Nature and Hiking"
+      rating={4.8}
     />
   </Row>
 )

@@ -33,6 +33,20 @@ const CustomRequestForm = () => {
             placeholder="Preferred Destination (optional)"
           />
           <TextInputField
+            model="dates"
+            placeholder="Dates"
+          />
+          <TextInputField
+            model="flexible"
+            placeholder="Are Dates Flexible?"
+          />
+          <TextInputField
+            model="homeAirport"
+            placeholder="Home Airport"
+          />
+        </Col>
+        <Col md={6}>
+          <TextInputField
             model="numberOfPeople"
             number
             placeholder="Number of Travelers"
@@ -41,12 +55,6 @@ const CustomRequestForm = () => {
             model="totalBudget"
             number
             placeholder="Total Budget for Trip (Leave blank for flexible)"
-          />
-        </Col>
-        <Col md={6}>
-          <TextInputField
-            model="homeAirport"
-            placeholder="Home Airport"
           />
           <TextInputField
             model="tags"

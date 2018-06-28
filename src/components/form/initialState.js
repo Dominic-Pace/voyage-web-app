@@ -6,15 +6,18 @@ export const contactUsForm = {
 }
 
 export const customPackageForm = {
-  totalBudget: undefined,
+  arrivalDate: '',
   comments: '',
+  departureDate: '',
   destination: '',
   email: '',
+  flexible: true,
   homeAirport: '',
   name: '',
   numberOfPeople: undefined,
   preferredNumberOfDays: undefined,
   tags: [],
+  totalBudget: undefined,
 }
 
 export const joinMailListForm = {

@@ -6,7 +6,14 @@ import { Row } from 'react-bootstrap'
 
 import './styles.css'
 
-const Card = ({ description, imageUrl, location, nightlyPrice, rating }) => (
+const renderCardBannerTag = (amountAvailable, nightlyPrice) => (
+      amountAvailable
+        ?
+        `${amountAvailable} Packages Available!`
+        :
+        `From $${nightlyPrice}*`
+)
+const Card = ({ amountAvailable, description, imageUrl, location, nightlyPrice, rating }) => (
   <div className="package-card">
     <div
       className="package-card-darken"
@@ -15,7 +22,7 @@ const Card = ({ description, imageUrl, location, nightlyPrice, rating }) => (
       }}
     >
       <H2 center className="package-card-name">{location}</H2>
-      <div className="package-card-sale-tag">{`From $${nightlyPrice}*`}</div>
+      <div className="package-card-sale-tag">{renderCardBannerTag(amountAvailable, nightlyPrice)}</div>
     </div>
 
     <div className="package-card-info-container">

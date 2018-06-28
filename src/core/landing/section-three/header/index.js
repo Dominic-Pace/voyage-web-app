@@ -7,7 +7,7 @@ const SectionThreeHeader = () => (
     center
     style={{ paddingTop: 20 }}
   >
-    Browse All Packages
+    Trending Getaway Packages
   </H1>
 )
 
