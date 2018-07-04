@@ -12,13 +12,13 @@ export const fetchHomepageCategories = () => (
     dispatch({ type: FETCH_HOMEPAGE_CATEGORIES_REQUEST })
     return travelCategoriesRef.once('value', snap => {
       snap.forEach(data => {
-        let task = data.val()
-        categories.push(task)
+        const category = data.val()
+        category.onHomepage && categories.push(category)
       })
     }).then(res => {
-      dispatch({ type: FETCH_HOMEPAGE_CATEGORIES_SUCCESS })
+      dispatch({ type: FETCH_HOMEPAGE_CATEGORIES_SUCCESS, categories: categories })
     }).catch(err => {
-      dispatch({ type: FETCH_HOMEPAGE_CATEGORIES_FAILURE })
+      dispatch({ type: FETCH_HOMEPAGE_CATEGORIES_FAILURE, error: err })
     })
   }
 )

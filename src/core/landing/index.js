@@ -12,16 +12,18 @@ import SectionSix from './section-six'
 
 import './styles.css'
 class LandingPage extends React.Component {
-  componentDidMount() {
+  componentWillMount() {
     this.props.fetchHomepageCategories()
   }
   render() {
-    console.log('props', this.props)
+    const { categories } = this.props
     return (
       <div>
         <SectionOne />
         <SectionTwo />
-        <SectionThree />
+        <SectionThree
+          categories={categories}
+        />
         <SectionFour />
         <SectionFive />
         <SectionSix />
@@ -32,9 +34,11 @@ class LandingPage extends React.Component {
 
 const mapStateToProps = ({ homepage }) => {
   const {
+    categories,
     isRequesting,
   } = homepage
   return {
+    categories,
     isRequesting,
   }
 }

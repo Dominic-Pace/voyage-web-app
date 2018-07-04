@@ -5,18 +5,17 @@ import {
 } from './types'
 
 const INITIAL_STATE = {
-  errorMessage: '',
   isRequesting: false,
 }
 
 export default (state=INITIAL_STATE, action) => {
   switch(action.type) {
     case FETCH_HOMEPAGE_CATEGORIES_REQUEST:
-      return { ...state }
+      return { ...state, isRequesting: true }
     case FETCH_HOMEPAGE_CATEGORIES_SUCCESS:
-      return { ...state }
+      return { ...state, categories: action.categories, isRequesting: false }
     case FETCH_HOMEPAGE_CATEGORIES_FAILURE:
-      return { ...state }
+      return { ...state, errorMessage: action.error, isRequesting: false }
     default:
       return state
   }

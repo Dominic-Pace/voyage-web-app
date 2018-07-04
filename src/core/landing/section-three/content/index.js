@@ -4,10 +4,12 @@ import SectionThreeHeader from '../header'
 import SectionThreeSlider from '../slider'
 import SectionThreeFooter from '../footer'
 
-const SectionThreeContent = () => (
+const SectionThreeContent = ({ categories }) => (
   <div>
     <SectionThreeHeader />
-    <SectionThreeSlider />
+    <SectionThreeSlider
+      categories={categories}
+    />
     <SectionThreeFooter />
   </div>
 )
