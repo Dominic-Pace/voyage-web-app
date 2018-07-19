@@ -5,7 +5,7 @@ import Banner from '../../../components/banner'
 import SectionThreeBanner from '../../../assets/images/landing/three-banner.png'
 import StepThreeContent from './content'
 
-const SectionThree = ({ categories }) => (
+const SectionThree = ({ packages }) => (
   <Banner
     bgImage={SectionThreeBanner}
     className="section-center-container"
@@ -13,7 +13,7 @@ const SectionThree = ({ categories }) => (
     height={650}
   >
     <StepThreeContent
-      categories={categories}
+      packages={packages}
     />
   </Banner>
 )

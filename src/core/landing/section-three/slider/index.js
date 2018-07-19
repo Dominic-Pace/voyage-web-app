@@ -3,16 +3,15 @@ import React from 'react'
 import PackageCard  from '../../../../components/card'
 import { Row } from 'react-bootstrap'
 
-const SectionThreeSlider = ({ categories }) => (
+const SectionThreeSlider = ({ packages }) => (
   <Row>
     {
-      categories ?
-        categories.map(featuredCategory => (
+      packages ?
+        packages.map(featuredPackage => (
           <PackageCard
-            amountAvailable={8}
-            imageUrl={featuredCategory.categoryImage}
-            location={featuredCategory.categoryName}
-            nightlyPrice={89}
+            imageUrl={featuredPackage.imageUrl}
+            location={featuredPackage.name}
+            nightlyPrice={featuredPackage.currentLowPrice}
             rating={3.7}
           />
         ))

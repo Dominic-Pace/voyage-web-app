@@ -11,8 +11,9 @@ const renderCardBannerTag = (amountAvailable, nightlyPrice) => (
         ?
         `${amountAvailable} Packages Available!`
         :
-        `From $${nightlyPrice}*`
+        `From $${nightlyPrice} per night*`
 )
+
 const Card = ({ amountAvailable, description, imageUrl, location, nightlyPrice, rating }) => (
   <div className="package-card">
     <div

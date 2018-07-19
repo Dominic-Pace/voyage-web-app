@@ -1,24 +1,48 @@
 import {
-  FETCH_HOMEPAGE_CATEGORIES_FAILURE,
-  FETCH_HOMEPAGE_CATEGORIES_REQUEST,
-  FETCH_HOMEPAGE_CATEGORIES_SUCCESS
+  FETCH_CATEGORIES_FAILURE,
+  FETCH_CATEGORIES_REQUEST,
+  FETCH_CATEGORIES_SUCCESS,
+  FETCH_FEATURED_PACKAGES_FAILURE,
+  FETCH_FEATURED_PACKAGES_REQUEST,
+  FETCH_FEATURED_PACKAGES_SUCCESS
 } from './types'
 
-import { travelCategoriesRef } from '../../utils/firebase/firebase-refs'
+import { packagesRef, travelCategoriesRef } from '../../utils/firebase/firebase-refs'
 
-export const fetchHomepageCategories = () => (
+export const fetchFeaturedCategories = () => (
   dispatch => {
     const categories = []
-    dispatch({ type: FETCH_HOMEPAGE_CATEGORIES_REQUEST })
+    const homepageCategories = []
+    dispatch({ type: FETCH_CATEGORIES_REQUEST })
     return travelCategoriesRef.once('value', snap => {
       snap.forEach(data => {
         const category = data.val()
-        category.onHomepage && categories.push(category)
+        categories.push(category)
+        category.onHomepage && homepageCategories.push(category)
       })
     }).then(res => {
-      dispatch({ type: FETCH_HOMEPAGE_CATEGORIES_SUCCESS, categories: categories })
+      dispatch({ type: FETCH_CATEGORIES_SUCCESS, categories: categories, homepageCategories: homepageCategories })
     }).catch(err => {
-      dispatch({ type: FETCH_HOMEPAGE_CATEGORIES_FAILURE, error: err })
+      dispatch({ type: FETCH_CATEGORIES_FAILURE, error: err })
+    })
+  }
+)
+
+export const fetchFeaturedPackages = () => (
+  dispatch => {
+    const packages = []
+    const featuredPackages = []
+    dispatch({ type: FETCH_FEATURED_PACKAGES_REQUEST })
+    return packagesRef.once('value', snap => {
+      snap.forEach(data => {
+        const travelPackage = data.val()
+        packages.push(travelPackage)
+        travelPackage.featured && featuredPackages.push(travelPackage)
+      })
+    }).then(res => {
+      dispatch({ type: FETCH_FEATURED_PACKAGES_SUCCESS, packages: packages, featuredPackages: featuredPackages })
+    }).catch(err => {
+      dispatch({ type: FETCH_FEATURED_PACKAGES_FAILURE, error: err })
     })
   }
 )

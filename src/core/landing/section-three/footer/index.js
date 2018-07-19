@@ -6,14 +6,14 @@ import { Row } from 'react-bootstrap'
 const SectionThreeFooter = () => (
   <div>
     <Row className="package-footer">
-      <H2 style={{ cursor: 'pointer' }}>View All Categories</H2>
+      <H2 style={{ cursor: 'pointer' }}>View All Packages</H2>
     </Row>
     <Text
       center
       size={12}
       style={{ fontStyle: 'italic', paddingTop: 20 }}
     >
-      *All prices are per day per customer
+      *All prices are per night per customer
     </Text>
   </div>
 )
