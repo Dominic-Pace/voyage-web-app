@@ -4,10 +4,13 @@ import {
   FETCH_CATEGORIES_SUCCESS,
   FETCH_FEATURED_PACKAGES_FAILURE,
   FETCH_FEATURED_PACKAGES_REQUEST,
-  FETCH_FEATURED_PACKAGES_SUCCESS
+  FETCH_FEATURED_PACKAGES_SUCCESS,
+  SEND_CUSTOM_EMAIL_FAILURE,
+  SEND_CUSTOM_EMAIL_REQUEST,
+  SEND_CUSTOM_EMAIL_SUCCESS,
 } from './types'
 
-import { packagesRef, travelCategoriesRef } from '../../utils/firebase/firebase-refs'
+import { customVacationRef, packagesRef, travelCategoriesRef } from '../../utils/firebase/firebase-refs'
 
 export const fetchFeaturedCategories = () => (
   dispatch => {
@@ -46,3 +49,27 @@ export const fetchFeaturedPackages = () => (
     })
   }
 )
+
+export const sendCustomVacationEmail = customPackage => {
+  const emailMessage = {
+    name: customPackage.name,
+    email: customPackage.email,
+    destinations: customPackage.destination,
+    areDatesFlexible: customPackage.flexible,
+    homeAirport: customPackage.homeAirport,
+    numberOfTravelers: customPackage.numberOfPeople,
+    budget: customPackage.totalBudget,
+    whatWouldTheyLoveInNextGetaway: customPackage.tags,
+    additionalComments: customPackage.comments,
+  }
+
+  return dispatch => {
+    dispatch({ type: SEND_CUSTOM_EMAIL_REQUEST })
+    return customVacationRef.push(emailMessage)
+      .then(res => {
+        dispatch({ type: SEND_CUSTOM_EMAIL_SUCCESS })
+      }).catch(err => {
+        dispatch({ type: SEND_CUSTOM_EMAIL_FAILURE, error: err })
+      })
+  }
+}

@@ -15,16 +15,21 @@ class LandingPage extends React.Component {
   componentWillMount() {
     this.props.fetchFeaturedPackages()
   }
+
+  handleCustomVacationClick = () => {
+    const { customPackage } = this.props
+    this.props.sendCustomVacationEmail(customPackage)
+  }
+
   render() {
     const { featuredPackages } = this.props
     return (
       <div>
+        {console.log('state', this.props)}
         <SectionOne />
-        <SectionTwo />
-        <SectionThree
-          packages={featuredPackages}
+        <SectionFour
+          handleSubmitClick={this.handleCustomVacationClick}
         />
-        <SectionFour />
         <SectionFive />
         <SectionSix />
       </div>
@@ -32,16 +37,21 @@ class LandingPage extends React.Component {
   }
 }
 
-const mapStateToProps = ({ travelCategories }) => {
+const mapStateToProps = ({ forms, travelCategories }) => {
   const {
     packages,
     featuredPackages,
     isRequesting,
   } = travelCategories
+  const {
+    customPackage,
+  } = forms
   return {
-    packages,
+    customPackage,
     featuredPackages,
     isRequesting,
+    packages,
+
   }
 }
 export default connect(mapStateToProps, { ...actions })(LandingPage)

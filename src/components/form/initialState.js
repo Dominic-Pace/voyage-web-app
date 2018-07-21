@@ -11,7 +11,7 @@ export const customPackageForm = {
   departureDate: '',
   destination: '',
   email: '',
-  flexible: true,
+  flexible: '',
   homeAirport: '',
   name: '',
   numberOfPeople: undefined,

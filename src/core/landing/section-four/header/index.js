@@ -8,7 +8,7 @@ const SectionFourHeader = () => (
     color="#798089"
     style={{ paddingTop: 20 }}
   >
-    Request a custom vacation package!
+    Request a custom vacation quote!
   </H1>
 )
 

@@ -4,7 +4,10 @@ import {
   FETCH_CATEGORIES_SUCCESS,
   FETCH_FEATURED_PACKAGES_FAILURE,
   FETCH_FEATURED_PACKAGES_REQUEST,
-  FETCH_FEATURED_PACKAGES_SUCCESS
+  FETCH_FEATURED_PACKAGES_SUCCESS,
+  SEND_CUSTOM_EMAIL_FAILURE,
+  SEND_CUSTOM_EMAIL_REQUEST,
+  SEND_CUSTOM_EMAIL_SUCCESS,
 } from './types'
 
 const INITIAL_STATE = {
@@ -24,7 +27,7 @@ export default (state=INITIAL_STATE, action) => {
     case FETCH_CATEGORIES_FAILURE:
       return { ...state, errorMessage: action.error, isRequesting: false }
     case FETCH_FEATURED_PACKAGES_REQUEST:
-      return { ...state, isRequesting: true }
+    return { ...state, isRequesting: true }
     case FETCH_FEATURED_PACKAGES_SUCCESS:
       return { ...state,
         packages: action.packages,
@@ -32,6 +35,16 @@ export default (state=INITIAL_STATE, action) => {
         isRequesting: false,
       }
     case FETCH_FEATURED_PACKAGES_FAILURE:
+      return { ...state, errorMessage: action.error, isRequesting: false }
+    case SEND_CUSTOM_EMAIL_REQUEST:
+      return { ...state, isRequesting: true }
+    case SEND_CUSTOM_EMAIL_SUCCESS:
+      return { ...state,
+        packages: action.packages,
+        featuredPackages: action.featuredPackages,
+        isRequesting: false,
+      }
+    case SEND_CUSTOM_EMAIL_FAILURE:
       return { ...state, errorMessage: action.error, isRequesting: false }
     default:
       return state
