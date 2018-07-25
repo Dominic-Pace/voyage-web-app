@@ -13,12 +13,12 @@ const SectionOneContent = () => (
       We also strive to allow your getaways to be 100% customizable!
       All of this at a comparable price that you could book it on your own!
     </Text>
-    <a href="#packages">
-      <RoundedButton
-        label="Build your own Getaway!"
-        transparent
-      />
-    </a>
+    <RoundedButton
+      label="Build your own Getaway!"
+      linkTo="/#build"
+      transparent
+      type="hashLink"
+    />
   </Row>
 )
 

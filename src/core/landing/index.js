@@ -25,7 +25,6 @@ class LandingPage extends React.Component {
     const { featuredPackages } = this.props
     return (
       <div>
-        {console.log('state', this.props)}
         <SectionOne />
         <SectionFour
           handleSubmitClick={this.handleCustomVacationClick}

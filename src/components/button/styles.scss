@@ -1,14 +1,19 @@
 @import '../../styles/common.scss';
-
+.label {
+  color: $voyago-white;
+  &:hover {
+    color: $voyago-off-white;
+  }
+}
 .rounded-btn {
   background-color: $voyago-primary;
   border-radius: 20px;
-  color: white;
+  color: $voyago-white;
   padding: 8px 16px 8px 16px;
   &-transparent {
     border-radius: 20px;
     background-color: transparent;
     border: $voyago-white solid 1px;
-    color: white;
+    color: $voyago-white;
   }
 }

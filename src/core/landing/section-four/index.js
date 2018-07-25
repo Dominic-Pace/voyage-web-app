@@ -6,6 +6,7 @@ import StepFourContent from './content'
 const SectionFour = ({ handleSubmitClick }) => (
   <Grid
     className="section-four-container"
+    id="build"
   >
     <StepFourContent
       handleSubmitClick={handleSubmitClick}
