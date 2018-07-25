@@ -8,7 +8,7 @@ import Icon from '../../../../../components/icons'
 import { Text } from '../../../../../components/text'
 import { TextAreaField, TextInputField } from '../../../../../components/form/text-input'
 
-const ContactContent = () => (
+const ContactContent = ({ handleSubmitClick }) => (
   <Col
     className="footer-content-container"
     md={5}
@@ -42,7 +42,8 @@ const ContactContent = () => (
         <FormButton
           center
           label={<span>Send<Icon type="send" size={22}/></span>}
-          formState={{valid: true}}
+          onClick={handleSubmitClick}
+          formState={{ valid: true }}
         />
       </Row>
     </Form>

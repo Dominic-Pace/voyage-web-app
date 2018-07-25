@@ -5,12 +5,24 @@ import {
   FETCH_FEATURED_PACKAGES_FAILURE,
   FETCH_FEATURED_PACKAGES_REQUEST,
   FETCH_FEATURED_PACKAGES_SUCCESS,
+  SEND_CONTACT_US_FAILURE,
+  SEND_CONTACT_US_REQUEST,
+  SEND_CONTACT_US_SUCCESS,
   SEND_CUSTOM_EMAIL_FAILURE,
   SEND_CUSTOM_EMAIL_REQUEST,
   SEND_CUSTOM_EMAIL_SUCCESS,
+  SEND_JOIN_EMAIL_LIST_FAILURE,
+  SEND_JOIN_EMAIL_LIST_REQUEST,
+  SEND_JOIN_EMAIL_LIST_SUCCESS,
 } from './types'
 
-import { customVacationRef, packagesRef, travelCategoriesRef } from '../../utils/firebase/firebase-refs'
+import {
+  contactUsRef,
+  customVacationRef,
+  joinEmailListRef,
+  packagesRef,
+  travelCategoriesRef
+} from '../../utils/firebase/firebase-refs'
 
 export const fetchFeaturedCategories = () => (
   dispatch => {
@@ -50,8 +62,28 @@ export const fetchFeaturedPackages = () => (
   }
 )
 
+export const sendContactUs = contactInfo => {
+  const contactMessage = {
+    comments: contactInfo.comments,
+    email: contactInfo.email,
+    name: contactInfo.name,
+    subject: contactInfo.subject,
+
+  }
+
+  return dispatch => {
+    dispatch({ type: SEND_CONTACT_US_REQUEST })
+    return contactUsRef.push(contactMessage)
+      .then(res => {
+        dispatch({ type: SEND_CONTACT_US_SUCCESS })
+      }).catch(err => {
+        dispatch({ type: SEND_CONTACT_US_FAILURE, error: err })
+      })
+  }
+}
+
 export const sendCustomVacationEmail = customPackage => {
-  const emailMessage = {
+  const vacationRequestInfo = {
     name: customPackage.name,
     email: customPackage.email,
     destinations: customPackage.destination,
@@ -65,7 +97,7 @@ export const sendCustomVacationEmail = customPackage => {
 
   return dispatch => {
     dispatch({ type: SEND_CUSTOM_EMAIL_REQUEST })
-    return customVacationRef.push(emailMessage)
+    return customVacationRef.push(vacationRequestInfo)
       .then(res => {
         dispatch({ type: SEND_CUSTOM_EMAIL_SUCCESS })
       }).catch(err => {
@@ -73,3 +105,16 @@ export const sendCustomVacationEmail = customPackage => {
       })
   }
 }
+
+export const sendJoinEmailList = emailAddress => {
+  return dispatch => {
+    dispatch({ type: SEND_JOIN_EMAIL_LIST_REQUEST })
+    return joinEmailListRef.push(emailAddress)
+      .then(res => {
+        dispatch({ type: SEND_JOIN_EMAIL_LIST_SUCCESS })
+      }).catch(err => {
+        dispatch({ type: SEND_JOIN_EMAIL_LIST_FAILURE, error: err })
+      })
+  }
+}
+

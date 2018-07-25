@@ -5,7 +5,7 @@ import { HashLink } from 'react-router-hash-link'
 
 import './styles.css'
 
-export const RoundedButton = ({ color, disabled, label, linkTo, style, transparent, type }) => {
+export const RoundedButton = ({ color, disabled, label, linkTo, onClick, style, transparent, type }) => {
   const renderButtonType = label => {
     switch(type) {
       case 'link':
@@ -35,6 +35,7 @@ export const RoundedButton = ({ color, disabled, label, linkTo, style, transpare
     <Button
       className={transparent ? 'rounded-btn-transparent' : 'rounded-btn'}
       disabled={disabled}
+      onClick={onClick}
       style={style}
     >
       {

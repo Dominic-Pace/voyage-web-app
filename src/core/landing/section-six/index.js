@@ -3,9 +3,11 @@ import React from 'react'
 import { Grid } from 'react-bootstrap'
 import SectionSixContent from './content'
 
-const SectionSix = () => (
+const SectionSix = ({ handleSubmitClick }) => (
   <Grid className="footer-container">
-    <SectionSixContent />
+    <SectionSixContent
+      handleSubmitClick={handleSubmitClick}
+    />
   </Grid>
 )
 
