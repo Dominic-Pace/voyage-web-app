@@ -1,11 +1,12 @@
 import React from 'react'
-import BannerHeader  from './header'
-import { TitleCard } from '../../../components/card'
-import { Row } from 'react-bootstrap'
 
-const ExploreView = ({ categories }) => (
-  <div className="explore-banner">
-    <BannerHeader />
+import { H2 } from '../../../components/text'
+import { Row } from 'react-bootstrap'
+import { TitleCard } from '../../../components/card'
+
+const ExploreBanner = ({ categories }) => (
+  <Row className="explore-banner">
+    <H2>Categories</H2>
     <Row className="explore-banner-categories">
       {
         categories ?
@@ -23,7 +24,7 @@ const ExploreView = ({ categories }) => (
 
       }
     </Row>
-  </div>
+  </Row>
 )
 
-export default ExploreView
+export default ExploreBanner

@@ -18,7 +18,6 @@ import {
   customVacationRef,
   joinEmailListRef,
   packagesRef,
-  travelCategoriesRef
 } from '../../utils/firebase/firebase-refs'
 
 export const fetchFeaturedPackages = () => (

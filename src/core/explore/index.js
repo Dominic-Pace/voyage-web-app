@@ -3,8 +3,10 @@ import { connect } from 'react-redux'
 
 import * as actions  from './actions'
 import Banner from './banner'
+import Packages from './packages'
 
 import './styles.css'
+import { Grid } from 'react-bootstrap'
 
 class ExploreView extends React.Component {
   componentWillMount() {
@@ -14,11 +16,11 @@ class ExploreView extends React.Component {
   render() {
     const { featuredCategories } = this.props
     return (
-      <div className="explore-container">
+      <Grid className="explore-container">
         <Banner
           categories={featuredCategories}
         />
-      </div>
+      </Grid>
     )
   }
 }
