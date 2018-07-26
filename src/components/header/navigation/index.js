@@ -12,7 +12,7 @@ const NavigationTabs = () => (
         Home
       </NavItem>
       <NavItem
-        linkTo="/test-page"
+        linkTo="/explore"
       >
         Explore
       </NavItem>

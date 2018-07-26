@@ -9,6 +9,7 @@ import SectionFive from './section-five'
 import SectionSix from './section-six'
 
 import './styles.css'
+
 class LandingPage extends React.Component {
   componentWillMount() {
     this.props.fetchFeaturedPackages()

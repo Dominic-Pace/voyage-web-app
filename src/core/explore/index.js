@@ -1,9 +1,10 @@
 import React from 'react'
 
-export const TestPage = () => (
-  <div
-    style={{ paddingTop: 100 }}
-  >
-    Test Page!!!
+import './styles.css'
+const ExploreView = () => (
+  <div className="explore-container">
+    Explore Page
   </div>
 )
+
+export default ExploreView

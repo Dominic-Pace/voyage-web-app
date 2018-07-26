@@ -1,0 +1,9 @@
+@import '../../styles/common.scss';
+
+.explore-container {
+  background-color: $voyago-white-bg;
+  display: flex;
+  height: 100vh;
+  max-width: 100vw;
+  padding: 50px;
+}

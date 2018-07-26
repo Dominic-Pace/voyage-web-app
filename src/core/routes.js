@@ -1,9 +1,9 @@
-import { TestPage } from './explore'
+import ExploreView from './explore'
 
 const routes = [
   {
     path: '/explore',
-    component: TestPage
+    component: ExploreView
   }
 ]
 
