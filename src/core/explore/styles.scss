@@ -1,9 +1,20 @@
 @import '../../styles/common.scss';
 
-.explore-container {
-  background-color: $voyago-white-bg;
-  display: flex;
-  height: 100vh;
-  max-width: 100vw;
-  padding: 50px;
+.explore {
+  &-banner {
+    height: 20vh;
+    padding: 20px;
+    width: 100%;
+    &-categories {
+      justify-content: center;
+      width: 100%;
+    }
+  }
+  &-container {
+    background-color: $voyago-white;
+    display: flex;
+    height: 100vh;
+    max-width: 100vw;
+    padding: 50px;
+  }
 }

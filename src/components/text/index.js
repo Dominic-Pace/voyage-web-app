@@ -70,6 +70,8 @@ export const Text = ({ bold, center, color, children, className, size, style }) 
   <Row
     md={12}
     style={{
+      alignItems: center ? 'center' : null,
+      height: '100%',
       justifyContent: center ? 'center' : null,
     }}
   >

@@ -48,12 +48,12 @@ class LandingPage extends React.Component {
   }
 }
 
-const mapStateToProps = ({ forms, travelCategories }) => {
+const mapStateToProps = ({ forms, homepage }) => {
   const {
     packages,
     featuredPackages,
     isRequesting,
-  } = travelCategories
+  } = homepage
   const {
     contactUs,
     customPackage,
@@ -66,7 +66,6 @@ const mapStateToProps = ({ forms, travelCategories }) => {
     isRequesting,
     joinMail,
     packages,
-
   }
 }
 export default connect(mapStateToProps, { ...actions })(LandingPage)
