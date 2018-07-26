@@ -20,10 +20,10 @@ const INITIAL_STATE = {
 export default (state=INITIAL_STATE, action) => {
   switch(action.type) {
     case FETCH_FEATURED_PACKAGES_REQUEST:
-    return { ...state, isRequesting: true }
+      return { ...state, isRequesting: true }
     case FETCH_FEATURED_PACKAGES_SUCCESS:
-      return { ...state,
-        packages: action.packages,
+      return {
+        ...state,
         featuredPackages: action.featuredPackages,
         isRequesting: false,
       }

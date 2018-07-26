@@ -2,11 +2,16 @@ import React from 'react'
 
 import { H2, Text } from '../../../../components/text'
 import { Row } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 
 const SectionThreeFooter = () => (
   <div>
     <Row className="package-footer">
-      <H2 style={{ cursor: 'pointer' }}>View All Packages</H2>
+      <Link to="/explore">
+        <H2 style={{
+          color: 'white'
+        }}>View All Packages</H2>
+      </Link>
     </Row>
     <Text
       center

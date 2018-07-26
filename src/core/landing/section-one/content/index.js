@@ -14,8 +14,16 @@ const SectionOneContent = () => (
       All of this at a comparable price that you could book it on your own!
     </Text>
     <RoundedButton
+      className="top-section-btn"
       label="Build your own Getaway!"
       linkTo="/#build"
+      transparent
+      type="hashLink"
+    />
+    <RoundedButton
+      className="top-section-btn"
+      label="Browse Vacation Packages!"
+      linkTo="/#explore"
       transparent
       type="hashLink"
     />

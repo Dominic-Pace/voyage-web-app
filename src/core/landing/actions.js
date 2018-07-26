@@ -22,17 +22,15 @@ import {
 
 export const fetchFeaturedPackages = () => (
   dispatch => {
-    const packages = []
     const featuredPackages = []
     dispatch({ type: FETCH_FEATURED_PACKAGES_REQUEST })
     return packagesRef.once('value', snap => {
       snap.forEach(data => {
         const travelPackage = data.val()
-        packages.push(travelPackage)
         travelPackage.featured && featuredPackages.push(travelPackage)
       })
     }).then(res => {
-      dispatch({ type: FETCH_FEATURED_PACKAGES_SUCCESS, packages: packages, featuredPackages: featuredPackages })
+      dispatch({ type: FETCH_FEATURED_PACKAGES_SUCCESS, featuredPackages: featuredPackages })
     }).catch(err => {
       dispatch({ type: FETCH_FEATURED_PACKAGES_FAILURE, error: err })
     })

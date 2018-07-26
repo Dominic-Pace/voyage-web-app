@@ -15,30 +15,40 @@ const renderCardBannerTag = (amountAvailable, nightlyPrice) => (
     `From $${nightlyPrice} per night*`
 )
 
-const TagCard = ({ amountAvailable, description, imageUrl, location, nightlyPrice, rating }) => (
-  <div className="tag-card">
-    <div
-      className="tag-card-darken"
-      style={{
-        backgroundImage: `url(${imageUrl})`,
-      }}
-    >
-      <H2 center className="tag-card-name">{location}</H2>
-      <div className="tag-card-sale-tag">{renderCardBannerTag(amountAvailable, nightlyPrice)}</div>
+const TagCard = ({
+  amountAvailable,
+  description,
+  imageUrl,
+  linkTo,
+  location,
+  nightlyPrice,
+  rating
+}) => (
+  <Link to={linkTo}>
+    <div className="tag-card">
+      <div
+        className="tag-card-darken"
+        style={{
+          backgroundImage: `url(${imageUrl})`,
+        }}
+      >
+        <H2 center className="tag-card-name">{location}</H2>
+        <div className="tag-card-sale-tag">{renderCardBannerTag(amountAvailable, nightlyPrice)}</div>
+      </div>
+      <div className="tag-card-info-container">
+        <Text>{description}</Text>
+        <Row className="tag-card-rating">
+          <Rating
+            emptySymbol="fa fa-star-o fa-2x"
+            fullSymbol="fa fa-star fa-2x"
+            fractions={2}
+            initialRating={rating}
+            readonly
+          />
+        </Row>
+      </div>
     </div>
-    <div className="tag-card-info-container">
-      <Text>{description}</Text>
-      <Row className="tag-card-rating">
-        <Rating
-          emptySymbol="fa fa-star-o fa-2x"
-          fullSymbol="fa fa-star fa-2x"
-          fractions={2}
-          initialRating={rating}
-          readonly
-        />
-      </Row>
-    </div>
-  </div>
+  </Link>
 )
 
 export const TitleCard = ({ children, image, linkTo }) => (

@@ -26,6 +26,7 @@
     height: 148px;
   }
   &-name {
+    color: $voyago-white;
     margin-top: 12px;
     text-shadow: 1px 1px 4px $voyago-dark;
   }
@@ -33,6 +34,7 @@
     color: $voyago-pink;
     @extend %center-align;
     font-size: 8px;
+    margin-top: -20px;
   }
   &-sale-tag {
     display: inline-block;

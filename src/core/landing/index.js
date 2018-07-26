@@ -4,6 +4,8 @@ import { connect } from 'react-redux'
 import * as actions  from './actions'
 
 import SectionOne from './section-one'
+import SectionTwo from './section-two'
+import SectionThree from './section-three'
 import SectionFour from './section-four'
 import SectionFive from './section-five'
 import SectionSix from './section-six'
@@ -31,9 +33,14 @@ class LandingPage extends React.Component {
   }
 
   render() {
+    const { featuredPackages } = this.props
     return (
       <div>
         <SectionOne />
+        <SectionTwo />
+        <SectionThree
+          packages={featuredPackages}
+        />
         <SectionFour
           handleSubmitClick={this.handleCustomVacationClick}
         />

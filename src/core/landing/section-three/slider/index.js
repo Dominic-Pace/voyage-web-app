@@ -10,6 +10,7 @@ const SectionThreeSlider = ({ packages }) => (
         packages.map(featuredPackage => (
           <PackageCard
             imageUrl={featuredPackage.imageUrl}
+            linkTo={`/package/${featuredPackage.id}`}
             location={featuredPackage.name}
             nightlyPrice={featuredPackage.currentLowPrice}
             rating={3.7}

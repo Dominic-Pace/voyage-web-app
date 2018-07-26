@@ -2,7 +2,6 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 import * as actions  from './actions'
-import Banner from './banner'
 import Packages from './packages'
 
 import './styles.css'
@@ -10,15 +9,15 @@ import { Grid } from 'react-bootstrap'
 
 class ExploreView extends React.Component {
   componentWillMount() {
-    this.props.fetchCategories()
+    this.props.fetchPackages()
   }
 
   render() {
-    const { featuredCategories } = this.props
+    const { packages } = this.props
     return (
       <Grid className="explore-container">
-        <Banner
-          categories={featuredCategories}
+        <Packages
+          packages={packages}
         />
       </Grid>
     )
@@ -27,13 +26,11 @@ class ExploreView extends React.Component {
 
 const mapStateToProps = ({ explore }) => {
   const {
-    categories,
-    featuredCategories,
+    packages,
     isRequesting,
   } = explore
   return {
-    categories,
-    featuredCategories,
+    packages,
     isRequesting,
   }
 }
