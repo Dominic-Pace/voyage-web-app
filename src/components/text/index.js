@@ -7,6 +7,7 @@ export const H1 = ({ bold, center, className, color, children, style }) => (
     md={12}
     style={{
       justifyContent: center ? 'center' : null,
+      margin: 0,
     }}
   >
     <p
@@ -28,6 +29,7 @@ export const H2 = ({ bold, center, className, color, children, style }) => (
     md={12}
     style={{
       justifyContent: center ? 'center' : null,
+      margin: 0,
     }}
   >
     <p
