@@ -1,7 +1,7 @@
 import {
-  FETCH_FEATURED_PACKAGES_FAILURE,
-  FETCH_FEATURED_PACKAGES_REQUEST,
-  FETCH_FEATURED_PACKAGES_SUCCESS,
+  FETCH_FEATURED_LOCATIONS_FAILURE,
+  FETCH_FEATURED_LOCATIONS_REQUEST,
+  FETCH_FEATURED_LOCATIONS_SUCCESS,
   SEND_CONTACT_US_FAILURE,
   SEND_CONTACT_US_REQUEST,
   SEND_CONTACT_US_SUCCESS,
@@ -19,15 +19,15 @@ const INITIAL_STATE = {
 
 export default (state=INITIAL_STATE, action) => {
   switch(action.type) {
-    case FETCH_FEATURED_PACKAGES_REQUEST:
+    case FETCH_FEATURED_LOCATIONS_REQUEST:
       return { ...state, isRequesting: true }
-    case FETCH_FEATURED_PACKAGES_SUCCESS:
+    case FETCH_FEATURED_LOCATIONS_SUCCESS:
       return {
         ...state,
-        featuredPackages: action.featuredPackages,
+        featuredLocations: action.featuredLocations,
         isRequesting: false,
       }
-    case FETCH_FEATURED_PACKAGES_FAILURE:
+    case FETCH_FEATURED_LOCATIONS_FAILURE:
       return { ...state, errorMessage: action.error, isRequesting: false }
     case SEND_CONTACT_US_REQUEST:
       return { ...state, isRequesting: true }

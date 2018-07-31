@@ -1,7 +1,7 @@
 import {
-  FETCH_FEATURED_PACKAGES_FAILURE,
-  FETCH_FEATURED_PACKAGES_REQUEST,
-  FETCH_FEATURED_PACKAGES_SUCCESS,
+  FETCH_FEATURED_LOCATIONS_FAILURE,
+  FETCH_FEATURED_LOCATIONS_REQUEST,
+  FETCH_FEATURED_LOCATIONS_SUCCESS,
   SEND_CONTACT_US_FAILURE,
   SEND_CONTACT_US_REQUEST,
   SEND_CONTACT_US_SUCCESS,
@@ -17,22 +17,22 @@ import {
   contactUsRef,
   customVacationRef,
   joinEmailListRef,
-  packagesRef,
+  locationsRef,
 } from '../../utils/firebase/firebase-refs'
 
-export const fetchFeaturedPackages = () => (
+export const fetchFeaturedLocations = () => (
   dispatch => {
-    const featuredPackages = []
-    dispatch({ type: FETCH_FEATURED_PACKAGES_REQUEST })
-    return packagesRef.once('value', snap => {
+    const featuredLocations = []
+    dispatch({ type: FETCH_FEATURED_LOCATIONS_REQUEST })
+    return locationsRef.once('value', snap => {
       snap.forEach(data => {
-        const travelPackage = data.val()
-        travelPackage.featured && featuredPackages.push(travelPackage)
+        const location = data.val()
+        location.featured && featuredLocations.push(location)
       })
     }).then(res => {
-      dispatch({ type: FETCH_FEATURED_PACKAGES_SUCCESS, featuredPackages: featuredPackages })
+      dispatch({ type: FETCH_FEATURED_LOCATIONS_SUCCESS, featuredLocations: featuredLocations })
     }).catch(err => {
-      dispatch({ type: FETCH_FEATURED_PACKAGES_FAILURE, error: err })
+      dispatch({ type: FETCH_FEATURED_LOCATIONS_FAILURE, error: err })
     })
   }
 )

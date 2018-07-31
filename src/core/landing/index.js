@@ -14,7 +14,7 @@ import './styles.css'
 
 class LandingPage extends React.Component {
   componentWillMount() {
-    this.props.fetchFeaturedPackages()
+    this.props.fetchFeaturedLocations()
   }
 
   handleCustomVacationClick = () => {
@@ -33,13 +33,13 @@ class LandingPage extends React.Component {
   }
 
   render() {
-    const { featuredPackages } = this.props
+    const { featuredLocations } = this.props
     return (
       <div>
         <SectionOne />
         <SectionTwo />
         <SectionThree
-          packages={featuredPackages}
+          locations={featuredLocations}
         />
         <SectionFour
           handleSubmitClick={this.handleCustomVacationClick}
@@ -58,7 +58,7 @@ class LandingPage extends React.Component {
 const mapStateToProps = ({ forms, homepage }) => {
   const {
     packages,
-    featuredPackages,
+    featuredLocations,
     isRequesting,
   } = homepage
   const {
@@ -69,7 +69,7 @@ const mapStateToProps = ({ forms, homepage }) => {
   return {
     contactUs,
     customPackage,
-    featuredPackages,
+    featuredLocations,
     isRequesting,
     joinMail,
     packages,

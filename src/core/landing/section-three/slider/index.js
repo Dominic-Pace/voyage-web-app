@@ -3,16 +3,16 @@ import React from 'react'
 import PackageCard  from '../../../../components/card'
 import { Row } from 'react-bootstrap'
 
-const SectionThreeSlider = ({ packages }) => (
+const SectionThreeSlider = ({ locations }) => (
   <Row>
     {
-      packages ?
-        packages.map(featuredPackage => (
+      locations ?
+        locations.map(featuredLocation => (
           <PackageCard
-            imageUrl={featuredPackage.imageUrl}
-            linkTo={`/package/${featuredPackage.id}`}
-            location={featuredPackage.name}
-            nightlyPrice={featuredPackage.currentLowPrice}
+            imageUrl={featuredLocation.coverImageUrl}
+            linkTo={`/package/${featuredLocation.id}`}
+            location={featuredLocation.name}
+            nightlyPrice={featuredLocation.currentLowPrice || 0}
             rating={3.7}
           />
         ))

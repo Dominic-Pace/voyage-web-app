@@ -22,9 +22,9 @@ const HalfCardLengthSection = ({ lengthInDays, locations, title }) => (
         </div>
         {
           locations ?
-            locations.map(locationName => (
+            Object.keys(locations).map(location => (
               <div className="half-card-location-text">
-                {`${locationName} to`}
+                {`${locations[location]} to`}
               </div>
             ))
             :

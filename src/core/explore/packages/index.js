@@ -9,6 +9,11 @@ const locations = [
   'Santa Fe, NM'
 ]
 
+const getDifferenceInDays = (startDate, endDate) => {
+  let timeDiff = Math.abs(new Date(startDate).getTime() - new Date(endDate).getTime())
+  return Math.ceil(timeDiff / (1000 * 3600 * 24))
+}
+
 const Packages = ({ packages }) => (
   <Row className="explore-packages">
     <H2>Voyago's Prebuilt Packages</H2>
@@ -16,16 +21,17 @@ const Packages = ({ packages }) => (
       {
         packages ?
           packages.map(travelPackage => (
-            <HalfSizeCard
-              imageUrl={travelPackage.imageUrl}
-              key={travelPackage.name}
-              lengthInDays={5}
-              linkTo={`/package/${travelPackage.id}`}
-              locations={locations}
-              pricePerPerson={travelPackage.currentLowPrice}
-              title={travelPackage.name}
-            />
-          ))
+              <HalfSizeCard
+                imageUrl={travelPackage.imageUrl}
+                key={travelPackage.name}
+                lengthInDays={getDifferenceInDays(travelPackage.startDate, travelPackage.endDate)}
+                linkTo={`/package/${travelPackage.id}`}
+                locations={travelPackage.locations}
+                pricePerPerson={travelPackage.startingPrice}
+                title={travelPackage.name}
+              />
+            )
+          )
           :
           null
       }

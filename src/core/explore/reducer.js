@@ -1,7 +1,7 @@
 import {
-  FETCH_CATEGORIES_FAILURE,
-  FETCH_CATEGORIES_REQUEST,
-  FETCH_CATEGORIES_SUCCESS,
+  FETCH_LOCATIONS_FAILURE,
+  FETCH_LOCATIONS_REQUEST,
+  FETCH_LOCATIONS_SUCCESS,
   FETCH_PACKAGES_FAILURE,
   FETCH_PACKAGES_REQUEST,
   FETCH_PACKAGES_SUCCESS,
@@ -13,16 +13,15 @@ const INITIAL_STATE = {
 
 export default (state=INITIAL_STATE, action) => {
   switch(action.type) {
-    case FETCH_CATEGORIES_REQUEST:
+    case FETCH_LOCATIONS_REQUEST:
       return { ...state, isRequesting: true }
-    case FETCH_CATEGORIES_SUCCESS:
+    case FETCH_LOCATIONS_SUCCESS:
       return {
         ...state,
-        categories: action.categories,
-        featuredCategories: action.featuredCategories,
+        locations: action.locations,
         isRequesting: false,
       }
-    case FETCH_CATEGORIES_FAILURE:
+    case FETCH_LOCATIONS_FAILURE:
       return { ...state, errorMessage: action.error, isRequesting: false }
     case FETCH_PACKAGES_REQUEST:
       return { ...state, isRequesting: true }

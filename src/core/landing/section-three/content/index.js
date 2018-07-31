@@ -4,11 +4,11 @@ import SectionThreeHeader from '../header'
 import SectionThreeSlider from '../slider'
 import SectionThreeFooter from '../footer'
 
-const SectionThreeContent = ({ packages }) => (
+const SectionThreeContent = ({ locations }) => (
   <div>
     <SectionThreeHeader />
     <SectionThreeSlider
-      packages={packages}
+      locations={locations}
     />
     <SectionThreeFooter />
   </div>

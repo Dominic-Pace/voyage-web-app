@@ -1,32 +1,31 @@
 import {
-  FETCH_CATEGORIES_FAILURE,
-  FETCH_CATEGORIES_REQUEST,
-  FETCH_CATEGORIES_SUCCESS,
+  FETCH_LOCATIONS_FAILURE,
+  FETCH_LOCATIONS_REQUEST,
+  FETCH_LOCATIONS_SUCCESS,
   FETCH_PACKAGES_FAILURE,
   FETCH_PACKAGES_REQUEST,
   FETCH_PACKAGES_SUCCESS,
 } from './types'
 
 import {
+  locationsRef,
   packagesRef,
-  travelCategoriesRef
+  singleLocationRef,
 } from '../../utils/firebase/firebase-refs'
 
-export const fetchCategories = () => (
+export const fetchLocations = () => (
   dispatch => {
-    const categories = []
-    const homepageCategories = []
-    dispatch({ type: FETCH_CATEGORIES_REQUEST })
-    return travelCategoriesRef.once('value', snap => {
+    const locations = []
+    dispatch({ type: FETCH_LOCATIONS_REQUEST })
+    return locationsRef.once('value', snap => {
       snap.forEach(data => {
-        const category = data.val()
-        categories.push(category)
-        category.onHomepage && homepageCategories.push(category)
+        const location = data.val()
+        locations.push(location)
       })
     }).then(res => {
-      dispatch({ type: FETCH_CATEGORIES_SUCCESS, categories: categories, featuredCategories: homepageCategories })
+      dispatch({ type: FETCH_LOCATIONS_SUCCESS, locations: locations })
     }).catch(err => {
-      dispatch({ type: FETCH_CATEGORIES_FAILURE, error: err })
+      dispatch({ type: FETCH_LOCATIONS_FAILURE, error: err })
     })
   }
 )
