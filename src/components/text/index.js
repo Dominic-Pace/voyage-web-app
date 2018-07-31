@@ -2,6 +2,7 @@ import React from 'react'
 import { Row } from 'react-bootstrap'
 
 import './styles.css'
+
 export const H1 = ({ bold, center, className, color, children, style }) => (
   <Row
     md={12}

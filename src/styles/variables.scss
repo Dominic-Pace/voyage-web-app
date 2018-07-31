@@ -39,6 +39,11 @@ $font-stack:    Avenir, sans-serif;
   color: $voyago-white;
 }
 
+%text-highlight {
+  @extend %white-text;
+  text-shadow: 1px 1px 4px $voyago-dark;
+}
+
 
 // Values
 $full-width: 100vw;

@@ -1,6 +1,6 @@
 import React from 'react'
 
-import {H2, Text} from '../text'
+import { H2, Text } from '../text'
 import Rating from 'react-rating'
 import { Row } from 'react-bootstrap'
 
@@ -15,15 +15,17 @@ const renderCardBannerTag = (amountAvailable, nightlyPrice) => (
     `From $${nightlyPrice} per night*`
 )
 
+export { HalfSizeCard } from './half'
+
 const TagCard = ({
-  amountAvailable,
-  description,
-  imageUrl,
-  linkTo,
-  location,
-  nightlyPrice,
-  rating
-}) => (
+                   amountAvailable,
+                   description,
+                   imageUrl,
+                   linkTo,
+                   location,
+                   nightlyPrice,
+                   rating
+                 }) => (
   <Link to={linkTo}>
     <div className="tag-card">
       <div

@@ -1,5 +1,76 @@
 @import '../../styles/common.scss';
 
+.half-card {
+  &-bg {
+    background: rgba(black, 0.2) center;
+    background-blend-mode: overlay;
+    -webkit-background-size: cover;
+    background-size: cover;
+    border: 1px solid $voyago-grey;
+    box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2), 6px 12px 20px 6px rgba(0, 0, 0, 0.19);
+    color: $voyago-white;
+    height: 350px;
+    margin: 10px;
+    width: 45vw;
+    &:hover {
+      background-blend-mode: normal;
+    }
+  }
+  &-header {
+    margin: 0;
+    &-title {
+      @extend %text-highlight;
+      margin: 10px;
+      &-container {
+        margin: 10px 0;
+      }
+    }
+  }
+  &-length {
+    background-color: rgba($voyago-off-white, 0.2);
+    border: 1px $voyago-white-bg solid;
+    border-radius: 50px;
+    height: 60px;
+    margin: 10px;
+    padding: 3px;
+    width: 60px;
+    &-text {
+      @extend %text-highlight;
+      font-weight: 700;
+      text-align: center;
+    }
+  }
+  &-location {
+    margin-top: -10px;
+    &-text {
+      @extend %white-text;
+      font-weight: 500;
+      text-shadow: 1px 1px 1px $voyago-dark;
+    }
+  }
+  &-price {
+    background-color: rgba($voyago-off-white, 0.2);
+    border: 1px $voyago-white-bg solid;
+    height: 66px;
+    margin-right: 35px;
+    padding-left: 10px;
+    padding-top: 8px;
+    &-text {
+      text-align: center;
+      &-descr {
+        @extend %text-highlight;
+        margin-left: 15px;
+        margin-top: -3px;
+      }
+      &-price {
+        @extend %text-highlight;
+        font-weight: 700;
+        font-size: 3rem;
+        margin-top: -10px;
+      }
+    }
+  }
+}
 .tag-card {
   background-color: oldlace;
   border: 1px solid $voyago-grey;
@@ -26,9 +97,8 @@
     height: 148px;
   }
   &-name {
-    color: $voyago-white;
+    @extend %text-highlight;
     margin-top: 12px;
-    text-shadow: 1px 1px 4px $voyago-dark;
   }
   &-rating {
     color: $voyago-pink;
@@ -67,7 +137,6 @@
       right: -16px;
       border: none;
       border-radius: 1px 1px 4px;
-      color: red;
       -o-text-overflow: clip;
       text-overflow: clip;
       background: $voyago-primary;

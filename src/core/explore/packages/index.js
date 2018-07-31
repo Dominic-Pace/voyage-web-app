@@ -2,7 +2,12 @@ import React from 'react'
 
 import { H2 } from '../../../components/text'
 import { Row } from 'react-bootstrap'
-import PackageCard from '../../../components/card'
+import { HalfSizeCard } from '../../../components/card'
+
+const locations = [
+  'Albequerque, NM',
+  'Santa Fe, NM'
+]
 
 const Packages = ({ packages }) => (
   <Row className="explore-packages">
@@ -11,12 +16,14 @@ const Packages = ({ packages }) => (
       {
         packages ?
           packages.map(travelPackage => (
-            <PackageCard
+            <HalfSizeCard
               imageUrl={travelPackage.imageUrl}
+              key={travelPackage.name}
+              lengthInDays={5}
               linkTo={`/package/${travelPackage.id}`}
-              location={travelPackage.name}
-              nightlyPrice={travelPackage.currentLowPrice}
-              rating={3.7}
+              locations={locations}
+              pricePerPerson={travelPackage.currentLowPrice}
+              title={travelPackage.name}
             />
           ))
           :
