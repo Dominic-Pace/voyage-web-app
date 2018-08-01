@@ -1,11 +1,12 @@
 import React from 'react'
 
-import Image from '../../image'
+import { LinkedImage } from '../../image'
 
 const HeaderLogo = () => (
-  <Image
+  <LinkedImage
     className="header-logo"
     image="voyago"
+    linkTo="/"
     alt="Voyago"
   />
 )

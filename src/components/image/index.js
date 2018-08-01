@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 import FacebookLogo from './images/facebook.svg'
 import InstagramLogo from './images/instagram.png'
@@ -16,8 +17,8 @@ const types = {
   voyago: VoyagoText,
 }
 
-const Image = ({ alt, className, image, path, size, style }) => (
-  <a href={path} target="_blank" >
+export const LinkedImage = ({ alt, className, image, linkTo, path, size, style }) => (
+  <Link to={linkTo} >
     <img
       alt={alt}
       className={className}
@@ -28,7 +29,20 @@ const Image = ({ alt, className, image, path, size, style }) => (
         ...style
       }}
     />
-  </a>
+  </Link>
+)
+
+const Image = ({ alt, className, image, linkTo, path, size, style }) => (
+  <img
+    alt={alt}
+    className={className}
+    src={types[image]}
+    style={{
+      cursor: path ? 'cursor' : null,
+      width: size || null,
+      ...style
+    }}
+  />
 )
 
 export default Image

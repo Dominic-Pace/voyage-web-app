@@ -18,7 +18,7 @@ class ExploreView extends React.Component {
     const { filters, packages } = this.props
     return (
       <Grid className="explore-container">
-        {/*<Banner filters={filters} />*/}
+        <Banner filters={filters} />
         <Packages packages={packages} />
       </Grid>
     )
