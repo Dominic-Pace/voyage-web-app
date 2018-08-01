@@ -8,7 +8,6 @@ const explorePath = '/explore'
 const NavigationTabs = () => (
   <div className="nav-header float-lg-right">
     <div className="nav-container">
-      {console.log('window', window.location.pathname)}
       <NavItem
         linkTo={homePath}
         selected={window.location.pathname === homePath}
