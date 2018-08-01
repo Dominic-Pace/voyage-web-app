@@ -12,7 +12,7 @@ const renderCardBannerTag = (amountAvailable, nightlyPrice) => (
     ?
     `${amountAvailable} Packages Available!`
     :
-    `From $${nightlyPrice} per night*`
+    `From $${nightlyPrice} per day*`
 )
 
 export { HalfSizeCard } from './half'

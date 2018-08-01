@@ -10,9 +10,9 @@ const SectionThreeSlider = ({ locations }) => (
         locations.map(featuredLocation => (
           <PackageCard
             imageUrl={featuredLocation.coverImageUrl}
-            linkTo={`/package/${featuredLocation.id}`}
+            linkTo={`/explore/${featuredLocation.id}`}
             location={featuredLocation.name}
-            nightlyPrice={featuredLocation.currentLowPrice || 0}
+            nightlyPrice={featuredLocation.startingAtPrice || 0}
             rating={3.7}
           />
         ))
