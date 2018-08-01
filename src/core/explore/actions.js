@@ -18,25 +18,23 @@ export const fetchFilters = () => (
     const filters = []
     dispatch({ type: FETCH_FILTERS_REQUEST })
 
-    return locationsRef.once('value', snap => {
+    return travelCategoriesRef.once('value', snap => {
       snap.forEach(data => {
-        const location = data.val()
-        filters.push(location)
+        const category = data.val()
+        category.filterable && filters.push(category)
       })
-    })
-      .then(res => {
-        return travelCategoriesRef.once('value', snap => {
-          snap.forEach(data => {
-            const category = data.val()
-            category.filterable && filters.push(category)
-          })
+    }).then(res => {
+      return locationsRef.once('value', snap => {
+        snap.forEach(data => {
+          const location = data.val()
+          filters.push(location)
         })
       })
-      .then(res => {
-        dispatch({ type: FETCH_FILTERS_SUCCESS, filters: filters })
-      }).catch(err => {
-        dispatch({ type: FETCH_FILTERS_FAILURE, error: err })
-      })
+    }).then(res => {
+      dispatch({ type: FETCH_FILTERS_SUCCESS, filters: filters })
+    }).catch(err => {
+      dispatch({ type: FETCH_FILTERS_FAILURE, error: err })
+    })
   }
 )
 

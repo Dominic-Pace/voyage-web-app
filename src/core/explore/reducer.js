@@ -7,6 +7,8 @@ import {
   FETCH_PACKAGES_SUCCESS,
 } from './types'
 
+import { sortAlphabeticallyByName } from '../../utils/sort'
+
 const INITIAL_STATE = {
   isRequesting: false,
 }
@@ -18,7 +20,14 @@ export default (state=INITIAL_STATE, action) => {
     case FETCH_FILTERS_SUCCESS:
       return {
         ...state,
-        filters: action.filters,
+        filters: [
+          ...[{
+            coverImageUrl: 'https://images.pexels.com/photos/163688/hiker-travel-trip-wander-163688.jpeg',
+            id: undefined,
+            name: 'Show All',
+          }],
+          ...action.filters.sort(sortAlphabeticallyByName)
+        ],
         isRequesting: false,
       }
     case FETCH_FILTERS_FAILURE:

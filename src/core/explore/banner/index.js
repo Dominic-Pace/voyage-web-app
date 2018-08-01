@@ -18,7 +18,7 @@ const ExploreBanner = ({ filters }) => (
             <TitleCard
               image={filter.coverImageUrl}
               key={`category-${filter.name}`}
-              linkTo={`/explore/${filter.id}`}
+              linkTo={`/explore${ filter.id ? '/' + filter.id : ''}`}
             >
               { filter.name }
             </TitleCard>

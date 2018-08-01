@@ -1,8 +1,6 @@
 import React from 'react'
 
-import {H1, H2} from '../../../components/text'
-import {Grid, Row} from 'react-bootstrap'
-import { TitleCard } from '../../../components/card'
+import { H1 } from '../../../components/text'
 
 const ExploreBanner = ({ image, lowPrice, title }) => (
   <div
