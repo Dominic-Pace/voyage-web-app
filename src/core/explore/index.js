@@ -15,14 +15,11 @@ class ExploreView extends React.Component {
   }
 
   render() {
-    const { filters, isRequesting, packages } = this.props
+    const { filters, packages } = this.props
     return (
       <Grid className="explore-container">
         <Banner filters={filters} />
-        <Packages
-          loading={isRequesting}
-          packages={packages}
-        />
+        <Packages packages={packages} />
       </Grid>
     )
   }

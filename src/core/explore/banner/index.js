@@ -8,7 +8,10 @@ import { TitleCard } from '../../../components/card'
 const ExploreBanner = ({ filters }) => (
   <Row className="explore-banner">
     <H2>Filter By Location or Category</H2>
-    <HorizontalScroll className="explore-banner-categories">
+    <HorizontalScroll
+      className="explore-banner-categories"
+      reverseScroll
+    >
       {
         filters ?
           filters.map(filter => (

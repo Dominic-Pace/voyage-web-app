@@ -1,4 +1,5 @@
 import React from 'react'
+import Spinner from 'react-spinkit'
 
 import { H2 } from '../../../components/text'
 import { Row } from 'react-bootstrap'
@@ -9,7 +10,7 @@ const getDifferenceInDays = (startDate, endDate) => {
   return Math.ceil(timeDiff / (1000 * 3600 * 24))
 }
 
-const Packages = ({ loading, packages }) => (
+const Packages = ({ packages }) => (
   <Row className="explore-packages" componentClass="explore-packages-row">
     <H2 className="explore-header">Browsing All Packages</H2>
     <Row className="explore-banner-categories">
@@ -28,7 +29,7 @@ const Packages = ({ loading, packages }) => (
             )
           )
           :
-          null
+          <Spinner name="three-bounce" />
       }
     </Row>
   </Row>
