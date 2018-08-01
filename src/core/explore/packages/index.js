@@ -9,7 +9,7 @@ const getDifferenceInDays = (startDate, endDate) => {
   return Math.ceil(timeDiff / (1000 * 3600 * 24))
 }
 
-const Packages = ({ packages }) => (
+const Packages = ({ loading, packages }) => (
   <Row className="explore-packages" componentClass="explore-packages-row">
     <H2 className="explore-header">Browsing All Packages</H2>
     <Row className="explore-banner-categories">

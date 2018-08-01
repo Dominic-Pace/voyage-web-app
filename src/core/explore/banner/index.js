@@ -1,4 +1,5 @@
 import React from 'react'
+import HorizontalScroll from 'react-scroll-horizontal'
 
 import { H2 } from '../../../components/text'
 import { Row } from 'react-bootstrap'
@@ -6,8 +7,8 @@ import { TitleCard } from '../../../components/card'
 
 const ExploreBanner = ({ filters }) => (
   <Row className="explore-banner">
-    <H2>Categories</H2>
-    <Row className="explore-banner-categories">
+    <H2>Filter By Location or Category</H2>
+    <HorizontalScroll className="explore-banner-categories">
       {
         filters ?
           filters.map(filter => (
@@ -23,7 +24,7 @@ const ExploreBanner = ({ filters }) => (
           null
 
       }
-    </Row>
+    </HorizontalScroll>
   </Row>
 )
 
