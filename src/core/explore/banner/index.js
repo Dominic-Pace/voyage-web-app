@@ -19,6 +19,10 @@ const ExploreBanner = ({ filters }) => (
               image={filter.coverImageUrl}
               key={`category-${filter.name}`}
               linkTo={`/explore${ filter.id ? '/' + filter.id : ''}`}
+              selected={
+                window.location.pathname.includes(filter.id) ||
+                (filter.name === 'Show Featured' && window.location.pathname === '/explore')
+              }
             >
               { filter.name }
             </TitleCard>

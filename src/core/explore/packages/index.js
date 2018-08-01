@@ -10,9 +10,9 @@ const getDifferenceInDays = (startDate, endDate) => {
   return Math.ceil(timeDiff / (1000 * 3600 * 24))
 }
 
-const Packages = ({ packages }) => (
+const Packages = ({ currentFilter, packages }) => (
   <Row className="explore-packages" componentClass="explore-packages-row">
-    <H2 className="explore-header">Browsing All Packages</H2>
+    <H2 className="explore-header">{`Browsing ${currentFilter} Packages`}</H2>
     <Row className="explore-banner-categories">
       {
         packages ?

@@ -53,9 +53,9 @@ const TagCard = ({
   </Link>
 )
 
-export const TitleCard = ({ children, image, linkTo }) => (
+export const TitleCard = ({ children, image, linkTo, selected }) => (
   <Link to={linkTo}>
-    <div className="title-card">
+    <div className={`title-card${selected ? '-selected' : ''}`}>
       <div
         className="title-card-image"
         style={{

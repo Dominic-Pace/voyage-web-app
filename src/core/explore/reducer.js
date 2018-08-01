@@ -24,7 +24,7 @@ export default (state=INITIAL_STATE, action) => {
           ...[{
             coverImageUrl: 'https://images.pexels.com/photos/163688/hiker-travel-trip-wander-163688.jpeg',
             id: undefined,
-            name: 'Show All',
+            name: 'Show Featured',
           }],
           ...action.filters.sort(sortAlphabeticallyByName)
         ],

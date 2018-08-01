@@ -33,16 +33,18 @@ export const LinkedImage = ({ alt, className, image, linkTo, path, size, style }
 )
 
 const Image = ({ alt, className, image, linkTo, path, size, style }) => (
-  <img
-    alt={alt}
-    className={className}
-    src={types[image]}
-    style={{
-      cursor: path ? 'cursor' : null,
-      width: size || null,
-      ...style
-    }}
-  />
+  <a href={path} target="_blank" >
+    <img
+      alt={alt}
+      className={className}
+      src={types[image]}
+      style={{
+        cursor: path ? 'cursor' : null,
+        width: size || null,
+        ...style
+      }}
+    />
+  </a>
 )
 
 export default Image

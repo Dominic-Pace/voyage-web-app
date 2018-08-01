@@ -167,12 +167,22 @@
 .title-card {
   background-color: $voyago-white-bg;
   border: 1px solid $voyago-grey;
-  box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2), 6px 12px 20px 6px rgba(0, 0, 0, 0.19);
+  box-shadow: 0 8px 8px 0 rgba(black, 0.2), 6px 12px 20px 6px rgba(black, 0.19);
   cursor: pointer;
   display: table;
   height: 80px;
   margin: 0 20px 0 20px;
   width: 320px;
+  &-selected {
+    background-color: $voyago-white-bg;
+    border: 1px solid $voyago-grey;
+    box-shadow: 0 8px 8px 0 rgba($voyago-primary, 0.2), 6px 12px 20px 6px rgba($voyago-primary, 0.19);
+    cursor: pointer;
+    display: table;
+    height: 80px;
+    margin: 0 20px 0 20px;
+    width: 320px;
+  }
   &-image {
     background-size: cover;
     background-position-x: center;
@@ -181,8 +191,12 @@
   }
   &-title {
     @extend %align-all;
+    color: $voyago-dark-grey;
     font-weight: 500;
     font-size: 1.2rem;
     height: 100%;
+    &:hover {
+      color: $voyago-dark;
+    }
   }
 }
