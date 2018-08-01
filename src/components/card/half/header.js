@@ -6,7 +6,7 @@ const HalfCardLengthSection = ({ lengthInDays, locations, title }) => (
   <Row className="half-card-header">
     <Col className="half-card-length">
       <div className="half-card-length-text">
-        {lengthInDays}
+        {lengthInDays + 1}
       </div>
       <div className="half-card-length-text">
         DAYS

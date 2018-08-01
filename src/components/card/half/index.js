@@ -28,7 +28,6 @@ export const HalfSizeCard =
      title,
    }) => (
     <Link to={linkTo}>
-      { console.log('locations', locations)}
       <div
         className="half-card-bg"
         style={{

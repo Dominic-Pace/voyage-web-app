@@ -4,19 +4,19 @@ import { H2 } from '../../../components/text'
 import { Row } from 'react-bootstrap'
 import { TitleCard } from '../../../components/card'
 
-const ExploreBanner = ({ categories }) => (
+const ExploreBanner = ({ filters }) => (
   <Row className="explore-banner">
     <H2>Categories</H2>
     <Row className="explore-banner-categories">
       {
-        categories ?
-          categories.map(category => (
+        filters ?
+          filters.map(filter => (
             <TitleCard
-              image={category.categoryImage}
-              key={`category-${category.categoryName}`}
-              linkTo={`/explore/${category.id}`}
+              image={filter.coverImageUrl}
+              key={`category-${filter.name}`}
+              linkTo={`/explore/${filter.id}`}
             >
-              { category.categoryName }
+              { filter.name }
             </TitleCard>
           ))
           :

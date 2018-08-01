@@ -1,7 +1,7 @@
 import {
-  FETCH_LOCATIONS_FAILURE,
-  FETCH_LOCATIONS_REQUEST,
-  FETCH_LOCATIONS_SUCCESS,
+  FETCH_FILTERS_FAILURE,
+  FETCH_FILTERS_REQUEST,
+  FETCH_FILTERS_SUCCESS,
   FETCH_PACKAGES_FAILURE,
   FETCH_PACKAGES_REQUEST,
   FETCH_PACKAGES_SUCCESS,
@@ -13,15 +13,15 @@ const INITIAL_STATE = {
 
 export default (state=INITIAL_STATE, action) => {
   switch(action.type) {
-    case FETCH_LOCATIONS_REQUEST:
+    case FETCH_FILTERS_REQUEST:
       return { ...state, isRequesting: true }
-    case FETCH_LOCATIONS_SUCCESS:
+    case FETCH_FILTERS_SUCCESS:
       return {
         ...state,
-        locations: action.locations,
+        filters: action.filters,
         isRequesting: false,
       }
-    case FETCH_LOCATIONS_FAILURE:
+    case FETCH_FILTERS_FAILURE:
       return { ...state, errorMessage: action.error, isRequesting: false }
     case FETCH_PACKAGES_REQUEST:
       return { ...state, isRequesting: true }
