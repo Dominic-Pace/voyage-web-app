@@ -42,6 +42,11 @@ export default (state=INITIAL_STATE, action) => {
               coverImageUrl: 'https://images.pexels.com/photos/346885/pexels-photo-346885.jpeg',
               id: 'all',
               name: 'Show All',
+            },
+            {
+              coverImageUrl: 'https://images.pexels.com/photos/1095601/pexels-photo-1095601.jpeg',
+              id: 'act',
+              name: 'Ending Soon',
             }
           ],
           ...action.filters.sort(sortAlphabeticallyByName)

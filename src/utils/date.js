@@ -20,6 +20,11 @@ export const getDifferenceInDays = (startDate, endDate) => {
 }
 
 export const getDateDiffFromToday = laterDate => {
-  const timeDiff = new Date - new Date(laterDate)
+  const timeDiff = new Date() - new Date(laterDate)
+  return diffInDays(timeDiff)
+}
+
+export const getDateDiffFromEnding = endingDate => {
+  const timeDiff = new Date(endingDate) - new Date()
   return diffInDays(timeDiff)
 }

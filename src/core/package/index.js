@@ -9,20 +9,24 @@ import './styles.css'
 
 class PackageView extends React.Component {
   componentWillMount() {
+    this.props.fetchPackageById(this.normalizeLocationPathname())
+  }
+
+  normalizeLocationPathname() {
+    return window.location.pathname.replace('/package/', '')
   }
 
   render() {
+    const { currentPackage } = this.props
     return (
       <Grid className="package-container">
         <Banner
-          image="https://images.pexels.com/photos/926560/pexels-photo-926560.png"
-          lowPrice={41}
-          title="Long weekend in San Diego"
+          currentPackage={currentPackage}
         />
         <div
           style={{
-          height: '150vh'
-        }}>
+            height: '150vh'
+          }}>
           Test
         </div>
       </Grid>
@@ -30,13 +34,13 @@ class PackageView extends React.Component {
   }
 }
 
-const mapStateToProps = ({ explore }) => {
+const mapStateToProps = ({ travelPackage }) => {
   const {
-    packages,
+    currentPackage,
     isRequesting,
-  } = explore
+  } = travelPackage
   return {
-    packages,
+    currentPackage,
     isRequesting,
   }
 }

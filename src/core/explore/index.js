@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Grid } from 'react-bootstrap'
-import { getDateDiffFromToday } from '../../utils/date'
+import { getDateDiffFromEnding, getDateDiffFromToday } from '../../utils/date'
 
 import * as actions  from './actions'
 import Banner from './banner'
@@ -29,6 +29,12 @@ class ExploreView extends React.Component {
       })
     } else if (filterId === 'all') {
       return packages
+    } else if (filterId === 'act') {
+      return packages && packages.filter(travelPackage => {
+        if (getDateDiffFromEnding(travelPackage.validUntil) < 5) {
+          return travelPackage
+        }
+      })
     } else {
       packages ?
         packages.find(travelPackage => {
@@ -64,6 +70,8 @@ class ExploreView extends React.Component {
       return 'Featured'
     } else if (filterId === 'all') {
       return 'All'
+    } else if (filterId === 'act') {
+      return 'Ending Soon'
     } else {
       return currentFilter.name
     }
