@@ -34,14 +34,14 @@ export default (state=INITIAL_STATE, action) => {
         filters: [
           ...[
             {
-              coverImageUrl: 'https://images.pexels.com/photos/163688/hiker-travel-trip-wander-163688.jpeg',
-              id: undefined,
-              name: 'Show Featured',
-            },
-            {
               coverImageUrl: 'https://images.pexels.com/photos/346885/pexels-photo-346885.jpeg',
               id: 'all',
               name: 'Show All',
+            },
+            {
+              coverImageUrl: 'https://images.pexels.com/photos/163688/hiker-travel-trip-wander-163688.jpeg',
+              id: undefined,
+              name: 'Show Featured',
             },
             {
               coverImageUrl: 'https://images.pexels.com/photos/1095601/pexels-photo-1095601.jpeg',

@@ -6,22 +6,23 @@ import { HashLink } from 'react-router-hash-link'
 import './styles.css'
 
 export const RoundedButton = ({
-  className,
-  color,
-  disabled,
-  label,
-  linkTo,
-  onClick,
-  style,
-  transparent,
-  type
-}) => {
+                                className,
+                                color,
+                                disabled,
+                                label,
+                                linkTo,
+                                onClick,
+                                style,
+                                transparent,
+                                type,
+                                uppercase,
+                              }) => {
   const renderButtonType = label => {
     switch(type) {
       case 'link':
         return (
           <Link className="label" to={linkTo}>
-            { label }
+            { uppercase ? label.toUpperCase() : label }
           </Link>
         )
       case 'hashLink':
@@ -31,7 +32,7 @@ export const RoundedButton = ({
             smooth
             to={linkTo}
           >
-            { label }
+            { uppercase ? label.toUpperCase() : label }
           </HashLink>
         )
       default:
@@ -51,7 +52,7 @@ export const RoundedButton = ({
           ?
           renderButtonType(label)
           :
-          label
+          uppercase ? label.toUpperCase() : label
       }
     </Button>
   )

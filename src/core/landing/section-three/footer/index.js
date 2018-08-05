@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 
 const SectionThreeFooter = () => (
   <div>
-    <Row className="package-footer">
+    <Row className="package-home-footer">
       <Link to="/explore">
         <H2 style={{
           color: 'white'
