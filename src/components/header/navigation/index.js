@@ -18,7 +18,8 @@ const NavigationTabs = () => (
         linkTo={explorePath}
         selected={
           window.location.pathname.includes(explorePath) ||
-          window.location.pathname.includes('package')
+          window.location.pathname.includes('package') ||
+          window.location.pathname.includes('booking')
         }
       >
         Explore

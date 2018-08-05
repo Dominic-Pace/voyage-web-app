@@ -5,10 +5,9 @@ import Spinner from 'react-spinkit'
 import * as actions  from './actions'
 
 import Banner from './banner'
-import Footer from './footer'
+import Footer from '../../components/checkout-footer'
 
 import './styles.css'
-import {calculatePrice} from "../../utils/date";
 
 class PackageView extends React.Component {
   componentWillMount() {
@@ -32,7 +31,11 @@ class PackageView extends React.Component {
               >
                 Test
               </div>
-              <Footer currentPackage={currentPackage} />
+              <Footer
+                buttonLabel="Book Now"
+                buttonType="hashLink"
+                currentPackage={currentPackage}
+              />
             </Grid>
             :
             <Spinner name="three-bounce" />

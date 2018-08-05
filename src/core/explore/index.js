@@ -64,8 +64,6 @@ class ExploreView extends React.Component {
       filters
         ? filters.find(filter => filter.id === Number(filterId))
         : { name: '' }
-
-        console.log(filterId)
     if (filterId === '/explore') {
       return 'Featured'
     } else if (filterId === 'all') {

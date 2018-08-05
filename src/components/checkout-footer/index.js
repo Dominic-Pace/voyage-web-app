@@ -1,12 +1,12 @@
 import React from 'react'
-import {calculatePrice, getDifferenceInDays} from '../../../utils/date'
+import {calculatePrice, getDifferenceInDays} from '../../utils/date'
 
 import { Col, Row } from 'react-bootstrap'
-import Image from '../../../components/image'
+import Image from '../image'
 import Rating from 'react-rating'
-import { RoundedButton } from '../../../components/button'
+import { RoundedButton } from '../button'
 
-const ExploreBanner = ({ currentPackage }) => {
+const CheckoutFooter = ({ buttonLabel, buttonType, currentPackage, onButtonClick }) => {
   const differenceInDays = getDifferenceInDays(currentPackage.startDate, currentPackage.endDate)
 
   return (
@@ -52,14 +52,15 @@ const ExploreBanner = ({ currentPackage }) => {
           </Col>
           <RoundedButton
             className="top-section-btn"
-            label="Book Now"
+            label={buttonLabel}
             linkTo={`/booking/${currentPackage.id}`}
+            onClick={onButtonClick}
             style={{
               borderRadius: 3,
               fontWeight: 600,
               width: '30%',
             }}
-            type="hashLink"
+            type={buttonType}
             uppercase
           />
         </div>
@@ -68,4 +69,4 @@ const ExploreBanner = ({ currentPackage }) => {
   )
 }
 
-export default ExploreBanner
+export default CheckoutFooter
