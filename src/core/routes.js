@@ -1,3 +1,4 @@
+import BookingView from './booking/index'
 import ExploreView from './explore'
 import PackageView from './package'
 
@@ -7,8 +8,12 @@ const routes = [
     component: ExploreView
   },
   {
-    path: '/package',
+    path: '/package/:id',
     component: PackageView
+  },
+  {
+    path: '/booking/:id',
+    component: BookingView
   }
 ]
 

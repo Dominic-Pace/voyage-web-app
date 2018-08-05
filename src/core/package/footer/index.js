@@ -53,7 +53,7 @@ const ExploreBanner = ({ currentPackage }) => {
           <RoundedButton
             className="top-section-btn"
             label="Book Now"
-            linkTo={`/explore/${currentPackage.id}/book`}
+            linkTo={`/booking/${currentPackage.id}`}
             style={{
               borderRadius: 3,
               fontWeight: 600,
