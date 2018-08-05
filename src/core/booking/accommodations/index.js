@@ -1,8 +1,11 @@
 import React from 'react'
+
 import { Grid } from 'react-bootstrap'
 
+import '../styles.css'
+
 const AccommodationsView = () => (
-  <Grid style={{ paddingTop: 40 }}>
+  <Grid className="booking-view-container">
     Accommodations view
   </Grid>
 )

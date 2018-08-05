@@ -1,9 +1,13 @@
 import React from 'react'
 
+import { Grid } from 'react-bootstrap'
+
+import '../styles.css'
+
 const AddOnsView = () => (
-  <div>
+  <Grid className="booking-view-container">
     Add on view
-  </div>
+  </Grid>
 )
 
 export default AddOnsView

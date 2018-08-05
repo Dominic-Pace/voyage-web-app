@@ -1,9 +1,13 @@
 import React from 'react'
 
+import { Grid } from 'react-bootstrap'
+
+import '../styles.css'
+
 const ReviewView = () => (
-  <div>
+  <Grid className="booking-view-container">
     Review view
-  </div>
+  </Grid>
 )
 
 export default ReviewView
