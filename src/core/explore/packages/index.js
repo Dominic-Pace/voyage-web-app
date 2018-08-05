@@ -1,14 +1,11 @@
 import React from 'react'
+import { Row } from 'react-bootstrap'
 import Spinner from 'react-spinkit'
+import { calculatePrice, getDifferenceInDays } from '../../../utils/date'
 
 import { H2 } from '../../../components/text'
-import { Row } from 'react-bootstrap'
 import { HalfSizeCard } from '../../../components/card'
-
-const getDifferenceInDays = (startDate, endDate) => {
-  let timeDiff = Math.abs(new Date(startDate).getTime() - new Date(endDate).getTime())
-  return Math.ceil(timeDiff / (1000 * 3600 * 24))
-}
+import ErrorImage from '../../../components/error-image'
 
 const Packages = ({ currentFilter, packages }) => (
   <Row className="explore-packages" componentClass="explore-packages-row">
@@ -16,18 +13,25 @@ const Packages = ({ currentFilter, packages }) => (
     <Row className="explore-banner-categories">
       {
         packages ?
-          packages.map(travelPackage => (
-              <HalfSizeCard
-                imageUrl={travelPackage.imageUrl}
-                key={travelPackage.name}
-                lengthInDays={getDifferenceInDays(travelPackage.startDate, travelPackage.endDate)}
-                linkTo={`/package/${travelPackage.id}`}
-                locations={travelPackage.locations}
-                pricePerPerson={travelPackage.startingPrice}
-                title={travelPackage.name}
-              />
+          packages.length
+            ?
+            packages.map(travelPackage => (
+                <HalfSizeCard
+                  imageUrl={travelPackage.imageUrl}
+                  key={travelPackage.name}
+                  lengthInDays={getDifferenceInDays(travelPackage.startDate, travelPackage.endDate)}
+                  linkTo={`/package/${travelPackage.id}`}
+                  locations={travelPackage.locations}
+                  pricePerPerson={calculatePrice(travelPackage)}
+                  title={travelPackage.name}
+                />
+              )
             )
-          )
+            :
+            <ErrorImage
+              message="There are no packages in this category available, please try to filter by another category or location."
+              titleMessage="No Packages Available :("
+            />
           :
           <Spinner name="three-bounce" />
       }

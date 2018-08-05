@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Grid } from 'react-bootstrap'
+import { getDateDiffFromToday } from '../../utils/date'
 
 import * as actions  from './actions'
 import Banner from './banner'
@@ -21,6 +22,12 @@ class ExploreView extends React.Component {
     const filteredPackages = []
 
     if (filterId === '/explore') {
+      return packages && packages.filter(travelPackage => {
+        if (getDateDiffFromToday(travelPackage.__meta__.createdDate) < 3) {
+          return travelPackage
+        }
+      })
+    } else if (filterId === 'all') {
       return packages
     } else {
       packages ?
@@ -52,8 +59,11 @@ class ExploreView extends React.Component {
         ? filters.find(filter => filter.id === Number(filterId))
         : { name: '' }
 
+        console.log(filterId)
     if (filterId === '/explore') {
       return 'Featured'
+    } else if (filterId === 'all') {
+      return 'All'
     } else {
       return currentFilter.name
     }

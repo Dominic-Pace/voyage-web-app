@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
+import ErrorFace from './images/no-data.png'
 import FacebookLogo from './images/facebook.svg'
 import InstagramLogo from './images/instagram.png'
 import LinkedInLogo from './images/linkedin.png'
@@ -9,6 +10,7 @@ import VoyagoLogo from './images/voyago-logo.png'
 import VoyagoText from './images/voyago-text.png'
 
 const types = {
+  errorFace: ErrorFace,
   facebook: FacebookLogo,
   instagram: InstagramLogo,
   linkedIn: LinkedInLogo,

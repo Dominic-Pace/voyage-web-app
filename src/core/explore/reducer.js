@@ -13,6 +13,17 @@ const INITIAL_STATE = {
   isRequesting: false,
 }
 
+const filterActivePackages = travelPackages => {
+  const dateToday = new Date()
+  const activePackages = travelPackages.filter(travelPackage => {
+    const validUntilDate = new Date(travelPackage.validUntil)
+    if (validUntilDate > dateToday) {
+      return travelPackage
+    }
+  })
+  return activePackages
+}
+
 export default (state=INITIAL_STATE, action) => {
   switch(action.type) {
     case FETCH_FILTERS_REQUEST:
@@ -21,11 +32,18 @@ export default (state=INITIAL_STATE, action) => {
       return {
         ...state,
         filters: [
-          ...[{
-            coverImageUrl: 'https://images.pexels.com/photos/163688/hiker-travel-trip-wander-163688.jpeg',
-            id: undefined,
-            name: 'Show Featured',
-          }],
+          ...[
+            {
+              coverImageUrl: 'https://images.pexels.com/photos/163688/hiker-travel-trip-wander-163688.jpeg',
+              id: undefined,
+              name: 'Show Featured',
+            },
+            {
+              coverImageUrl: 'https://images.pexels.com/photos/346885/pexels-photo-346885.jpeg',
+              id: 'all',
+              name: 'Show All',
+            }
+          ],
           ...action.filters.sort(sortAlphabeticallyByName)
         ],
         isRequesting: false,
@@ -37,7 +55,7 @@ export default (state=INITIAL_STATE, action) => {
     case FETCH_PACKAGES_SUCCESS:
       return {
         ...state,
-        packages: action.packages,
+        packages: filterActivePackages(action.packages),
         isRequesting: false,
       }
     case FETCH_PACKAGES_FAILURE:
