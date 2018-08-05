@@ -20,18 +20,21 @@ class BookPackage extends React.Component {
 
   steps = [
     {
+      href: '',
       title: 'Add-ons',
       onClick: (e) => {
         e.preventDefault()
         this.setState({ currentStep: 0 })
       }
     }, {
+      href: '',
       title: 'Accommodations',
       onClick: (e) => {
         e.preventDefault()
         this.setState({ currentStep: 1 })
       }
     }, {
+      href: '',
       title: 'Payment Options',
       onClick: (e) => {
         e.preventDefault()
