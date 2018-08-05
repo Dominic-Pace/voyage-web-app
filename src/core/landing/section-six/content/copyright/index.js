@@ -4,7 +4,7 @@ import { Row } from 'react-bootstrap'
 
 const CopyrightContent = () => (
     <Row className="footer-text">
-      © Voyago {(new Date()).getFullYear()} - All Rights Reserved
+      © Thundermill Labs LLC {(new Date()).getFullYear()} - All Rights Reserved
     </Row>
 )
 
