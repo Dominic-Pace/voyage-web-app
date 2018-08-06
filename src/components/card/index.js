@@ -16,6 +16,7 @@ const renderCardBannerTag = (amountAvailable, nightlyPrice) => (
 )
 
 export { HalfSizeCard } from './half'
+export { FunCard } from './fun'
 
 const TagCard = ({
                    amountAvailable,

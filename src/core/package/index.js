@@ -12,6 +12,7 @@ import './styles.css'
 class PackageView extends React.Component {
   componentWillMount() {
     this.props.fetchPackageById(this.normalizeLocationPathname())
+    this.props.fetchThingsToDo('San Diego, CA')
   }
 
   normalizeLocationPathname = () => window.location.pathname.replace('/package/', '')

@@ -3,8 +3,9 @@ import { Row } from 'react-bootstrap'
 
 import './styles.css'
 
-export const H1 = ({ bold, center, className, color, children, style }) => (
+export const H1 = ({ bold, center, className, color, children, rowClassName, style }) => (
   <Row
+    className={rowClassName}
     md={12}
     style={{
       justifyContent: center ? 'center' : null,

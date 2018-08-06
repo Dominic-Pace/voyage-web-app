@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import * as actions from '../package/actions'
+import * as _ from 'lodash'
 
 import AccommodationsView from './accommodations'
 import AddOnsView from './add-ons'
@@ -21,14 +22,14 @@ class BookPackage extends React.Component {
   steps = [
     {
       href: '',
-      title: 'Add-ons',
+      title: 'Brainstorm Activities',
       onClick: (e) => {
         e.preventDefault()
         this.setState({ currentStep: 0 })
       }
     }, {
       href: '',
-      title: 'Accommodations',
+      title: 'Select Accommodations',
       onClick: (e) => {
         e.preventDefault()
         this.setState({ currentStep: 1 })
@@ -50,7 +51,14 @@ class BookPackage extends React.Component {
   ]
 
   componentWillMount() {
-    this.props.fetchPackageById(this.normalizeLocationPathname())
+    this.props.fetchPackageById(this.normalizeLocationPathname()).then(() => {
+      const locations = this.props.currentPackage.locations
+      if (_.size(locations) === 1) {
+        this.props.fetchThingsToDo(locations.location1)
+      } else {
+        this.props.fetchThingsToDo(locations.location2)
+      }
+    })
   }
 
   normalizeLocationPathname = () => window.location.pathname.replace('/booking/', '')
@@ -63,11 +71,11 @@ class BookPackage extends React.Component {
   }
 
   renderCheckoutContent = () => {
+    const { thingsToDo } = this.props
     const { currentStep } = this.state
-
     switch(currentStep) {
       case 0:
-        return <AddOnsView />
+        return <AddOnsView thingsToDo={thingsToDo}/>
       case 1:
         return <AccommodationsView />
       case 2:
@@ -109,10 +117,12 @@ const mapStateToProps = ({ travelPackage }) => {
   const {
     currentPackage,
     isRequesting,
+    thingsToDo,
   } = travelPackage
   return {
     currentPackage,
     isRequesting,
+    thingsToDo,
   }
 }
 export default connect(mapStateToProps, { ...actions })(BookPackage)
