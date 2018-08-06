@@ -3,7 +3,7 @@ import { Col, Row } from 'react-bootstrap'
 import { H2 } from '../../text'
 import Rating from 'react-rating'
 
-const FunImage = ({ addOn }) => (
+const FunContent = ({ addOn }) => (
   <Col className="fun-card-content">
     <Col className="fun-card-content-left">
       <H2
@@ -19,14 +19,19 @@ const FunImage = ({ addOn }) => (
       <Row className="fun-card-address">
         {
           addOn.location.display_address.map(address => (
-            <div>{address}</div>
+            <div key={address}>{address}</div>
           ))
         }
       </Row>
       <Row className="fun-card-tags">
         {
           addOn.categories.map(category => (
-            <div className="fun-card-tags-card"> {category.title} </div>
+            <div
+              className="fun-card-tags-card"
+              key={category.title}
+            >
+              {category.title}
+            </div>
           ))
         }
       </Row>
@@ -50,4 +55,4 @@ const FunImage = ({ addOn }) => (
   </Col>
 )
 
-export default FunImage
+export default FunContent

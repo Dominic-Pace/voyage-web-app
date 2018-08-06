@@ -71,8 +71,11 @@ class BookPackage extends React.Component {
   }
 
   renderCheckoutContent = () => {
-    const { thingsToDo } = this.props
+    const { isRequesting, thingsToDo } = this.props
     const { currentStep } = this.state
+    if (isRequesting) {
+      return <Spinner name="three-bounce" />
+    }
     switch(currentStep) {
       case 0:
         return <AddOnsView thingsToDo={thingsToDo}/>

@@ -18,6 +18,7 @@ const AddOnsView = ({ thingsToDo }) => (
           <FunCard
             addOn={addOn}
             handleClick={() => handleClick}
+            key={addOn.name}
           />
         ))
         :
