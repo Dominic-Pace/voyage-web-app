@@ -1,24 +1,26 @@
 import React from 'react'
 
+import Filters from './filters'
 import { FunCard } from '../../../components/card'
 import { Grid } from 'react-bootstrap'
 
 import '../styles.css'
 
-const handleClick = name => {
-  console.log('clicked', name)
-}
-
-const AddOnsView = ({ thingsToDo }) => (
+const ActivitiesView = ({ handleActivityClick, handleFilterClick, selectedActivities, thingsToDo, yelpTags }) => (
   <Grid className="booking-view-container">
+    <Filters
+      handleClick={handleFilterClick}
+      yelpTags={yelpTags}
+    />
     {
       thingsToDo
         ?
         thingsToDo.map(addOn => (
           <FunCard
             addOn={addOn}
-            handleClick={() => handleClick}
+            handleClick={handleActivityClick}
             key={addOn.name}
+            selected={(selectedActivities.indexOf(addOn.id) > -1)}
           />
         ))
         :
@@ -27,4 +29,4 @@ const AddOnsView = ({ thingsToDo }) => (
   </Grid>
 )
 
-export default AddOnsView
+export default ActivitiesView

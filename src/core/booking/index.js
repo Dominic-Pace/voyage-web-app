@@ -4,7 +4,7 @@ import * as actions from '../package/actions'
 import * as _ from 'lodash'
 
 import AccommodationsView from './accommodations'
-import AddOnsView from './add-ons'
+import AddOnsView from './activities'
 import CheckoutFooter from '../../components/checkout-footer'
 import { Grid } from 'react-bootstrap'
 import PaymentView from './payment'
@@ -17,6 +17,8 @@ import './styles.css'
 class BookPackage extends React.Component {
   state = {
     currentStep: 0,
+    locationName: '',
+    selectedActivities: [],
   }
 
   steps = [
@@ -51,14 +53,33 @@ class BookPackage extends React.Component {
   ]
 
   componentWillMount() {
+    this.props.fetchYelpTags()
     this.props.fetchPackageById(this.normalizeLocationPathname()).then(() => {
       const locations = this.props.currentPackage.locations
       if (_.size(locations) === 1) {
-        this.props.fetchThingsToDo(locations.location1)
+        this.setState({ locationName: locations.location1 })
+        this.props.fetchThingsToDo(locations.location1, null)
       } else {
-        this.props.fetchThingsToDo(locations.location2)
+        this.setState({ locationName: locations.location2 })
+        this.props.fetchThingsToDo(locations.location2, null)
       }
     })
+  }
+
+  handleActivitySelect = activityId => {
+    const { selectedActivities } = this.state
+    if ((selectedActivities.indexOf(activityId) > -1)) {
+      this.setState(prevState => ({
+        selectedActivities: [
+          ...prevState.selectedActivities.slice(0, prevState.selectedActivities.indexOf(activityId)),
+          ...prevState.selectedActivities.slice(prevState.selectedActivities.indexOf(activityId) + 1)
+        ]
+      }))
+    } else {
+      this.setState(prevState => ({
+        selectedActivities: [...prevState.selectedActivities, activityId]
+      }))
+    }
   }
 
   normalizeLocationPathname = () => window.location.pathname.replace('/booking/', '')
@@ -71,14 +92,20 @@ class BookPackage extends React.Component {
   }
 
   renderCheckoutContent = () => {
-    const { isRequesting, thingsToDo } = this.props
-    const { currentStep } = this.state
+    const { isRequesting, thingsToDo, yelpTags } = this.props
+    const { currentStep, locationName, selectedActivities } = this.state
     if (isRequesting) {
       return <Spinner name="three-bounce" />
     }
     switch(currentStep) {
       case 0:
-        return <AddOnsView thingsToDo={thingsToDo}/>
+        return <AddOnsView
+          handleActivityClick={activityId => { this.handleActivitySelect(activityId) }}
+          handleFilterClick={category => {this.props.fetchThingsToDo(locationName, category)}}
+          selectedActivities={selectedActivities}
+          thingsToDo={thingsToDo}
+          yelpTags={yelpTags}
+        />
       case 1:
         return <AccommodationsView />
       case 2:
@@ -120,12 +147,16 @@ const mapStateToProps = ({ travelPackage }) => {
   const {
     currentPackage,
     isRequesting,
+    selectedActivities,
     thingsToDo,
+    yelpTags,
   } = travelPackage
   return {
     currentPackage,
     isRequesting,
+    selectedActivities,
     thingsToDo,
+    yelpTags,
   }
 }
 export default connect(mapStateToProps, { ...actions })(BookPackage)

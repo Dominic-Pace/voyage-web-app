@@ -35,8 +35,19 @@
       border-radius: 5px;
       box-shadow: 0 8px 8px 0 rgba($voyago-primary, 0.2), 6px 12px 20px 6px rgba($voyago-primary, 0.19);
       cursor: pointer;
+      display: flex;
       height: 175px;
+      margin: 25px;
+      padding: 0;
       width: 100%;
+      &:hover {
+        border: 1px solid $voyago-grey;
+        border-radius: 5px;
+        box-shadow: 0 8px 8px 0 rgba($voyago-primary, 0.2), 6px 12px 20px 6px rgba($voyago-dark-purple, 0.19);
+        cursor: pointer;
+        height: 175px;
+        width: 100%;
+      }
     }
   }
   &-content {
@@ -58,6 +69,7 @@
   &-name {
     @extend %text-highlight;
     margin: 0;
+    white-space: nowrap;
   }
   &-phone {
     height: 15%;
@@ -71,13 +83,16 @@
     margin: 0;
     padding-top: 5px;
     &-card {
+      align-items: center;
       background-color: rgba($voyago-pink, 0.1);
       border: 1px solid $voyago-pink;
       border-radius: 5px;
       color: $voyago-pink;
+      display: flex;
       font-size: 14px;
       margin-right: 15px;
       padding: 3px;
+      white-space: nowrap;
     }
   }
 }

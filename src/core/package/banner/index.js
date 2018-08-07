@@ -3,7 +3,7 @@ import { calculatePrice } from '../../../utils/date'
 
 import { H1 } from '../../../components/text'
 
-const ExploreBanner = ({ currentPackage }) => (
+const PackageBanner = ({ currentPackage }) => (
   <div
     className="package-banner"
     style={{ backgroundImage: `url(${currentPackage.imageUrl})` }}
@@ -17,4 +17,4 @@ const ExploreBanner = ({ currentPackage }) => (
   </div>
 )
 
-export default ExploreBanner
+export default PackageBanner

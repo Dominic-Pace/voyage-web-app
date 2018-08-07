@@ -1,7 +1,9 @@
 import React from 'react'
+
 import { Col, Row } from 'react-bootstrap'
 import { H2 } from '../../text'
 import Rating from 'react-rating'
+import Tag from '../../tag'
 
 const FunContent = ({ addOn }) => (
   <Col className="fun-card-content">
@@ -26,12 +28,9 @@ const FunContent = ({ addOn }) => (
       <Row className="fun-card-tags">
         {
           addOn.categories.map(category => (
-            <div
-              className="fun-card-tags-card"
-              key={category.title}
-            >
-              {category.title}
-            </div>
+            <Tag
+              title={category.title}
+            />
           ))
         }
       </Row>

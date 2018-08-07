@@ -5,10 +5,16 @@ import {
   FETCH_THINGS_TO_DO_FAILURE,
   FETCH_THINGS_TO_DO_REQUEST,
   FETCH_THINGS_TO_DO_SUCCESS,
+  FETCH_YELP_TAGS_FAILURE,
+  FETCH_YELP_TAGS_REQUEST,
+  FETCH_YELP_TAGS_SUCCESS,
 } from './types'
+
+import { sortAlphabeticallyByDisplayName } from '../../utils/sort'
 
 const INITIAL_STATE = {
   isRequesting: false,
+  selectedActivities: [],
 }
 
 export default (state=INITIAL_STATE, action) => {
@@ -32,6 +38,24 @@ export default (state=INITIAL_STATE, action) => {
         isRequesting: false,
       }
     case FETCH_THINGS_TO_DO_FAILURE:
+      return { ...state, errorMessage: action.error, isRequesting: false }
+    case FETCH_YELP_TAGS_REQUEST:
+      return { ...state, isRequesting: true }
+    case FETCH_YELP_TAGS_SUCCESS:
+      return {
+        ...state,
+        yelpTags: [
+          ...[
+            {
+              displayName: 'All',
+              filterName: null,
+            },
+            ...action.yelpTags.sort(sortAlphabeticallyByDisplayName)
+          ]
+        ],
+        isRequesting: false,
+      }
+    case FETCH_YELP_TAGS_FAILURE:
       return { ...state, errorMessage: action.error, isRequesting: false }
     default:
       return state
