@@ -36,7 +36,7 @@ export const fetchPackageById = id => (
 export const fetchThingsToDo = (location, category) => (
   dispatch => {
     const urlProxy =
-      `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=things+to+do&location=${location}&radius=30000&limit=50${category ? `&categories=${category}` : '' }`
+      `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=things+to+do&location=${location}&radius=32187&limit=50${category ? `&categories=${category}` : '' }`
     dispatch({type: FETCH_THINGS_TO_DO_REQUEST})
     return axios.get(urlProxy,
       {
