@@ -10,13 +10,19 @@ const renderAccommodationName = accommodation =>
   accommodation.name ||
   `${accommodation.stars} Star ${accommodation.type} in ${accommodation.locationName}`
 
-const renderAccommodationPrice = accommodation =>
-  accommodation.name ?
-    ''
-    :
-    `$${Math.round(accommodation.twoPersonPrice)}`
+const renderAccommodationPrice = (accommodation, numOfPeople) => {
+  if (accommodation.name) {
+    return ''
+  }
+  if (numOfPeople >= 2) {
+    return `$${Math.round(accommodation.twoPersonPrice)}`
+  } else {
+    return `$${Math.round(accommodation.threeToFourPersonPrice)}`
+  }
+}
 
-const AccommodationContent = ({ accommodation }) => (
+
+const AccommodationContent = ({ accommodation, numOfPeople }) => (
   <Col className="accommodation-card-content">
     <Col className="accommodation-card-content-left">
       <Row>
@@ -57,6 +63,7 @@ const AccommodationContent = ({ accommodation }) => (
           accommodation.couldBe &&
           accommodation.couldBe.map(similarPlace => (
             <Tag
+              key={similarPlace.name}
               title={similarPlace.name}
             />
           ))
@@ -77,7 +84,7 @@ const AccommodationContent = ({ accommodation }) => (
       </Row>
       <Row className="accommodation-card-price-container">
         <H1 bold center className="accommodation-card-price">
-          {renderAccommodationPrice(accommodation)}
+          {renderAccommodationPrice(accommodation, numOfPeople)}
         </H1>
         {
           !accommodation.name &&

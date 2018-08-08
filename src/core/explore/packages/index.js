@@ -1,7 +1,7 @@
 import React from 'react'
 import { Row } from 'react-bootstrap'
 import Spinner from 'react-spinkit'
-import { calculatePrice, getDifferenceInDays } from '../../../utils/date'
+import { calculatePackagePrice, getDifferenceInDays } from '../../../utils/date'
 
 import { H2 } from '../../../components/text'
 import { HalfSizeCard } from '../../../components/card'
@@ -22,7 +22,7 @@ const Packages = ({ currentFilter, packages }) => (
                   lengthInDays={getDifferenceInDays(travelPackage.startDate, travelPackage.endDate)}
                   linkTo={`/package/${travelPackage.id}`}
                   locations={travelPackage.locations}
-                  pricePerPerson={calculatePrice(travelPackage)}
+                  pricePerPerson={calculatePackagePrice(travelPackage)}
                   title={travelPackage.name}
                 />
               )

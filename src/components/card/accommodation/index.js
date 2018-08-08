@@ -13,12 +13,12 @@ const determineClassName = (accommodation, selected)=> {
     return 'wide-card-container'
   }
 }
-export const AccommodationCard = ({ accommodation, handleClick, selected }) => (
+export const AccommodationCard = ({ accommodation, handleClick, numOfPeople, selected }) => (
   <Grid
     className={determineClassName(accommodation, selected)}
     onClick={() => { handleClick(accommodation) }}
   >
     <WideImage imageUrl={accommodation.imageUrl} selected={selected} />
-    <Content accommodation={accommodation} />
+    <Content accommodation={accommodation} numOfPeople={numOfPeople} />
   </Grid>
 )

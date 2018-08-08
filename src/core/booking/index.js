@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import * as actions from '../package/actions'
 import * as _ from 'lodash'
+import { calculatePrice, getDifferenceInDays } from '../../utils/date'
 
 import AccommodationsView from './accommodations'
 import ActivitiesView from './activities'
@@ -18,6 +19,7 @@ class BookPackage extends React.Component {
   state = {
     currentStep: 0,
     locationName: '',
+    numOfPeople: 4,
     selectedAccommodation: {},
     selectedActivities: [],
   }
@@ -69,6 +71,35 @@ class BookPackage extends React.Component {
     })
   }
 
+  calculateCheckoutPrice = () => {
+    const { numOfPeople, selectedAccommodation } = this.state
+    const { currentPackage } = this.props
+    let price = 0
+
+    if (selectedAccommodation.name) {
+      return currentPackage.flightPrice
+    }
+    if (numOfPeople <= 2) {
+      price =
+        currentPackage.flightPrice +
+        (
+          (selectedAccommodation.twoPersonPrice * getDifferenceInDays(currentPackage.startDate, currentPackage.endDate)
+          ) / numOfPeople
+        )
+    } else if (numOfPeople >= 2 && numOfPeople <=4) {
+      price =
+        currentPackage.flightPrice +
+        (
+          (selectedAccommodation.threeToFourPersonPrice * getDifferenceInDays(currentPackage.startDate, currentPackage.endDate)
+          ) / numOfPeople
+        )
+    } else {
+      return 10000
+    }
+
+    return price
+  }
+
   handleActivitySelect = activityId => {
     const { selectedActivities } = this.state
     if ((selectedActivities.indexOf(activityId) > -1)) {
@@ -99,13 +130,21 @@ class BookPackage extends React.Component {
   }
 
   renderCheckoutContent = () => {
-    const { accommodations, isRequesting, thingsToDo, yelpTags } = this.props
+    const {
+      accommodations,
+      isRequesting,
+      thingsToDo,
+      yelpTags
+    } = this.props
+
     const {
       currentStep,
       locationName,
+      numOfPeople,
       selectedAccommodation,
       selectedActivities
     } = this.state
+
     if (isRequesting) {
       return (
         <div className="spinner-container">
@@ -113,6 +152,7 @@ class BookPackage extends React.Component {
         </div>
       )
     }
+
     switch(currentStep) {
       case 0:
         return <ActivitiesView
@@ -126,6 +166,7 @@ class BookPackage extends React.Component {
         return <AccommodationsView
           accommodations={accommodations}
           handleAccommodationClick={accommodation => { this.handleAccommodationSelect(accommodation) }}
+          numOfPeople={numOfPeople}
           selectedAccommodation={selectedAccommodation}
         />
       case 2:
@@ -153,6 +194,7 @@ class BookPackage extends React.Component {
                 buttonLabel={(currentStep === 3) ? 'Complete Order' : 'Next'}
                 currentPackage={currentPackage}
                 onButtonClick={this.onClickNext}
+                checkoutPrice={calculatePrice(currentPackage.validStartingAt, this.calculateCheckoutPrice())}
               />
             </Grid>
             :

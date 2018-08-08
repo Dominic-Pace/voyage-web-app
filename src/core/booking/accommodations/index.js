@@ -15,7 +15,7 @@ class AccommodationView extends React.Component {
   }
 
   render() {
-    const { accommodations, handleAccommodationClick, selectedAccommodation } = this.props
+    const { accommodations, handleAccommodationClick, numOfPeople, selectedAccommodation } = this.props
     return (
       <Grid className="booking-view-container">
         {
@@ -23,6 +23,7 @@ class AccommodationView extends React.Component {
             return <AccommodationCard
               accommodation={accommodation}
               handleClick={handleAccommodationClick}
+              numOfPeople={numOfPeople}
               selected={accommodation.id === selectedAccommodation.id}
             />
           })

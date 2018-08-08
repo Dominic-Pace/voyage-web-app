@@ -1,12 +1,12 @@
 import React from 'react'
-import {calculatePrice, getDifferenceInDays} from '../../utils/date'
+import { calculatePackagePrice, getDifferenceInDays } from '../../utils/date'
 
 import { Col, Row } from 'react-bootstrap'
 import Image from '../image'
 import Rating from 'react-rating'
 import { RoundedButton } from '../button'
 
-const CheckoutFooter = ({ buttonLabel, buttonType, currentPackage, onButtonClick }) => {
+const CheckoutFooter = ({ buttonLabel, buttonType, checkoutPrice, currentPackage, onButtonClick }) => {
   const differenceInDays = getDifferenceInDays(currentPackage.startDate, currentPackage.endDate)
 
   return (
@@ -44,7 +44,13 @@ const CheckoutFooter = ({ buttonLabel, buttonType, currentPackage, onButtonClick
           <Col className="package-footer-total">
             {`TOTAL: `}
             <span className="package-footer-total-amount">
-          {`$${Math.round(calculatePrice(currentPackage))}`}
+              {
+                checkoutPrice ?
+                  `$${Math.round(checkoutPrice)}`
+                :
+              `$${Math.round(calculatePackagePrice(currentPackage))}`
+
+              }
               <span className="package-footer-total-per">
             /person
           </span>
