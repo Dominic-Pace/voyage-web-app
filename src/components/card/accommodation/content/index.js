@@ -14,7 +14,7 @@ const renderAccommodationPrice = (accommodation, numOfPeople) => {
   if (accommodation.name) {
     return ''
   }
-  if (numOfPeople >= 2) {
+  if (numOfPeople <= 2) {
     return `$${Math.round(accommodation.twoPersonPrice)}`
   } else {
     return `$${Math.round(accommodation.threeToFourPersonPrice)}`

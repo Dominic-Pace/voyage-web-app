@@ -23,7 +23,7 @@ class ExploreView extends React.Component {
 
     if (filterId === '/explore') {
       return packages && packages.filter(travelPackage => {
-        if (getDateDiffFromToday(travelPackage.__meta__.createdDate) < 3) {
+        if (getDateDiffFromToday(travelPackage.validStartingAt) < 3) {
           return travelPackage
         }
       })

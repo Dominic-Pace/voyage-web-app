@@ -20,7 +20,7 @@ class BookPackage extends React.Component {
     currentStep: 0,
     locationName: '',
     numOfPeople: 4,
-    selectedAccommodation: {},
+    selectedAccommodation: undefined,
     selectedActivities: [],
   }
 
@@ -72,32 +72,32 @@ class BookPackage extends React.Component {
   }
 
   calculateCheckoutPrice = () => {
-    const { numOfPeople, selectedAccommodation } = this.state
-    const { currentPackage } = this.props
+    const {numOfPeople, selectedAccommodation} = this.state
+    const {currentPackage} = this.props
     let price = 0
 
-    if (selectedAccommodation.name) {
-      return currentPackage.flightPrice
-    }
-    if (numOfPeople <= 2) {
-      price =
-        currentPackage.flightPrice +
-        (
-          (selectedAccommodation.twoPersonPrice * getDifferenceInDays(currentPackage.startDate, currentPackage.endDate)
-          ) / numOfPeople
-        )
-    } else if (numOfPeople >= 2 && numOfPeople <=4) {
-      price =
-        currentPackage.flightPrice +
-        (
-          (selectedAccommodation.threeToFourPersonPrice * getDifferenceInDays(currentPackage.startDate, currentPackage.endDate)
-          ) / numOfPeople
-        )
-    } else {
-      return 10000
-    }
+    if (selectedAccommodation) {
+      if (selectedAccommodation.name) {
+        return currentPackage.flightPrice + currentPackage.otherPrice || 0
+      }
 
-    return price
+      if (numOfPeople <= 2) {
+        price =
+          currentPackage.flightPrice +
+          (
+            (selectedAccommodation.twoPersonPrice * getDifferenceInDays(currentPackage.startDate, currentPackage.endDate)
+            ) / numOfPeople
+          )
+      } else {
+        price =
+          currentPackage.flightPrice +
+          (
+            (selectedAccommodation.threeToFourPersonPrice * getDifferenceInDays(currentPackage.startDate, currentPackage.endDate)
+            ) / numOfPeople
+          )
+      }
+      return price + currentPackage.otherPrice || 0
+    }
   }
 
   handleActivitySelect = activityId => {

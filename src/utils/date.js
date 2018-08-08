@@ -8,9 +8,9 @@ export const calculatePrice = (validDate, price) => {
   } else if ((diffInDays > 3) && (diffInDays <= 5)){
     return price * (1.03 + (.004 * diffInDays))
   } else if (diffInDays > 5 && diffInDays <= 10){
-    return price * (1.03 + (.006 * diffInDays))
+    return price * (1.03 + (.005 * diffInDays))
   } else {
-    return price * (1.03 + (.009 * diffInDays))
+    return price * (1.03 + (.006 * diffInDays))
   }
 }
 
@@ -27,9 +27,9 @@ export const calculatePackagePrice = travelPackage => {
   } else if ((diffInDays > 3) && (diffInDays <= 5)){
     return beforeCalcPrice * (1.03 + (.004 * diffInDays))
   } else if (diffInDays > 5 && diffInDays <= 10){
-    return beforeCalcPrice * (1.03 + (.006 * diffInDays))
+    return beforeCalcPrice * (1.03 + (.005 * diffInDays))
   } else {
-    return beforeCalcPrice * (1.03 + (.009 * diffInDays))
+    return beforeCalcPrice * (1.03 + (.006 * diffInDays))
   }
 }
 

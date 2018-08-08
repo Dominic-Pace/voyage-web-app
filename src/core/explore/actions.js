@@ -12,6 +12,7 @@ import {
   packagesRef,
   travelCategoriesRef,
 } from '../../utils/firebase/firebase-refs'
+import {getDateDiffFromToday} from "../../utils/date";
 
 export const fetchFilters = () => (
   dispatch => {
@@ -45,7 +46,10 @@ export const fetchPackages = () => (
     dispatch({ type: FETCH_PACKAGES_REQUEST })
     return packagesRef.once('value', snap => {
       snap.forEach(data => {
-        packages.push(data.val())
+        const travelPackage = data.val()
+        if(getDateDiffFromToday(travelPackage.validStartingAt) >= 0){
+          packages.push(travelPackage)
+        }
       })
     }).then(res => {
       dispatch({ type: FETCH_PACKAGES_SUCCESS, packages: packages })
