@@ -7,6 +7,10 @@ import { Row } from 'react-bootstrap'
 import './styles.css'
 import { Link } from 'react-router-dom'
 
+export { AccommodationCard } from './accommodation'
+export { FunCard } from './fun'
+export { HalfSizeCard } from './half'
+
 const renderCardBannerTag = (amountAvailable, nightlyPrice) => (
   amountAvailable
     ?
@@ -14,9 +18,6 @@ const renderCardBannerTag = (amountAvailable, nightlyPrice) => (
     :
     `From $${nightlyPrice} per day*`
 )
-
-export { HalfSizeCard } from './half'
-export { FunCard } from './fun'
 
 const TagCard = ({
                    amountAvailable,

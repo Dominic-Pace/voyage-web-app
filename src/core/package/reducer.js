@@ -8,6 +8,9 @@ import {
   FETCH_YELP_TAGS_FAILURE,
   FETCH_YELP_TAGS_REQUEST,
   FETCH_YELP_TAGS_SUCCESS,
+  FETCH_ACCOMMODATIONS_FAILURE,
+  FETCH_ACCOMMODATIONS_REQUEST,
+  FETCH_ACCOMMODATIONS_SUCCESS,
 } from './types'
 
 import { sortAlphabeticallyByDisplayName } from '../../utils/sort'
@@ -47,7 +50,7 @@ export default (state=INITIAL_STATE, action) => {
         yelpTags: [
           ...[
             {
-              displayName: 'All',
+              displayName: 'Top Choices',
               filterName: null,
             },
             ...action.yelpTags.sort(sortAlphabeticallyByDisplayName)
@@ -56,6 +59,38 @@ export default (state=INITIAL_STATE, action) => {
         isRequesting: false,
       }
     case FETCH_YELP_TAGS_FAILURE:
+      return { ...state, errorMessage: action.error, isRequesting: false }
+
+    case FETCH_ACCOMMODATIONS_REQUEST:
+      return { ...state, isRequesting: true }
+    case FETCH_ACCOMMODATIONS_SUCCESS:
+      return {
+        ...state,
+        accommodations: [
+          ...[
+            ...action.accommodations,
+            {
+              couldBe: [
+                {
+                  name: 'Book on Your Own',
+                },
+                {
+                  name: `Recommended Airbnb's`,
+                },
+                {
+                  name: 'Recommended Resorts/Hotels',
+                }
+              ],
+              imageUrl: 'https://airbnb.design/wp-content/uploads/2016/03/airbnb-trust.jpg',
+              name: `I'm not ready to decide right now. Please show me more later or I'll book on my own!`,
+              price: 'More Flexible',
+              stars: 3,
+            }
+          ]
+        ],
+        isRequesting: false,
+      }
+    case FETCH_ACCOMMODATIONS_FAILURE:
       return { ...state, errorMessage: action.error, isRequesting: false }
     default:
       return state

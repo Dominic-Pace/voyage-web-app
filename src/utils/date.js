@@ -3,14 +3,19 @@ const diffInDays = timeDiff => Math.ceil(timeDiff / (1000 * 3600 * 24))
 export const calculatePrice = travelPackage => {
   const diffInDays = getDateDiffFromToday(travelPackage.__meta__.createdDate)
 
-  if (diffInDays <= 2) {
-    return travelPackage.startingPrice
-  } else if ((diffInDays > 2) && (diffInDays <= 5)){
-    return travelPackage.startingPrice * (1.03 + (.004 * diffInDays))
+  const beforeCalcPrice = (travelPackage.flightPrice +
+      travelPackage.accommodationPrice +
+      travelPackage.otherPrice
+  )
+
+  if (diffInDays <= 3) {
+    return beforeCalcPrice
+  } else if ((diffInDays > 3) && (diffInDays <= 5)){
+    return beforeCalcPrice * (1.03 + (.004 * diffInDays))
   } else if (diffInDays > 5 && diffInDays <= 10){
-    return travelPackage.startingPrice * (1.03 + (.006 * diffInDays))
+    return beforeCalcPrice * (1.03 + (.006 * diffInDays))
   } else {
-    return travelPackage.startingPrice * (1.03 + (.009 * diffInDays))
+    return beforeCalcPrice * (1.03 + (.009 * diffInDays))
   }
 }
 

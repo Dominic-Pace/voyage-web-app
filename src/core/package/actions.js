@@ -10,9 +10,13 @@ import {
   FETCH_YELP_TAGS_FAILURE,
   FETCH_YELP_TAGS_REQUEST,
   FETCH_YELP_TAGS_SUCCESS,
+  FETCH_ACCOMMODATIONS_FAILURE,
+  FETCH_ACCOMMODATIONS_REQUEST,
+  FETCH_ACCOMMODATIONS_SUCCESS,
 } from './types'
 
 import {
+  singleAccommodationsRef,
   singlePackageRef,
   yelpTagsRef,
 } from '../../utils/firebase/firebase-refs'
@@ -67,5 +71,23 @@ export const fetchYelpTags = () => (
     }).catch(err => {
       dispatch({ type: FETCH_YELP_TAGS_FAILURE, error: err })
     })
+  }
+)
+
+
+export const fetchAccommodations = accommodationIds => (
+  dispatch => {
+    const accommodations = []
+    dispatch({type: FETCH_ACCOMMODATIONS_REQUEST})
+    return accommodationIds.map(id => {
+        singleAccommodationsRef(id).once('value', accommodation => {
+          accommodations.push(accommodation.val())
+        }).then(res => {
+          dispatch({type: FETCH_ACCOMMODATIONS_SUCCESS, accommodations: accommodations})
+        }).catch(err => {
+          dispatch({type: FETCH_ACCOMMODATIONS_FAILURE, error: err})
+        })
+      }
+    )
   }
 )

@@ -7,5 +7,5 @@ export const packagesRef = database.ref('/flamelink/environments/production/cont
 export const travelCategoriesRef = database.ref('/flamelink/environments/production/content/travelCategeories/en-US')
 export const locationsRef = database.ref('/flamelink/environments/production/content/locations/en-US')
 export const yelpTagsRef = database.ref('/flamelink/environments/production/content/yelpTags/en-US')
+export const singleAccommodationsRef = id => database.ref(`/flamelink/environments/production/content/accommodations/en-US/${id}`)
 export const singlePackageRef = id => database.ref(`/flamelink/environments/production/content/packages/en-US/${id}`)
-

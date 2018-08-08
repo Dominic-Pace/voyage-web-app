@@ -4,7 +4,7 @@ import * as actions from '../package/actions'
 import * as _ from 'lodash'
 
 import AccommodationsView from './accommodations'
-import AddOnsView from './activities'
+import ActivitiesView from './activities'
 import CheckoutFooter from '../../components/checkout-footer'
 import { Grid } from 'react-bootstrap'
 import PaymentView from './payment'
@@ -18,6 +18,7 @@ class BookPackage extends React.Component {
   state = {
     currentStep: 0,
     locationName: '',
+    selectedAccommodation: {},
     selectedActivities: [],
   }
 
@@ -63,6 +64,8 @@ class BookPackage extends React.Component {
         this.setState({ locationName: locations.location2 })
         this.props.fetchThingsToDo(locations.location2, null)
       }
+    }).then(() => {
+      this.props.fetchAccommodations(this.props.currentPackage.accommodations || [])
     })
   }
 
@@ -82,6 +85,10 @@ class BookPackage extends React.Component {
     }
   }
 
+  handleAccommodationSelect = accommodation => {
+    this.setState({ selectedAccommodation: accommodation })
+  }
+
   normalizeLocationPathname = () => window.location.pathname.replace('/booking/', '')
 
   onClickNext = () => {
@@ -92,14 +99,23 @@ class BookPackage extends React.Component {
   }
 
   renderCheckoutContent = () => {
-    const { isRequesting, thingsToDo, yelpTags } = this.props
-    const { currentStep, locationName, selectedActivities } = this.state
+    const { accommodations, isRequesting, thingsToDo, yelpTags } = this.props
+    const {
+      currentStep,
+      locationName,
+      selectedAccommodation,
+      selectedActivities
+    } = this.state
     if (isRequesting) {
-      return <Spinner name="three-bounce" />
+      return (
+        <div className="spinner-container">
+          <Spinner name="three-bounce" />
+        </div>
+      )
     }
     switch(currentStep) {
       case 0:
-        return <AddOnsView
+        return <ActivitiesView
           handleActivityClick={activityId => { this.handleActivitySelect(activityId) }}
           handleFilterClick={category => {this.props.fetchThingsToDo(locationName, category)}}
           selectedActivities={selectedActivities}
@@ -107,7 +123,11 @@ class BookPackage extends React.Component {
           yelpTags={yelpTags}
         />
       case 1:
-        return <AccommodationsView />
+        return <AccommodationsView
+          accommodations={accommodations}
+          handleAccommodationClick={accommodation => { this.handleAccommodationSelect(accommodation) }}
+          selectedAccommodation={selectedAccommodation}
+        />
       case 2:
         return <PaymentView />
       case 3:
@@ -145,6 +165,7 @@ class BookPackage extends React.Component {
 
 const mapStateToProps = ({ travelPackage }) => {
   const {
+    accommodations,
     currentPackage,
     isRequesting,
     selectedActivities,
@@ -152,6 +173,7 @@ const mapStateToProps = ({ travelPackage }) => {
     yelpTags,
   } = travelPackage
   return {
+    accommodations,
     currentPackage,
     isRequesting,
     selectedActivities,

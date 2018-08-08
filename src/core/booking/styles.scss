@@ -14,3 +14,8 @@
     padding-top: 40px;
   }
 }
+
+.spinner-container {
+  @extend %align-all;
+  height: 80vh;
+}
