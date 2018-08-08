@@ -179,7 +179,7 @@ class BookPackage extends React.Component {
 
   render() {
     const { currentPackage } = this.props
-    const { currentStep } = this.state
+    const { currentStep, numOfPeople } = this.state
     return (
       <div>
         {
@@ -193,6 +193,8 @@ class BookPackage extends React.Component {
               <CheckoutFooter
                 buttonLabel={(currentStep === 3) ? 'Complete Order' : 'Next'}
                 currentPackage={currentPackage}
+                handleNumOfPeopleSelect={selectedOption => { this.setState({ numOfPeople: selectedOption.value })}}
+                numOfPeople={numOfPeople}
                 onButtonClick={this.onClickNext}
                 checkoutPrice={calculatePrice(currentPackage.validStartingAt, this.calculateCheckoutPrice())}
               />

@@ -5,8 +5,16 @@ import { Col, Row } from 'react-bootstrap'
 import Image from '../image'
 import Rating from 'react-rating'
 import { RoundedButton } from '../button'
+import Dropdown from "../dropdown";
 
-const CheckoutFooter = ({ buttonLabel, buttonType, checkoutPrice, currentPackage, onButtonClick }) => {
+const numOfPeopleOptions = [
+  { value: 1, label: '1' },
+  { value: 2, label: '2' },
+  { value: 3, label: '3' },
+  { value: 4, label: '4' },
+]
+
+const CheckoutFooter = ({ buttonLabel, buttonType, checkoutPrice, currentPackage, handleNumOfPeopleSelect, numOfPeople, onButtonClick }) => {
   const differenceInDays = getDifferenceInDays(currentPackage.startDate, currentPackage.endDate)
 
   return (
@@ -41,21 +49,47 @@ const CheckoutFooter = ({ buttonLabel, buttonType, checkoutPrice, currentPackage
       </Col>
       <Col className="package-footer-checkout-container">
         <div className="package-footer-checkout-btn-container">
-          <Col className="package-footer-total">
-            {`TOTAL: `}
-            <span className="package-footer-total-amount">
+          {
+            handleNumOfPeopleSelect &&
+            <div className="package-footer-total-title">{`# of People: `}</div>
+          }
+          {
+            handleNumOfPeopleSelect &&
+            <Dropdown
+              defaultValue={numOfPeopleOptions[3]}
+              handleChange={handleNumOfPeopleSelect}
+              options={numOfPeopleOptions}
+            />
+          }
+          <span className="package-footer-total-amount">
               {
                 checkoutPrice ?
                   `$${Math.round(checkoutPrice)}`
-                :
-              `$${Math.round(calculatePackagePrice(currentPackage))}`
+                  :
+                  `$${Math.round(calculatePackagePrice(currentPackage))}`
 
               }
-              <span className="package-footer-total-per">
+            <span className="package-footer-total-per">
             /person
           </span>
         </span>
-          </Col>
+          {
+            numOfPeople &&
+            <Col className="package-footer-total">
+              {`TOTAL: `}
+            </Col>
+          }
+          {
+            numOfPeople &&
+            <span className="package-footer-total-amount">
+              {
+                checkoutPrice ?
+                  `$${Math.round(checkoutPrice) * numOfPeople}`
+                  :
+                  `$${Math.round(calculatePackagePrice(currentPackage)) * numOfPeople}`
+              }
+        </span>
+          }
           <RoundedButton
             className="top-section-btn"
             label={buttonLabel}
