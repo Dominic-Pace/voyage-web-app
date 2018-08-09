@@ -193,6 +193,7 @@ class BookPackage extends React.Component {
               <CheckoutFooter
                 buttonLabel={(currentStep === 3) ? 'Complete Order' : 'Next'}
                 currentPackage={currentPackage}
+                currentStep={currentStep}
                 handleNumOfPeopleSelect={selectedOption => { this.setState({ numOfPeople: selectedOption.value })}}
                 numOfPeople={numOfPeople}
                 onButtonClick={this.onClickNext}

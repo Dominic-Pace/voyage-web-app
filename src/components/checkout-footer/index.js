@@ -14,7 +14,15 @@ const numOfPeopleOptions = [
   { value: 4, label: '4' },
 ]
 
-const CheckoutFooter = ({ buttonLabel, buttonType, checkoutPrice, currentPackage, handleNumOfPeopleSelect, numOfPeople, onButtonClick }) => {
+const CheckoutFooter = ({ buttonLabel,
+                          buttonType,
+                          checkoutPrice,
+                          currentPackage,
+                          currentStep,
+                          handleNumOfPeopleSelect,
+                          numOfPeople,
+                          onButtonClick
+                        }) => {
   const differenceInDays = getDifferenceInDays(currentPackage.startDate, currentPackage.endDate)
 
   return (
@@ -50,11 +58,11 @@ const CheckoutFooter = ({ buttonLabel, buttonType, checkoutPrice, currentPackage
       <Col className="package-footer-checkout-container">
         <div className="package-footer-checkout-btn-container">
           {
-            handleNumOfPeopleSelect &&
+            handleNumOfPeopleSelect && (currentStep !== 0) &&
             <div className="package-footer-total-title">{`# of People: `}</div>
           }
           {
-            handleNumOfPeopleSelect &&
+            handleNumOfPeopleSelect && (currentStep !== 0) &&
             <Dropdown
               defaultValue={numOfPeopleOptions[3]}
               handleChange={handleNumOfPeopleSelect}
