@@ -3,6 +3,7 @@ import React from 'react'
 import NavItem from './item'
 
 const homePath = '/'
+const authPath = '/auth'
 const explorePath = '/explore'
 
 const NavigationTabs = () => (
@@ -24,6 +25,12 @@ const NavigationTabs = () => (
       >
         Explore
       </NavItem>
+      {/*<NavItem*/}
+        {/*linkTo={authPath}*/}
+        {/*selected={ window.location.pathname.includes('auth') }*/}
+      {/*>*/}
+        {/*Login*/}
+      {/*</NavItem>*/}
     </div>
   </div>
 )

@@ -10,9 +10,9 @@ import ErrorMessage from '../error-message'
 export const TextInputField = (
   {
     model,
-    number,
     placeholder,
     style,
+    type,
     validation,
     width
   }
@@ -27,7 +27,7 @@ export const TextInputField = (
           width: width || '30vw',
         }, ...style
       }}
-      type={number ? 'number' : 'text'}
+      type={type ? type : 'text'}
       validators={scrubValidatorForValidators(validation)}
     />
     <Row>

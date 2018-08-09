@@ -48,13 +48,13 @@ const CustomRequestForm = () => {
         <Col md={6}>
           <TextInputField
             model="numberOfPeople"
-            number
             placeholder="Number of Travelers"
+            type="number"
           />
           <TextInputField
             model="totalBudget"
-            number
             placeholder="Total Budget for Trip (Leave blank for flexible)"
+            type="number"
           />
           <TextInputField
             model="tags"

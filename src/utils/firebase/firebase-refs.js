@@ -1,5 +1,6 @@
-import database  from './init'
+import database, { firebaseAuth } from './init'
 
+export const authRef = firebaseAuth
 export const contactUsRef = database.ref('/contactUsRequests')
 export const customVacationRef = database.ref('/customVacationRequests')
 export const joinEmailListRef = database.ref('/emailList')

@@ -1,0 +1,28 @@
+@import '../../styles/common.scss';
+
+.login {
+  &-btn {
+    &-container {
+      display: flex;
+      justify-content: flex-end;
+      width: 60%;
+    }
+  }
+  &-container {
+    @extend %align-all;
+    height: 70vh;
+    width: 100vw;
+  }
+  &-form {
+    display: block;
+  }
+  &-link {
+    &-container {
+      width: 40%;
+    }
+  }
+  &-title-container {
+    width: 100%;
+    justify-content: center;
+  }
+}
