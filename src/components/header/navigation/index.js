@@ -6,15 +6,25 @@ const homePath = '/'
 const authPath = '/auth'
 const explorePath = '/explore'
 
-const NavigationTabs = () => (
+const NavigationTabs = ({ handleLogoutClick, user }) => (
   <div className="nav-header float-lg-right">
     <div className="nav-container">
-      <NavItem
-        linkTo={homePath}
-        selected={window.location.pathname === homePath}
-      >
-        Home
-      </NavItem>
+      {
+        user ?
+          <NavItem
+            linkTo={homePath}
+            selected={window.location.pathname === homePath}
+          >
+            Dashboard
+          </NavItem>
+          :
+          <NavItem
+            linkTo={homePath}
+            selected={window.location.pathname === homePath}
+          >
+            Home
+          </NavItem>
+      }
       <NavItem
         linkTo={explorePath}
         selected={
@@ -25,12 +35,23 @@ const NavigationTabs = () => (
       >
         Explore
       </NavItem>
-      {/*<NavItem*/}
-        {/*linkTo={authPath}*/}
-        {/*selected={ window.location.pathname.includes('auth') }*/}
-      {/*>*/}
-        {/*Login*/}
-      {/*</NavItem>*/}
+      {
+        user ?
+          <NavItem
+            handleClick={handleLogoutClick}
+            linkTo={homePath}
+            selected={false}
+          >
+            Logout
+          </NavItem>
+          :
+          <NavItem
+            linkTo={authPath}
+            selected={ window.location.pathname.includes('auth') }
+          >
+            Login
+          </NavItem>
+      }
     </div>
   </div>
 )

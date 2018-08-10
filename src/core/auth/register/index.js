@@ -41,7 +41,7 @@ const LoginView = () => (
               className="top-section-btn"
               label="Register"
               linkTo="/"
-              onClick={() => console.log('login click', this.props.user)}
+              onClick={() => {}}
               style={{
                 borderRadius: 3,
                 fontWeight: 600,

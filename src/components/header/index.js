@@ -7,10 +7,13 @@ import HeaderNav from './navigation'
 
 import './styles.css'
 
-const Header = () => (
+const Header = ({ handleLogoutClick, user }) => (
   <Grid className="header">
     <HeaderLogo />
-    <HeaderNav />
+    <HeaderNav
+      handleLogoutClick={handleLogoutClick}
+      user={user}
+    />
   </Grid>
 )
 

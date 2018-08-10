@@ -14,11 +14,14 @@ class App extends Component {
   componentWillMount() {
     this.props.fetchUser()
   }
+
+
   render () {
+    const { user } = this.props
     return (
       <Router>
         <div id="app-container">
-          <Header />
+          <Header handleLogoutClick={() => { this.props.logoutUser() }} user={user} />
           <Route exact path="/" component={LandingPage} />
           {index.map((route, i) => <RouteWithSubRoutes key={i} {...route} />)}
         </div>
