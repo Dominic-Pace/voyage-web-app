@@ -2,7 +2,6 @@ import React from 'react'
 import { Route } from 'react-router-dom'
 
 export const RouteWithSubRoutes = (route, user) => {
-  console.log('route', route)
   return (
     <Route
       exact={route.exact || false}

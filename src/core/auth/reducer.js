@@ -11,10 +11,10 @@ import {
 } from './types'
 
 const INITIAL_STATE = {
+  errorMessage: null,
   isRequesting: false,
   user: null,
 }
-
 
 export default (state=INITIAL_STATE, action) => {
   switch(action.type) {

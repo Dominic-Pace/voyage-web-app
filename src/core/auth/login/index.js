@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import * as actions from '../actions'
+import { errorMessages, isEmail } from '../../../components/form/validators'
 
 import { Col, Grid, Row } from 'react-bootstrap'
 import { Form } from 'react-redux-form'
@@ -14,6 +15,7 @@ import '../styles.css'
 
 class LoginView extends React.Component {
   render() {
+    const { login } = this.props
     return (
       <Grid className="login-container">
         <Form
@@ -27,6 +29,7 @@ class LoginView extends React.Component {
             <TextInputField
               model="email"
               placeholder="Email"
+              validation={{ validator: isEmail, errorMessage: errorMessages.isEmail}}
             />
           </Row>
           <Row>
@@ -44,7 +47,7 @@ class LoginView extends React.Component {
               <RoundedButton
                 label="Login"
                 linkTo="/"
-                onClick={() => {this.props.loginUser({ email: 'dominic.voyago@gmail.com', password: 'Welcome1!'})}}
+                onClick={() => {this.props.loginUser(login)}}
                 style={{
                   borderRadius: 3,
                   fontWeight: 600,
@@ -61,14 +64,16 @@ class LoginView extends React.Component {
   }
 }
 
-const mapStateToProps = ({ auth }) => {
+const mapStateToProps = ({ auth, forms }) => {
   const {
-    user,
     isRequesting,
+    user,
   } = auth
+  const { login } = forms
   return {
-    user,
     isRequesting,
+    login,
+    user,
   }
 }
 export default connect(mapStateToProps, { ...actions })(LoginView)

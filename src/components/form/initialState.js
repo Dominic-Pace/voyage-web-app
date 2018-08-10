@@ -23,3 +23,8 @@ export const customPackageForm = {
 export const joinMailListForm = {
   email: '',
 }
+
+export const userForm = {
+  email: '',
+  password: '',
+}

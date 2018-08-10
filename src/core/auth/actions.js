@@ -31,9 +31,9 @@ export const loginUser = userCreds => (
     return authRef.signInWithEmailAndPassword(userCreds.email, userCreds.password)
       .then(res => {
         dispatch({ type: USER_LOGIN_SUCCESS, user: res.user })
-    }).catch(err => {
-      dispatch({ type: USER_LOGIN_FAILURE, error: err })
-    })
+      }).catch(err => {
+        dispatch({ type: USER_LOGIN_FAILURE, error: 'Invalid Email or Password. Please try again!' })
+      })
   }
 )
 
