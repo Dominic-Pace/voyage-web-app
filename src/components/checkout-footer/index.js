@@ -20,6 +20,7 @@ const CheckoutFooter = ({ buttonLabel,
                           currentPackage,
                           currentStep,
                           handleNumOfPeopleSelect,
+                          isAuthed,
                           numOfPeople,
                           onButtonClick
                         }) => {
@@ -101,7 +102,7 @@ const CheckoutFooter = ({ buttonLabel,
           <RoundedButton
             className="top-section-btn"
             label={buttonLabel}
-            linkTo={`/booking/${currentPackage.id}`}
+            linkTo={isAuthed ? `/booking/${currentPackage.id}` : '/auth'}
             onClick={onButtonClick}
             style={{
               borderRadius: 3,

@@ -45,7 +45,7 @@ class RegisterView extends React.Component {
               <RoundedButton
                 label="Register"
                 linkTo="/"
-                onClick={() => {this.props.loginUser(register)}}
+                onClick={() => {this.props.registerUser(register)}}
                 style={{
                   borderRadius: 3,
                   fontWeight: 600,

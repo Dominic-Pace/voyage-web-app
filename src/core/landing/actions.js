@@ -19,6 +19,7 @@ import {
   joinEmailListRef,
   locationsRef,
 } from '../../utils/firebase/firebase-refs'
+import {toast} from "react-toastify";
 
 export const fetchFeaturedLocations = () => (
   dispatch => {
@@ -32,7 +33,7 @@ export const fetchFeaturedLocations = () => (
     }).then(res => {
       dispatch({ type: FETCH_FEATURED_LOCATIONS_SUCCESS, featuredLocations: featuredLocations })
     }).catch(err => {
-      dispatch({ type: FETCH_FEATURED_LOCATIONS_FAILURE, error: err })
+      dispatch({ type: FETCH_FEATURED_LOCATIONS_FAILURE, error: err.message })
     })
   }
 )
@@ -50,9 +51,11 @@ export const sendContactUs = contactInfo => {
     dispatch({ type: SEND_CONTACT_US_REQUEST })
     return contactUsRef.push(contactMessage)
       .then(res => {
+        toast.success('Contact Us Message Sent! Please check your email over the next 24 hours for a response.')
         dispatch({ type: SEND_CONTACT_US_SUCCESS })
       }).catch(err => {
-        dispatch({ type: SEND_CONTACT_US_FAILURE, error: err })
+        toast.error('Contact Us message did not send. Please check your form and try again')
+        dispatch({ type: SEND_CONTACT_US_FAILURE, error: err.message })
       })
   }
 }
@@ -74,9 +77,11 @@ export const sendCustomVacationEmail = customPackage => {
     dispatch({ type: SEND_CUSTOM_EMAIL_REQUEST })
     return customVacationRef.push(vacationRequestInfo)
       .then(res => {
+        toast.success('Custom Vacation Request Sent! Please check your email over the next 24 hours for a response.')
         dispatch({ type: SEND_CUSTOM_EMAIL_SUCCESS })
       }).catch(err => {
-        dispatch({ type: SEND_CUSTOM_EMAIL_FAILURE, error: err })
+        toast.error('Custom Vacation request did not send. Please check your form and try again')
+        dispatch({ type: SEND_CUSTOM_EMAIL_FAILURE, error: err.message })
       })
   }
 }
@@ -86,9 +91,11 @@ export const sendJoinEmailList = emailAddress => {
     dispatch({ type: SEND_JOIN_EMAIL_LIST_REQUEST })
     return joinEmailListRef.push(emailAddress)
       .then(res => {
+        toast.success('Thank you for joining our email list!')
         dispatch({ type: SEND_JOIN_EMAIL_LIST_SUCCESS })
       }).catch(err => {
-        dispatch({ type: SEND_JOIN_EMAIL_LIST_FAILURE, error: err })
+        toast.success('Could not add you to the email list. Please try again shortly.')
+        dispatch({ type: SEND_JOIN_EMAIL_LIST_FAILURE, error: err.message })
       })
   }
 }

@@ -8,6 +8,7 @@ import Banner from './banner'
 import Footer from '../../components/checkout-footer'
 
 import './styles.css'
+import {toast} from "react-toastify";
 
 class PackageView extends React.Component {
   componentWillMount() {
@@ -18,7 +19,7 @@ class PackageView extends React.Component {
   normalizeLocationPathname = () => window.location.pathname.replace('/package/', '')
 
   render() {
-    const { currentPackage } = this.props
+    const { currentPackage, isAuthed } = this.props
     return (
       <div>
         {
@@ -36,6 +37,10 @@ class PackageView extends React.Component {
                 buttonLabel="Book Now"
                 buttonType="hashLink"
                 currentPackage={currentPackage}
+                isAuthed={isAuthed}
+                onButtonClick={() => {
+                  !isAuthed && toast.info('In order to plan a trip, please login or register!')
+                }}
               />
             </Grid>
             :
@@ -46,13 +51,17 @@ class PackageView extends React.Component {
   }
 }
 
-const mapStateToProps = ({ travelPackage }) => {
+const mapStateToProps = ({ auth, travelPackage }) => {
   const {
     currentPackage,
     isRequesting,
   } = travelPackage
+  const {
+    isAuthed,
+  } = auth
   return {
     currentPackage,
+    isAuthed,
     isRequesting,
   }
 }

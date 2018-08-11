@@ -46,14 +46,16 @@ class LoginView extends React.Component {
             <Col className="login-btn-container">
               <RoundedButton
                 label="Login"
-                linkTo="/"
-                onClick={() => {this.props.loginUser(login)}}
+                onClick={() => { this.props.loginUser(login).then(() => {
+                  if (this.props.isAuthed) {
+                    return this.props.history.push('/explore')
+                  }
+                })}}
                 style={{
                   borderRadius: 3,
                   fontWeight: 600,
                   width: '80%',
                 }}
-                type="link"
                 uppercase
               />
             </Col>
@@ -66,11 +68,15 @@ class LoginView extends React.Component {
 
 const mapStateToProps = ({ auth, forms }) => {
   const {
+    errorMessage,
+    isAuthed,
     isRequesting,
     user,
   } = auth
   const { login } = forms
   return {
+    errorMessage,
+    isAuthed,
     isRequesting,
     login,
     user,

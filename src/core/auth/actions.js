@@ -1,3 +1,5 @@
+import { toast } from 'react-toastify'
+
 import {
   FETCH_USER_FAILURE,
   FETCH_USER_REQUEST,
@@ -8,10 +10,17 @@ import {
   USER_LOGOUT_FAILURE,
   USER_LOGOUT_REQUEST,
   USER_LOGOUT_SUCCESS,
+  USER_SAVE_REG_INFO_FAILURE,
+  USER_SAVE_REG_INFO_REQUEST,
+  USER_SAVE_REG_INFO_SUCCESS,
+  REGISTER_USER_FAILURE,
+  REGISTER_USER_REQUEST,
+  REGISTER_USER_SUCCESS,
 } from './types'
 
 import {
   authRef,
+  userInfoRef,
 } from '../../utils/firebase/firebase-refs'
 
 export const fetchUser = () => dispatch => {
@@ -30,8 +39,10 @@ export const loginUser = userCreds => (
     dispatch({ type: USER_LOGIN_REQUEST })
     return authRef.signInWithEmailAndPassword(userCreds.email, userCreds.password)
       .then(res => {
+        toast.success('Successfully Logged In! Bon Voyago!')
         dispatch({ type: USER_LOGIN_SUCCESS, user: res.user })
       }).catch(err => {
+        toast.error('Invalid Email or Password. Please try again!')
         dispatch({ type: USER_LOGIN_FAILURE, error: 'Invalid Email or Password. Please try again!' })
       })
   }
@@ -42,9 +53,34 @@ export const logoutUser = () => (
     dispatch({ type: USER_LOGOUT_REQUEST })
     return authRef.signOut()
       .then(res => {
+        toast.success('Successfully Logged Out! Please come back soon!')
         dispatch({ type: USER_LOGOUT_SUCCESS })
       }).catch(err => {
         dispatch({ type: USER_LOGOUT_FAILURE, error: err })
+      })
+  }
+)
+
+export const registerUser = user  => (
+  dispatch => {
+    dispatch({ type: REGISTER_USER_REQUEST })
+    return authRef.createUserWithEmailAndPassword(user.email, user.password)
+      .then(res => {
+        toast.success('Welcome to Voyago')
+        dispatch({ type: REGISTER_USER_SUCCESS, user: res.user })
+        return res.user
+      }).catch(err => {
+        dispatch({ type: REGISTER_USER_FAILURE, error: err })
+      }).then(user => {
+        dispatch({ type: USER_SAVE_REG_INFO_REQUEST })
+        userInfoRef(user.uid).set({
+          email: user.email,
+          uid: user.uid
+        })
+      }).then(() => {
+        dispatch({ type: USER_SAVE_REG_INFO_SUCCESS})
+      }).catch(err => {
+        dispatch({type: USER_SAVE_REG_INFO_FAILURE, error: err})
       })
   }
 )

@@ -6,24 +6,26 @@ import * as actions from './auth/actions'
 
 import Header from '../components/header'
 import LandingPage from './landing'
-import index from './routes/index'
+import routes from './routes'
+import { ToastContainer } from 'react-toastify'
 
 import 'font-awesome/css/font-awesome.min.css'
+import 'react-toastify/dist/ReactToastify.css'
 
 class App extends Component {
   componentWillMount() {
     this.props.fetchUser()
   }
 
-
   render () {
     const { user } = this.props
     return (
       <Router>
         <div id="app-container">
+          <ToastContainer />
           <Header handleLogoutClick={() => { this.props.logoutUser() }} user={user} />
           <Route exact path="/" component={LandingPage} />
-          {index.map((route, i) => <RouteWithSubRoutes key={i} {...route} />)}
+          {routes.map((route, i) => <RouteWithSubRoutes key={i} {...route} />)}
         </div>
       </Router>
     )
