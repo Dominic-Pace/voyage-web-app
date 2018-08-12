@@ -3,6 +3,7 @@ import ExploreView from '../explore'
 import LoginView from '../auth/login'
 import PackageView from '../package'
 import RegisterView from '../auth/register'
+import UserView from '../user'
 
 const routes = [
   {
@@ -26,6 +27,10 @@ const routes = [
   {
     path: '/booking/:id',
     component: BookingView
+  },
+  {
+    path: '/user',
+    component: UserView
   }
 ]
 

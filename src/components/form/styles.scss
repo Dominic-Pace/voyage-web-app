@@ -9,6 +9,24 @@
   padding: 10px;
 }
 
+.location-search {
+  &-dropdown-container {
+    border: solid $voyago-dark 1px;
+  }
+  &-suggestion-item {
+    background-color: $voyago-white;
+    cursor: pointer;
+    font-size: 1.1rem;
+    padding: 8px;
+    &-active {
+      background-color: $voyago-pink;
+      color: $voyago-white;
+      cursor: pointer;
+      font-size: 1.1rem;
+      padding: 8px;
+    }
+  }
+}
 .text-form {
   &-container {
     padding: 5px;
@@ -30,3 +48,4 @@
     }
   }
 }
+

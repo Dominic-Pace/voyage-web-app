@@ -1,0 +1,24 @@
+@import '../../styles/common.scss';
+
+.user {
+  &-btn {
+    &-container {
+      display: flex;
+      justify-content: center;
+      padding-top: 20px;
+      width: 100%;
+    }
+  }
+  &-container {
+    @extend %align-all;
+    padding-top: 45px;
+    width: 100vw;
+  }
+  &-form {
+    display: block;
+  }
+  &-title-container {
+    width: 100%;
+    justify-content: center;
+  }
+}

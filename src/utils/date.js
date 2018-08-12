@@ -47,3 +47,18 @@ export const getDateDiffFromEnding = endingDate => {
   const timeDiff = new Date(endingDate) - new Date()
   return diffInDays(timeDiff)
 }
+
+export const getMinAgeDate = () => {
+  const today = new Date();
+  let dd = today.getDate();
+  let mm = today.getMonth()+1; //January is 0!
+  const yyyy = today.getFullYear();
+  if (dd < 10) {
+    dd='0'+dd
+  }
+  if (mm < 10) {
+    mm='0'+mm
+  }
+
+  return `${yyyy - 18}-${mm}-${dd}`
+}

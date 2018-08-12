@@ -28,3 +28,16 @@ export const userForm = {
   email: '',
   password: '',
 }
+
+export const userDataForm = {
+  firstName: '',
+  lastName: '',
+  email: '',
+  birthday: '',
+  homeAirport: '',
+  streetAddress: '',
+  streetAddressAlt: '',
+  city: '',
+  state: '',
+  zip: ''
+}

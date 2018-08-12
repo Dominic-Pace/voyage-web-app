@@ -10,6 +10,7 @@ import routes from './routes'
 import { ToastContainer } from 'react-toastify'
 
 import 'font-awesome/css/font-awesome.min.css'
+import 'react-dates/lib/css/_datepicker.css'
 import 'react-toastify/dist/ReactToastify.css'
 
 class App extends Component {

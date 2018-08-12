@@ -6,6 +6,8 @@ import HeartLine from './vectors/heart-line.svg'
 import NeedVacation from './vectors/need-a-vacation.svg'
 import SendMessage from './vectors/send-message.svg'
 import TravelBaggage from './vectors/travel-baggage.svg'
+import User from './vectors/user.svg'
+import UserSelected from './vectors/user-selected.svg'
 import WorldAwaits from './vectors/world-awaits.svg'
 
 const types = {
@@ -15,6 +17,8 @@ const types = {
   needAVacation: NeedVacation,
   send: SendMessage,
   travelBaggage: TravelBaggage,
+  user: User,
+  userSelected: UserSelected,
   worldAwaits: WorldAwaits,
 }
 

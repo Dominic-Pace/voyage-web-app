@@ -2,6 +2,7 @@ import {
   contactUsForm,
   customPackageForm,
   joinMailListForm,
+  userDataForm,
   userForm,
 } from './initialState'
 import {
@@ -10,6 +11,7 @@ import {
   JOIN_MAIL_FORM,
   LOGIN_FORM,
   REGISTER_FORM,
+  USER_DATA_FORM,
 } from './constants'
 
 export const formState = {
@@ -18,4 +20,5 @@ export const formState = {
   [JOIN_MAIL_FORM]: joinMailListForm,
   [LOGIN_FORM]: userForm,
   [REGISTER_FORM]: userForm,
+  [USER_DATA_FORM]: userDataForm,
 }
