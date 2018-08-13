@@ -74,8 +74,16 @@ export const registerUser = user  => (
       }).then(user => {
         dispatch({ type: USER_SAVE_REG_INFO_REQUEST })
         userInfoRef(user.uid).set({
+          birthday: '',
           email: user.email,
-          id: user.uid
+          firstName: '',
+          homeAirport: {},
+          id: user.uid,
+          lastName: '',
+          location: {
+            address: '',
+            coords: {}
+          },
         })
       }).then(() => {
         dispatch({ type: USER_SAVE_REG_INFO_SUCCESS})
