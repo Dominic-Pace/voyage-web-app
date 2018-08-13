@@ -9,6 +9,7 @@ import ErrorMessage from '../error-message'
 
 export const TextInputField = (
   {
+    defaultValue,
     max,
     min,
     model,
@@ -22,6 +23,7 @@ export const TextInputField = (
   <Row className="text-form-container">
     <Control
       className="text-form-field"
+      defaultValue={defaultValue}
       max={max || null}
       min={min || null}
       model={`.${model}`}

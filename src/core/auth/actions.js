@@ -24,14 +24,14 @@ import {
 } from '../../utils/firebase/firebase-refs'
 
 export const fetchUser = () => dispatch => {
-  authRef.onAuthStateChanged(user => {
+  return new Promise(authRef.onAuthStateChanged(user => {
     dispatch({ type: FETCH_USER_REQUEST })
     if (user) {
       dispatch({ type: FETCH_USER_SUCCESS, user: user })
     } else {
       dispatch({ type: FETCH_USER_FAILURE, user: null })
     }
-  })
+  }))
 }
 
 export const loginUser = userCreds => (
@@ -75,7 +75,7 @@ export const registerUser = user  => (
         dispatch({ type: USER_SAVE_REG_INFO_REQUEST })
         userInfoRef(user.uid).set({
           email: user.email,
-          uid: user.uid
+          id: user.uid
         })
       }).then(() => {
         dispatch({ type: USER_SAVE_REG_INFO_SUCCESS})

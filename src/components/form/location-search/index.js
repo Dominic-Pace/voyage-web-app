@@ -1,8 +1,5 @@
 import React from 'react'
-import PlacesAutocomplete, {
-  geocodeByAddress,
-  getLatLng,
-} from 'react-places-autocomplete'
+import PlacesAutocomplete from 'react-places-autocomplete'
 
 import { Control } from 'react-redux-form'
 import { Row } from 'react-bootstrap'
@@ -11,6 +8,7 @@ import {scrubValidatorForValidators} from '../../../utils/scrub'
 import '../styles.css'
 
 const WrappedLocationSearchInput = ({
+  defaultValue,
   handleChange,
   handleSelect,
   model,
@@ -24,6 +22,7 @@ const WrappedLocationSearchInput = ({
     <Control
       className="text-form-field"
       component={LocationSearchInput}
+      defaultValue={defaultValue}
       handleChange={handleChange}
       handleSelect={handleSelect}
       mapProps={{

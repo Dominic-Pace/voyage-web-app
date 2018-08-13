@@ -29,15 +29,14 @@ export const userForm = {
   password: '',
 }
 
-export const userDataForm = {
+export const userProfileForm = {
   firstName: '',
   lastName: '',
   email: '',
   birthday: '',
   homeAirport: '',
-  streetAddress: '',
-  streetAddressAlt: '',
-  city: '',
-  state: '',
-  zip: ''
+  location: {
+    address: '',
+    coords: {},
+  }
 }
