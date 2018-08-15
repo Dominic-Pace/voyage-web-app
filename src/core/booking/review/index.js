@@ -4,7 +4,7 @@ import { Grid } from 'react-bootstrap'
 
 import '../styles.css'
 
-const ReviewView = () => (
+const ReviewView = ({ currentPackage, selectedAccommodation, selectedActivities }) => (
   <Grid className="booking-view-container">
     Review view
   </Grid>

@@ -15,6 +15,25 @@
   }
 }
 
+.personal-info {
+  &-birthday {
+    justify-content: center;
+  }
+  &-container {
+    background-color: $voyago-white;
+    display: grid;
+    justify-content: center;
+    max-width: 100vw;
+    padding: 45px 0 100px;
+  }
+  &-form {
+    padding: 20px;
+  }
+  &-title-container {
+    justify-content: center;
+  }
+}
+
 .spinner-container {
   @extend %align-all;
   height: 80vh;

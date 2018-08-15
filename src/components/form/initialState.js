@@ -24,6 +24,14 @@ export const joinMailListForm = {
   email: '',
 }
 
+export const travelerInfoForm = {
+  firstName: '',
+  lastName: '',
+  email: '',
+  phone: '',
+  birthday: '',
+}
+
 export const userForm = {
   email: '',
   password: '',

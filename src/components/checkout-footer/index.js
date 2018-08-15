@@ -14,16 +14,17 @@ const numOfPeopleOptions = [
   { value: 4, label: '4' },
 ]
 
-const CheckoutFooter = ({ buttonLabel,
-                          buttonType,
-                          checkoutPrice,
-                          currentPackage,
-                          currentStep,
-                          handleNumOfPeopleSelect,
-                          isAuthed,
-                          numOfPeople,
-                          onButtonClick
-                        }) => {
+const CheckoutFooter = ({
+  buttonLabel,
+  buttonType,
+  checkoutPrice,
+  currentPackage,
+  currentStep,
+  handleNumOfPeopleSelect,
+  isAuthed,
+  numOfPeople,
+  onButtonClick
+}) => {
   const differenceInDays = getDifferenceInDays(currentPackage.startDate, currentPackage.endDate)
 
   return (
@@ -48,11 +49,11 @@ const CheckoutFooter = ({ buttonLabel,
                 emptySymbol="fa fa-star-o fa-2x"
                 fullSymbol="fa fa-star fa-2x"
                 fractions={2}
-                initialRating={5}
+                initialRating={currentPackage.avgRating || 0}
                 readonly
               />
             </span>
-            <span className="package-footer-rating-num">(1)</span>
+            <span className="package-footer-rating-num">{`(${currentPackage.ratings || 0})`}</span>
           </div>
         </div>
       </Col>

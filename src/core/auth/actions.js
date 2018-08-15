@@ -24,14 +24,14 @@ import {
 } from '../../utils/firebase/firebase-refs'
 
 export const fetchUser = () => dispatch => {
-  return new Promise(authRef.onAuthStateChanged(user => {
+  return authRef.onAuthStateChanged(user => {
     dispatch({ type: FETCH_USER_REQUEST })
     if (user) {
       dispatch({ type: FETCH_USER_SUCCESS, user: user })
     } else {
       dispatch({ type: FETCH_USER_FAILURE, user: null })
     }
-  }))
+  })
 }
 
 export const loginUser = userCreds => (

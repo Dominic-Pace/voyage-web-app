@@ -8,7 +8,7 @@ import AccommodationsView from './accommodations'
 import ActivitiesView from './activities'
 import CheckoutFooter from '../../components/checkout-footer'
 import { Grid } from 'react-bootstrap'
-import PaymentView from './payment'
+import TravelerInfoView from './traveler-info'
 import ReviewView from './review'
 import Spinner from 'react-spinkit'
 import Stepper from './stepper'
@@ -41,7 +41,7 @@ class BookPackage extends React.Component {
       }
     }, {
       href: '',
-      title: 'Payment Options',
+      title: 'Traveler Information',
       onClick: (e) => {
         e.preventDefault()
         this.setState({ currentStep: 2 })
@@ -100,6 +100,10 @@ class BookPackage extends React.Component {
     }
   }
 
+  handleAccommodationSelect = accommodation => {
+    this.setState({ selectedAccommodation: accommodation })
+  }
+
   handleActivitySelect = activityId => {
     const { selectedActivities } = this.state
     if ((selectedActivities.indexOf(activityId) > -1)) {
@@ -116,8 +120,8 @@ class BookPackage extends React.Component {
     }
   }
 
-  handleAccommodationSelect = accommodation => {
-    this.setState({ selectedAccommodation: accommodation })
+  handleCompleteOrderClick = () => {
+    this.props.history.push('/')
   }
 
   normalizeLocationPathname = () => window.location.pathname.replace('/booking/', '')
@@ -132,7 +136,10 @@ class BookPackage extends React.Component {
   renderCheckoutContent = () => {
     const {
       accommodations,
+      currentPackage,
+      forms,
       isRequesting,
+      profileData,
       thingsToDo,
       yelpTags
     } = this.props
@@ -170,10 +177,18 @@ class BookPackage extends React.Component {
           selectedAccommodation={selectedAccommodation}
         />
       case 2:
-        return <PaymentView />
+        return <TravelerInfoView
+          forms={forms}
+          numOfPeople={numOfPeople}
+        />
       case 3:
       default:
-        return <ReviewView />
+        return <ReviewView
+          currentPackage={currentPackage}
+          profileData={profileData || {}}
+          selectedAccommodation={selectedAccommodation}
+          selectedActivities={selectedActivities}
+        />
     }
   }
 
@@ -196,7 +211,7 @@ class BookPackage extends React.Component {
                 currentStep={currentStep}
                 handleNumOfPeopleSelect={selectedOption => { this.setState({ numOfPeople: selectedOption.value })}}
                 numOfPeople={numOfPeople}
-                onButtonClick={this.onClickNext}
+                onButtonClick={(currentStep === 3) ? this.handleCompleteOrderClick : this.onClickNext}
                 checkoutPrice={calculatePrice(currentPackage.validStartingAt, this.calculateCheckoutPrice())}
               />
             </Grid>
@@ -208,7 +223,7 @@ class BookPackage extends React.Component {
   }
 }
 
-const mapStateToProps = ({ travelPackage }) => {
+const mapStateToProps = ({ forms, travelPackage, userProfile }) => {
   const {
     accommodations,
     currentPackage,
@@ -217,10 +232,13 @@ const mapStateToProps = ({ travelPackage }) => {
     thingsToDo,
     yelpTags,
   } = travelPackage
+  const { profileData } = userProfile
   return {
     accommodations,
     currentPackage,
+    forms,
     isRequesting,
+    profileData,
     selectedActivities,
     thingsToDo,
     yelpTags,

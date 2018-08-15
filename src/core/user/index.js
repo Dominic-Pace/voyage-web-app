@@ -15,7 +15,7 @@ import { BASE_FORM_REDUCER, USER_PROFILE_FORM } from '../../components/form/cons
 import './styles.css'
 import {toast} from "react-toastify";
 
-class LoginView extends React.Component {
+class UserView extends React.Component {
   state = {
     address: '',
     location: {},
@@ -149,4 +149,4 @@ const mapStateToProps = ({ auth, forms, userProfile }) => {
     userData,
   }
 }
-export default connect(mapStateToProps, { ...actions })(LoginView)
+export default connect(mapStateToProps, { ...actions })(UserView)

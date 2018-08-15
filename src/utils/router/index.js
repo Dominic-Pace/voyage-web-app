@@ -7,7 +7,7 @@ export const RouteWithSubRoutes = (route, user) => {
       exact={route.exact || false}
       path={route.path}
       render={routeProps => (
-        <route.component exact={route.exact} {...routeProps} routes={route.routes} />
+        <route.component {...routeProps} routes={route.routes} />
       )}
       user={user}
     />

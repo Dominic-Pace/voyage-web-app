@@ -4,5 +4,6 @@ export const CUSTOM_PACKAGE_FORM = 'customPackage'
 export const JOIN_MAIL_FORM = 'joinMail'
 export const LOGIN_FORM = 'login'
 export const REGISTER_FORM = 'register'
+export const TRAVELER_INFO_FORM = 'travelerInfo'
 export const USER_PROFILE_FORM = 'userData'
 
