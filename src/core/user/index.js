@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import * as actions from './actions'
 import { getMinAgeDate } from '../../utils/date'
 import { geocodeByAddress, getLatLng } from 'react-places-autocomplete'
+import { get } from 'lodash'
 
 import { Col, Grid, Row } from 'react-bootstrap'
 import { Form } from 'react-redux-form'
@@ -21,12 +22,13 @@ class UserView extends React.Component {
     location: {},
   }
 
-  componentWillMount() {
+  componentDidMount() {
     if (!this.props.user) {
       this.props.history.push('/auth')
     } else {
-      this.props.fetchUserProfile(this.props.user.id).then(() => {
-        this.setState({ address: this.props.profileData.location ? this.props.profileData.location.address : '' })
+      this.props.fetchUserProfile(this.props.user.uid).then(() => {
+        const userAddress = get(this.props, 'profileData.location', '')
+        this.setState({ address: userAddress ? userAddress.address : '' })
       })
     }
   }

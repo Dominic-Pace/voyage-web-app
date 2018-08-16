@@ -7,7 +7,7 @@ import { Grid } from 'react-bootstrap'
 export const FunCard = ({ addOn, handleClick, selected }) => (
   <Grid
     className={`wide-card-container${selected ? '-selected' : ''}`}
-    onClick={() => { handleClick(addOn.id) }}
+    onClick={() => { handleClick(addOn) }}
   >
     <WideImage
       imageUrl={addOn.image_url}

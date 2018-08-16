@@ -13,7 +13,7 @@ import 'font-awesome/css/font-awesome.min.css'
 import 'react-toastify/dist/ReactToastify.css'
 
 class App extends Component {
-  componentWillMount() {
+  componentDidMount() {
     this.props.fetchUser()
   }
 

@@ -104,18 +104,15 @@ class BookPackage extends React.Component {
     this.setState({ selectedAccommodation: accommodation })
   }
 
-  handleActivitySelect = activityId => {
+  handleActivitySelect = activity => {
     const { selectedActivities } = this.state
-    if ((selectedActivities.indexOf(activityId) > -1)) {
+    if (selectedActivities.find(addOn => addOn.id === activity.id)) {
       this.setState(prevState => ({
-        selectedActivities: [
-          ...prevState.selectedActivities.slice(0, prevState.selectedActivities.indexOf(activityId)),
-          ...prevState.selectedActivities.slice(prevState.selectedActivities.indexOf(activityId) + 1)
-        ]
+        selectedActivities: prevState.selectedActivities.filter(addOn => addOn.id !== activity.id)
       }))
     } else {
       this.setState(prevState => ({
-        selectedActivities: [...prevState.selectedActivities, activityId]
+        selectedActivities: [...prevState.selectedActivities, activity]
       }))
     }
   }

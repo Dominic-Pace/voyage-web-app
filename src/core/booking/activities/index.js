@@ -20,7 +20,7 @@ const ActivitiesView = ({ handleActivityClick, handleFilterClick, selectedActivi
             addOn={addOn}
             handleClick={handleActivityClick}
             key={addOn.name}
-            selected={(selectedActivities.indexOf(addOn.id) > -1)}
+            selected={selectedActivities.find(activity => activity.id === addOn.id)}
           />
         ))
         :
