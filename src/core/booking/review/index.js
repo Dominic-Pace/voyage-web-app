@@ -2,6 +2,7 @@ import React from 'react'
 
 import { Col, Grid, Row } from 'react-bootstrap'
 import { H1 } from '../../../components/text'
+import Map from '../../../components/map'
 
 import '../styles.css'
 
@@ -27,6 +28,9 @@ const ReviewView = ({ currentPackage, selectedAccommodation, selectedActivities 
           Review Your Order
         </H1>
       </Row>
+        <Map
+          selectedActivities={selectedActivities}
+        />
     </Grid>
   )
 }

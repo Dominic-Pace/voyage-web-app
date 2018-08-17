@@ -1,0 +1,11 @@
+.map {
+  border-top: 2px white solid;
+  height: 300px;
+  width: 100%;
+}
+
+@media screen and (min-width: 1024px) {
+  .map {
+    height: 500px;
+  }
+}
