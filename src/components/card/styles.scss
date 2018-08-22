@@ -100,6 +100,7 @@
     }
   }
 }
+
 .half-card {
   &-bg {
     background: rgba(black, 0.2) center;
@@ -171,6 +172,57 @@
     }
   }
 }
+
+.review-card {
+  &-bg {
+    background: rgba($voyago-primary, 0.3) center;
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    &:hover {
+      background-color: rgba($voyago-error, 0.3);
+    }
+    &-container {
+      background-size: cover;
+      border-radius: 5px;
+      display: flex;
+      justify-content: center;
+      width: 50%;
+    }
+  }
+  &-container {
+    border: 1px solid $voyago-grey;
+    border-radius: 5px;
+    box-shadow: 0 8px 8px 0 rgba($voyago-pink, 0.2), 6px 12px 20px 6px rgba($voyago-pink, 0.15);
+    cursor: pointer;
+    display: flex;
+    height: 100px;
+    margin: 5px;
+    padding: 0;
+    width: 30%;
+    &:hover {
+      box-shadow: 0 8px 8px 0 rgba($voyago-primary, 0.2), 6px 12px 20px 6px rgba($voyago-primary, 0.19);
+    }
+  }
+  &-name{
+    &-container {
+      height: 60%;
+      margin: 0;
+    }
+    &-row {
+      margin: 0;
+      padding: 5px;
+      width: 100%;
+    }
+  }
+  &-tag-container {
+    height: 40%;
+    justify-content: center;
+    margin: 0;
+  }
+}
+
 .tag-card {
   background-color: oldlace;
   border: 1px solid $voyago-grey;
@@ -354,23 +406,23 @@
       }
     }
     &-selected {
-       border: 1px solid $voyago-grey;
-       border-radius: 5px;
-       box-shadow: 0 8px 8px 0 rgba($voyago-primary, 0.2), 6px 12px 20px 6px rgba($voyago-primary, 0.19);
-       cursor: pointer;
-       display: flex;
-       height: 175px;
-       margin: 25px;
-       padding: 0;
-       width: 100%;
-       &:hover {
-         border: 1px solid $voyago-grey;
-         border-radius: 5px;
-         box-shadow: 0 8px 8px 0 rgba($voyago-primary, 0.2), 6px 12px 20px 6px rgba($voyago-dark-purple, 0.19);
-         cursor: pointer;
-         height: 175px;
-         width: 100%;
-       }
-     }
+      border: 1px solid $voyago-grey;
+      border-radius: 5px;
+      box-shadow: 0 8px 8px 0 rgba($voyago-primary, 0.2), 6px 12px 20px 6px rgba($voyago-primary, 0.19);
+      cursor: pointer;
+      display: flex;
+      height: 175px;
+      margin: 25px;
+      padding: 0;
+      width: 100%;
+      &:hover {
+        border: 1px solid $voyago-grey;
+        border-radius: 5px;
+        box-shadow: 0 8px 8px 0 rgba($voyago-primary, 0.2), 6px 12px 20px 6px rgba($voyago-dark-purple, 0.19);
+        cursor: pointer;
+        height: 175px;
+        width: 100%;
+      }
+    }
   }
 }

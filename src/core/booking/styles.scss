@@ -10,6 +10,25 @@
     padding-top: 45px;
   }
   &-review {
+    &-activities {
+      &-container {
+        justify-content: center;
+        padding: 20px;
+      }
+      &-line {
+        background-color: $voyago-lighter-grey;
+        height: 1px;
+        margin-bottom: 20px;
+        width: 70%;
+      }
+      &-title {
+        justify-content: center;
+        width: 100%;
+        &-row {
+          width: 100%;
+        }
+      }
+    }
     &-container {
       border: 1px solid $voyago-grey;
       border-radius: 20px;
@@ -26,6 +45,10 @@
         margin: 0;
         height: 400px;
         width: 100%;
+        &-row {
+          align-items: center;
+          width: 100%;
+        }
       }
       &-text-container {
         padding-top: 40px;

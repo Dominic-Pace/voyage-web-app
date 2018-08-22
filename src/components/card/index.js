@@ -10,6 +10,7 @@ import { Link } from 'react-router-dom'
 export { AccommodationCard } from './accommodation'
 export { FunCard } from './fun'
 export { HalfSizeCard } from './half'
+export { ReviewCard } from './review'
 
 const renderCardBannerTag = (amountAvailable, nightlyPrice) => (
   amountAvailable

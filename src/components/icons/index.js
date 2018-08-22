@@ -1,6 +1,7 @@
 import React from 'react'
 
 import CheckMark from './vectors/checkmark.svg'
+import Close from './vectors/close.svg'
 import HeartFill from './vectors/heart-fill.svg'
 import HeartLine from './vectors/heart-line.svg'
 import NeedVacation from './vectors/need-a-vacation.svg'
@@ -12,6 +13,7 @@ import WorldAwaits from './vectors/world-awaits.svg'
 
 const types = {
   checkmark: CheckMark,
+  close: Close,
   heartFill: HeartFill,
   heartLine: HeartLine,
   needAVacation: NeedVacation,
@@ -22,11 +24,12 @@ const types = {
   worldAwaits: WorldAwaits,
 }
 
-const Icon = ({ onClick, pointer, size, style, type }) => (
+const Icon = ({ handleBlur, handleFocus, pointer, size, style, type }) => (
   <img
     alt={type}
     className={(pointer && type === 'menu' ? 'mobile-menu' : (pointer ? 'icon-link' : null))}
-    onClick={onClick}
+    onBlur={handleBlur}
+    onFocus={handleFocus}
     src={types[type]}
     style={style}
     width={size}
