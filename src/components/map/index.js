@@ -1,6 +1,5 @@
 import React from 'react'
-
-import GoogleMap from 'react-google-map'
+import GoogleMap, { Circle } from 'react-google-map'
 import ReactGoogleMapLoader from 'react-google-maps-loader'
 
 import iconMarker from '../../assets/icons/location-marker.svg'

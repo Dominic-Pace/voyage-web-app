@@ -58,6 +58,54 @@
     &-map-container {
       height: 800px;
     }
+    &-passengers {
+      &-bold-title {
+        font-weight: 600;
+        margin-right: 5px;
+        text-transform: uppercase;
+      }
+      &-container {
+        display: grid;
+        margin: 20px;
+        width: 30%;
+      }
+      &-card {
+        border: 1px solid gainsboro;
+        border-radius: 10px;
+        justify-content: center;
+        margin: 10px;
+        padding: 10px;
+        &-title {
+          display: inline-block;
+          font-size: 1.5rem;
+          text-align: center;
+          text-transform: uppercase;
+          transform: scaleX(1.1);
+          width: 100%;
+        }
+      }
+      &-line {
+        background-color: $voyago-lighter-grey;
+        height: 1px;
+        margin-bottom: 20px;
+        width: 70%;
+      }
+      &-row {
+        margin: 0;
+      }
+      &-title {
+        &-container {
+          display: flex;
+          justify-content: center;
+          padding: 20px;
+        }
+        justify-content: center;
+        width: 100%;
+        &-row {
+          width: 100%;
+        }
+      }
+    }
   }
   &-view-container {
     padding-bottom: 60px;

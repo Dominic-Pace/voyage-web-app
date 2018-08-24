@@ -182,6 +182,8 @@ class BookPackage extends React.Component {
       default:
         return <ReviewView
           currentPackage={currentPackage}
+          forms={forms}
+          numOfPeople={numOfPeople}
           profileData={profileData || {}}
           selectedAccommodation={selectedAccommodation}
           selectedActivities={selectedActivities}

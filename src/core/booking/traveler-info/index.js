@@ -1,13 +1,13 @@
 import React from 'react'
 
-import {Col, Grid, Row} from 'react-bootstrap'
+import { Col, Grid, Row } from 'react-bootstrap'
 
 import '../styles.css'
-import {Form} from "react-redux-form";
-import {BASE_FORM_REDUCER, TRAVELER_INFO_FORM} from "../../../components/form/constants";
-import {H2} from "../../../components/text";
-import {TextInputField} from "../../../components/form";
-import {getMinAgeDate} from "../../../utils/date";
+import { Form} from 'react-redux-form'
+import { BASE_FORM_REDUCER, TRAVELER_INFO_FORM } from '../../../components/form/constants'
+import { H2 } from '../../../components/text'
+import { TextInputField } from '../../../components/form'
+import { getMinAgeDate } from '../../../utils/date'
 
 const renderTravelerForm = (forms, travelerNumber) => {
   const modelName = `${TRAVELER_INFO_FORM}${travelerNumber}`

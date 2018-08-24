@@ -29,7 +29,7 @@ const Icon = ({ handleBlur, handleFocus, pointer, size, style, type }) => (
     alt={type}
     className={(pointer && type === 'menu' ? 'mobile-menu' : (pointer ? 'icon-link' : null))}
     onBlur={handleBlur}
-    onFocus={handleFocus}
+    onMouseEnter={handleFocus}
     src={types[type]}
     style={style}
     width={size}
