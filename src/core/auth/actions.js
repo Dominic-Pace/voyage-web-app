@@ -19,19 +19,26 @@ import {
 } from './types'
 
 import {
-  authRef,
+  authRef, singlePackageRef,
   userInfoRef,
 } from '../../utils/firebase/firebase-refs'
 
 export const fetchUser = () => dispatch => {
-  return authRef.onAuthStateChanged(user => {
-    dispatch({ type: FETCH_USER_REQUEST })
-    if (user) {
-      dispatch({ type: FETCH_USER_SUCCESS, user: user })
-    } else {
-      dispatch({ type: FETCH_USER_FAILURE, user: null })
-    }
-  })
+  let userData;
+  const userId = localStorage.getItem('voyagoUser')
+  dispatch({ type: FETCH_USER_REQUEST })
+
+  if (userId) {
+    return userInfoRef(userId).once('value', user => {
+      userData = user.val()
+    }).then(res => {
+      dispatch({ type: FETCH_USER_SUCCESS, user: userData })
+    }).catch(err => {
+      dispatch({ type: FETCH_USER_FAILURE, error: 'Failure' })
+    })
+  } else {
+    return dispatch({ type: FETCH_USER_FAILURE, error: 'Not Logged in' })
+  }
 }
 
 export const loginUser = userCreds => (
@@ -39,6 +46,7 @@ export const loginUser = userCreds => (
     dispatch({ type: USER_LOGIN_REQUEST })
     return authRef.signInWithEmailAndPassword(userCreds.email, userCreds.password)
       .then(res => {
+        localStorage.setItem('voyagoUser', res.user.uid)
         toast.success('Successfully Logged In! Bon Voyago!')
         dispatch({ type: USER_LOGIN_SUCCESS, user: res.user })
       }).catch(err => {
@@ -53,6 +61,7 @@ export const logoutUser = () => (
     dispatch({ type: USER_LOGOUT_REQUEST })
     return authRef.signOut()
       .then(res => {
+        localStorage.removeItem('voyagoUser')
         toast.success('Successfully Logged Out! Please come back soon!')
         dispatch({ type: USER_LOGOUT_SUCCESS })
       }).catch(err => {

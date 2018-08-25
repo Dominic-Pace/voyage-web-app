@@ -53,7 +53,7 @@ const ReviewView = ({ currentPackage, forms, numOfPeople, selectedAccommodation,
         <AccommodationCard
           accommodation={selectedAccommodation}
           numOfPeople={numOfPeople}
-          selected={true}
+          selected
         />
       </Row>
       <Row className="booking-review-activities-container">
