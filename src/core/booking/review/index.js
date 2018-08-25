@@ -16,6 +16,7 @@ const ReviewView = ({ currentPackage, forms, numOfPeople, selectedAccommodation,
     passengers.push(forms.forms[`travelerInfo${i}`])
   }
 
+  console.log('current location', currentPackage)
   return (
     <Grid className="booking-review-container">
       <Row
@@ -82,6 +83,7 @@ const ReviewView = ({ currentPackage, forms, numOfPeople, selectedAccommodation,
         }
       </Row>
       <Map
+        centerOfMap={{ lat: currentPackage.mapLat, lng: currentPackage.mapLong }}
         selectedActivities={selectedActivities}
       />
       <Row className="booking-review-passengers-title-container">

@@ -9,7 +9,7 @@ import './styles.css'
 
 const MY_API_KEY = 'AIzaSyBvVPTE_J5PKelh5MjF_0Gi6_kZvuIoAY4' // fake
 
-const Map = ({ selectedActivities }) => {
+const Map = ({ centerOfMap, selectedActivities }) => {
 
   let markers = []
 
@@ -54,7 +54,7 @@ const Map = ({ selectedActivities }) => {
               // You can add and remove coordinates on the fly.
               // The map will rerender new markers and remove the old ones.
               coordinates={markers}
-              center={{ lat: 33.745571, lng: -117.867836 }}
+              center={centerOfMap}
               styles={
                 [
                   {
