@@ -5,7 +5,9 @@ import { Col, Row } from 'react-bootstrap'
 import Image from '../image'
 import Rating from 'react-rating'
 import { RoundedButton } from '../button'
-import Dropdown from "../dropdown";
+import Dropdown from '../dropdown'
+
+import './styles.css'
 
 const numOfPeopleOptions = [
   { value: 1, label: '1' },
@@ -28,23 +30,23 @@ const CheckoutFooter = ({
   const differenceInDays = getDifferenceInDays(currentPackage.startDate, currentPackage.endDate)
 
   return (
-    <Row className="package-footer">
-      <Col className="package-footer-logo-container">
+    <Row className="checkout-footer">
+      <Col className="checkout-footer-logo-container">
         <Image
           alt="Voyago Logo"
-          className="package-footer-logo"
+          className="checkout-footer-logo"
           image="logo"
           size={64}
         />
       </Col>
       <Col style={{ width: '45%'}}>
-        <div className="package-footer-name">
+        <div className="checkout-footer-name">
           <div>
             { currentPackage.name }
           </div>
-          <div className="package-footer-dates">
+          <div className="checkout-footer-dates">
             {`${differenceInDays + 1 } Days ${differenceInDays} Nights`}
-            <span className="package-footer-rating">
+            <span className="checkout-footer-rating">
               <Rating
                 emptySymbol="fa fa-star-o fa-2x"
                 fullSymbol="fa fa-star fa-2x"
@@ -53,15 +55,15 @@ const CheckoutFooter = ({
                 readonly
               />
             </span>
-            <span className="package-footer-rating-num">{`(${currentPackage.ratings || 0})`}</span>
+            <span className="checkout-footer-rating-num">{`(${currentPackage.ratings || 0})`}</span>
           </div>
         </div>
       </Col>
-      <Col className="package-footer-checkout-container">
-        <div className="package-footer-checkout-btn-container">
+      <Col className="checkout-footer-checkout-container">
+        <div className="checkout-footer-checkout-btn-container">
           {
             handleNumOfPeopleSelect && (currentStep !== 0) &&
-            <div className="package-footer-total-title">{`# of People: `}</div>
+            <div className="checkout-footer-total-title">{`# of People: `}</div>
           }
           {
             handleNumOfPeopleSelect && (currentStep !== 0) &&
@@ -71,7 +73,7 @@ const CheckoutFooter = ({
               options={numOfPeopleOptions}
             />
           }
-          <span className="package-footer-total-amount">
+          <span className="checkout-footer-total-amount">
               {
                 checkoutPrice ?
                   `$${Math.round(checkoutPrice)}`
@@ -79,19 +81,19 @@ const CheckoutFooter = ({
                   `$${Math.round(calculatePackagePrice(currentPackage))}`
 
               }
-            <span className="package-footer-total-per">
+            <span className="checkout-footer-total-per">
             /person
           </span>
         </span>
           {
             numOfPeople &&
-            <Col className="package-footer-total">
+            <Col className="checkout-footer-total">
               {`TOTAL: `}
             </Col>
           }
           {
             numOfPeople &&
-            <span className="package-footer-total-amount">
+            <span className="checkout-footer-total-amount">
               {
                 checkoutPrice ?
                   `$${Math.round(checkoutPrice) * numOfPeople}`

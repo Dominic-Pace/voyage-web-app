@@ -25,7 +25,7 @@ const SectionFiveContent = ({ handleSubmitClick }) => (
         label={<Icon type="send" size={22}/>}
         onClick={handleSubmitClick}
         formState={{valid: true}}
-        style={{ marginLeft: -60 }}
+        style={{ marginLeft: -80 }}
       />
     </Form>
   </div>

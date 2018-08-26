@@ -1,14 +1,15 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Grid } from 'react-bootstrap'
-import Spinner from 'react-spinkit'
 import * as actions  from './actions'
 
 import Banner from './banner'
 import Footer from '../../components/checkout-footer'
+import { Grid } from 'react-bootstrap'
+import Overview from './overview'
+import Spinner from 'react-spinkit'
+import { toast } from 'react-toastify'
 
 import './styles.css'
-import {toast} from "react-toastify";
 
 class PackageView extends React.Component {
   componentWillMount() {
@@ -26,13 +27,9 @@ class PackageView extends React.Component {
           currentPackage ?
             <Grid className="package-container">
               <Banner currentPackage={currentPackage}/>
-              <div
-                style={{
-                  height: '150vh'
-                }}
-              >
-                Test
-              </div>
+              <Overview
+                currentPackage={currentPackage}
+              />
               <Footer
                 buttonLabel="Book Now"
                 buttonType="hashLink"

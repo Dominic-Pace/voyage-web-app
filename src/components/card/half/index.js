@@ -60,7 +60,7 @@ export const HalfSizeCard =
               style={{
                 fontSize: '0.75rem',
                 marginTop: '-10px',
-                marginLeft: '-13px',
+                marginLeft: '2px',
               }}
             >
               PERSON
