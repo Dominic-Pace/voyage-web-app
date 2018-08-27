@@ -6,6 +6,7 @@ import Banner from './banner'
 import Footer from '../../components/checkout-footer'
 import { Grid } from 'react-bootstrap'
 import Overview from './overview'
+import SampleItinerary from './sample-itinerary'
 import Spinner from 'react-spinkit'
 import { toast } from 'react-toastify'
 
@@ -28,6 +29,9 @@ class PackageView extends React.Component {
             <Grid className="package-container">
               <Banner currentPackage={currentPackage}/>
               <Overview
+                currentPackage={currentPackage}
+              />
+              <SampleItinerary
                 currentPackage={currentPackage}
               />
               <Footer
