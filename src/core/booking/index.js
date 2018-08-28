@@ -61,10 +61,10 @@ class BookPackage extends React.Component {
       const locations = this.props.currentPackage.locations
       if (_.size(locations) === 1) {
         this.setState({ locationName: locations.location1 })
-        this.props.fetchThingsToDo(locations.location1, null)
+        this.props.fetchThingsToDo(locations.location1, null, this.props.currentPackage.recommendedThingsToDo)
       } else {
         this.setState({ locationName: locations.location2 })
-        this.props.fetchThingsToDo(locations.location2, null)
+        this.props.fetchThingsToDo(locations.location2, null, this.props.currentPackage.recommendedThingsToDo)
       }
     }).then(() => {
       this.props.fetchAccommodations(this.props.currentPackage.accommodations || [])

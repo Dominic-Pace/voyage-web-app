@@ -39,6 +39,7 @@ export default (state=INITIAL_STATE, action) => {
         ...state,
         thingsToDo: action.thingsToDo,
         isRequesting: false,
+        recommendedThingsToDo: action.recommendedThingsToDo,
       }
     case FETCH_THINGS_TO_DO_FAILURE:
       return { ...state, errorMessage: action.error, isRequesting: false }

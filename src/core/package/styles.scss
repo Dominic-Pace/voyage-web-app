@@ -1,6 +1,19 @@
 @import '../../styles/common.scss';
 
 .package {
+  &-activities {
+    &-container {
+      justify-content: center;
+      padding: 0 20px 100px 20px;
+    }
+    &-title {
+      justify-content: center;
+      width: 100%;
+      &-row {
+        width: 100%;
+      }
+    }
+  }
   &-banner {
     @extend  %align-all;
     background-size: cover;
@@ -30,6 +43,48 @@
     padding-left: 0;
     padding-right: 0;
     padding-top: 45px;
+  }
+  &-info {
+    &-box {
+      display: flex;
+      justify-content: center;
+      margin-left: 15px;
+      width: 25vw;
+      &-description {
+        font-size: 0.8rem;
+        font-style: italic;
+        padding: 20px;
+        text-align: center;
+        width: 100%;
+      }
+      &-title {
+        font-size: 1.5rem;
+        padding-top: 20px;
+        text-align: center;
+        text-transform: uppercase;
+        width: 100%;
+        &-top {
+          font-size: 1.5rem;
+          letter-spacing: 10px;
+          text-align: center;
+          text-transform: uppercase;
+          width: 100%;
+        }
+      }
+    }
+    &-container {
+      display: flex;
+      height: 200px;
+      justify-content: center;
+      margin-bottom: 200px;
+      width: 100vw;
+    }
+    &-warning {
+      font-size: 0.5rem;
+      padding-bottom: 100px;
+      text-align: center;
+      font-style: italic;
+    }
   }
   &-itinerary {
     &-card-container {

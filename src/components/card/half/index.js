@@ -6,9 +6,9 @@ import HalfCardHeader from './header'
 
 const getPriceTagSize = (pricePerPerson) => {
   if (pricePerPerson < 100 && pricePerPerson > 10) {
-    return '31vw'
+    return '30vw'
   } else if (pricePerPerson < 1000 && pricePerPerson > 100) {
-    return '29vw'
+    return '28vw'
   } else if  (pricePerPerson < 10000 && pricePerPerson > 1000) {
     return '27vw'
   } else {
@@ -51,7 +51,8 @@ export const HalfSizeCard =
           </Col>
           <Col className="half-card-price-text-descr">
             <Row style={{
-              fontSize: '1.8rem'
+              fontSize: '1.8rem',
+              margin: 0,
             }}
             >
               PER

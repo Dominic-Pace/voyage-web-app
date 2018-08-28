@@ -22,7 +22,8 @@ export class ReviewCard extends React.Component {
     const {
       categories,
       imageUrl,
-      name
+      name,
+      selected
     } = this.props
     return (
       <Grid
@@ -34,12 +35,20 @@ export class ReviewCard extends React.Component {
             backgroundImage: `url(${imageUrl})`,
           }}
         >
-          <div className="review-card-bg">
-            <Icon
-              handleBlur={this.handleBlur}
-              handleFocus={this.handleFocus}
-              type={this.state.isImageHovered ? 'close' : 'checkmark'} size={42}/>
-          </div>
+          {
+            selected ?
+              <div className="review-card-bg">
+                <Icon
+                  handleBlur={this.handleBlur}
+                  handleFocus={this.handleFocus}
+                  type={ this.state.isImageHovered ? 'close' : 'checkmark' }
+                  size={42}
+                />
+              </div>
+              :
+              null
+          }
+
         </Col>
         <Col style={{ width: '60%' }}>
           <Row className="review-card-name-container">

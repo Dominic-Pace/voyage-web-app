@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { uniqBy } from 'lodash'
 
 import {
   FETCH_PACKAGE_FAILURE,
@@ -37,7 +38,7 @@ export const fetchPackageById = id => (
   }
 )
 
-export const fetchThingsToDo = (location, category) => (
+export const fetchThingsToDo = (location, category, recommendations) => (
   dispatch => {
     const urlProxy =
       `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=things+to+do&location=${location}&radius=32187&limit=50${category ? `&categories=${category}` : '' }`
@@ -51,7 +52,27 @@ export const fetchThingsToDo = (location, category) => (
           'Access-Control-Allow-Headers': '*',
         }
       }).then(res => {
-      dispatch({type: FETCH_THINGS_TO_DO_SUCCESS, thingsToDo: res.data.businesses })
+      let recommendedActivities = []
+      if (recommendations) {
+        res.data.businesses.map(business => {
+          recommendations.map(recommendation => {
+            if(recommendation.recommendation === business.id) {
+              recommendedActivities.push(business)
+            }
+          })
+        })
+      }
+
+      const yelpSorted = uniqBy([
+        ...recommendedActivities,
+        ...res.data.businesses,
+      ], 'id')
+
+      dispatch({
+        type: FETCH_THINGS_TO_DO_SUCCESS,
+        thingsToDo: yelpSorted,
+        recommendedThingsToDo: recommendedActivities,
+      })
     }).catch(err => {
       dispatch({type: FETCH_THINGS_TO_DO_FAILURE, error: err})
     })
