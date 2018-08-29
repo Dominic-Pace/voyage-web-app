@@ -14,3 +14,11 @@ body {
   top: 4em !important;
   right: 1em;
 }
+
+.app-spinner {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+}

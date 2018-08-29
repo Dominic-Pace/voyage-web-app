@@ -25,11 +25,11 @@ const INITIAL_STATE = {
 export default (state=INITIAL_STATE, action) => {
   switch(action.type) {
     case FETCH_USER_REQUEST:
-      return { ...state, isRequesting: true }
+      return { ...state, isRequestingUser: true }
     case FETCH_USER_SUCCESS:
-      return { ...state, isAuthed: true, isRequesting: false, user: action.user }
+      return { ...state, isAuthed: true, isRequestingUser: false, user: action.user }
     case FETCH_USER_FAILURE:
-      return { ...state, errorMessage: action.error, isAuthed: false, isRequesting: false }
+      return { ...state, errorMessage: action.error, isAuthed: false, isRequestingUser: false }
     case USER_LOGIN_REQUEST:
       return { ...state, isRequesting: true }
     case USER_LOGIN_SUCCESS:

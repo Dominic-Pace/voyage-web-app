@@ -1,5 +1,7 @@
 import BookingView from '../booking'
+import DashboardView from '../dashboard'
 import ExploreView from '../explore'
+import ItineraryView from '../itinerary'
 import LoginView from '../auth/login'
 import PackageView from '../package'
 import RegisterView from '../auth/register'
@@ -31,7 +33,15 @@ const routes = [
   {
     path: '/user',
     component: UserView
-  }
+  },
+  {
+    path: '/dashboard',
+    component: DashboardView
+  },
+  {
+    path: '/itinerary',
+    component: ItineraryView
+  },
 ]
 
 export default routes

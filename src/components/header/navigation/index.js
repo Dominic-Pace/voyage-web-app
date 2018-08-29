@@ -4,6 +4,7 @@ import NavItem from './item'
 import Icon from "../../icons";
 
 const homePath = '/'
+const dashboardPath = '/dashboard'
 const authPath = '/auth'
 const explorePath = '/explore'
 const userPath = '/user'
@@ -15,7 +16,10 @@ const NavigationTabs = ({ handleLogoutClick, user }) => (
         user ?
           <NavItem
             linkTo={homePath}
-            selected={window.location.pathname === homePath}
+            selected={
+              window.location.pathname === homePath ||
+              window.location.pathname.includes('itinerary')
+            }
           >
             Dashboard
           </NavItem>
