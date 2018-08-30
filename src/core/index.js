@@ -5,14 +5,15 @@ import { RouteWithSubRoutes } from '../utils/router'
 import * as actions from './auth/actions'
 import routes from './routes'
 
+import DashboardView from './dashboard'
 import Header from '../components/header'
 import LandingPage from './landing'
+import ScrollToTop from '../utils/hoc/ScrollToTop'
 import Spinner from 'react-spinkit'
 import { ToastContainer } from 'react-toastify'
 
 import 'font-awesome/css/font-awesome.min.css'
 import 'react-toastify/dist/ReactToastify.css'
-import DashboardView from './dashboard'
 
 class App extends Component {
   componentDidMount() {
@@ -23,23 +24,25 @@ class App extends Component {
     const { isAuthed, isRequestingUser, user } = this.props
     return (
       <Router>
-        <div id="app-container">
-          {
-            isRequestingUser
-            ?
-              <div className="app-spinner">
-                <Spinner name="three-bounce" />
-              </div>
-              :
-              <React.Fragment>
-                <ToastContainer />
-                <Header handleLogoutClick={() => { this.props.logoutUser() }} user={user} />
-                <Route exact path="/" component={isAuthed ? DashboardView : LandingPage} />
-                {routes.map((route, i) => <RouteWithSubRoutes key={i} {...route} />)}
-              </React.Fragment>
-          }
+        <ScrollToTop>
+          <div id="app-container">
+            {
+              isRequestingUser
+                ?
+                <div className="app-spinner">
+                  <Spinner name="three-bounce" />
+                </div>
+                :
+                <React.Fragment>
+                  <ToastContainer />
+                  <Header handleLogoutClick={() => { this.props.logoutUser() }} user={user} />
+                  <Route exact path="/" component={isAuthed ? DashboardView : LandingPage} />
+                  {routes.map((route, i) => <RouteWithSubRoutes key={i} {...route} />)}
+                </React.Fragment>
+            }
 
-        </div>
+          </div>
+        </ScrollToTop>
       </Router>
     )
   }
