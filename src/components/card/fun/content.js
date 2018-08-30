@@ -39,7 +39,7 @@ const FunContent = ({ addOn }) => (
       <div className="fun-card-map">
       </div>
       <div className="fun-card-rating-container">
-        <span className="package-footer-rating">
+        <span className="fun-card-rating">
           <Rating
             emptySymbol="fa fa-star-o fa-2x"
             fullSymbol="fa fa-star fa-2x"

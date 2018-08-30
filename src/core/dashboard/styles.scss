@@ -8,14 +8,33 @@
     justify-content: center;
     width: 100vw;
   }
+  &-featured {
+    &-container {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  }
   &-section {
+    &-container {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin-top: 25px;
+      padding-bottom: 40px;
+    }
     &-title {
+      border-top: 1px solid gainsboro;
+      border-bottom: 1px solid gainsboro;
       font-size: 1.5rem;
       letter-spacing: 4px;
-      margin-bottom: 10px;
-      margin-top: 15px;
+      margin-bottom: 30px;
+      padding-bottom: 15px;
+      padding-top: 15px;
+      text-align: center;
       text-transform: uppercase;
-      width: 90%;
     }
   }
   &-upcoming {
@@ -23,7 +42,6 @@
       align-items: center;
       display: flex;
       flex-direction: column;
-      height: 150px;
       justify-content: center;
       margin-top: 85px;
       padding-bottom: 40px;

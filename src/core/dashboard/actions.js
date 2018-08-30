@@ -6,6 +6,8 @@ import {
 
 import { travelCategoriesRef } from '../../utils/firebase/firebase-refs'
 
+export { fetchPackages } from '../explore/actions'
+
 export const fetchFeaturedCategories = () => (
   dispatch => {
     const categories = []

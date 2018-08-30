@@ -13,6 +13,9 @@
       width: 20%
     }
   }
+  &-name {
+    letter-spacing: normal;
+  }
   &-per-night {
     display: block;
     margin: -30px 0 0 0;
@@ -20,10 +23,26 @@
     width: 100%;
   }
   &-price {
+    letter-spacing: normal;
     width: 100%;
     &-container{
       height: 40%;
       justify-content: center;
+    }
+  }
+  &-rating {
+    color: $voyago-pink;
+    font-size: 10px;
+    padding-top: 2px;
+    &-num {
+      color: $voyago-grey;
+      font-size: 14px;
+      padding-left: 2px;
+    }
+    &-container {
+      display: flex;
+      justify-content: flex-end;
+      padding-right: 10px;
     }
   }
   &-recommended {
@@ -72,16 +91,27 @@
   }
   &-name {
     @extend %text-highlight;
+    letter-spacing: normal;
     margin: 0;
     white-space: nowrap;
   }
   &-phone {
     height: 15%;
   }
-  &-rating-container {
-    display: flex;
-    justify-content: flex-end;
-    padding-right: 10px;
+  &-rating {
+    color: $voyago-pink;
+    font-size: 10px;
+    padding-top: 2px;
+    &-num {
+      color: $voyago-grey;
+      font-size: 14px;
+      padding-left: 2px;
+    }
+    &-container {
+      display: flex;
+      justify-content: flex-end;
+      padding-right: 10px;
+    }
   }
   &-tags {
     margin: 0;

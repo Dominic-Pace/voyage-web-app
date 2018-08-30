@@ -26,7 +26,7 @@ const AccommodationContent = ({ accommodation, numOfPeople }) => (
   <Col className="accommodation-card-content">
     <Col className="accommodation-card-content-left">
       <Row>
-         <span className="package-footer-rating">
+         <span className="accommodation-card-rating">
           <Rating
             emptySymbol="fa fa-star-o fa-2x"
             fullSymbol="fa fa-star fa-2x"
