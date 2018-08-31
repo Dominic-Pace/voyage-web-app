@@ -11,7 +11,6 @@ import SectionFive from './section-five'
 import SectionSix from './section-six'
 
 import './styles.css'
-import {isMobileView} from "../../utils/device";
 
 class LandingPage extends React.Component {
   componentWillMount() {
@@ -34,27 +33,43 @@ class LandingPage extends React.Component {
   }
 
   render() {
-    const { featuredLocations } = this.props
+    const { featuredLocations, isMobileView } = this.props
     return (
       <React.Fragment>
-        <SectionOne />
+        <SectionOne
+          isMobileView={isMobileView}
+        />
         <SectionTwo />
-        <SectionThree locations={featuredLocations} />
+        {
+          isMobileView
+          ?
+            null
+            :
+            <SectionThree
+              isMobileView={isMobileView}
+              locations={featuredLocations}
+            />
+        }
         <SectionFour
           handleSubmitClick={this.handleCustomVacationClick}
         />
         <SectionFive
           handleSubmitClick={this.handleJoinEmailListClick}
+          isMobileView={isMobileView}
         />
         <SectionSix
           handleSubmitClick={this.handleContactUsClick}
+          isMobileView={isMobileView}
         />
       </React.Fragment>
     )
   }
 }
 
-const mapStateToProps = ({ forms, homepage }) => {
+const mapStateToProps = ({ auth, forms, homepage }) => {
+  const {
+    isMobileView
+  } = auth
   const {
     packages,
     featuredLocations,
@@ -69,6 +84,7 @@ const mapStateToProps = ({ forms, homepage }) => {
     contactUs,
     customPackage,
     featuredLocations,
+    isMobileView,
     isRequesting,
     joinMail,
     packages,

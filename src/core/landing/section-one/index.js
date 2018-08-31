@@ -10,13 +10,13 @@ import SectionOneBanner from '../../../assets/images/landing/one-banner.jpg'
 
 const SECTION_HEIGHT = isMobileView() ? 500 : 600
 
-const SectionOne = () => (
+const SectionOne = ({ isMobileView }) => (
   <Banner
     bgImage={SectionOneBanner}
     height={SECTION_HEIGHT}
   >
     <Grid>
-      <SectionOneContent />
+      <SectionOneContent isMobileView={isMobileView} />
     </Grid>
   </Banner>
 )

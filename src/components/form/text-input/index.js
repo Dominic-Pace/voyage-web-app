@@ -10,6 +10,7 @@ import ErrorMessage from '../error-message'
 export const TextInputField = (
   {
     defaultValue,
+    height,
     max,
     min,
     model,
@@ -30,6 +31,7 @@ export const TextInputField = (
       placeholder={placeholder}
       style={{
         ...{
+          height: height || null,
           width: width || '30vw',
         }, ...style
       }}

@@ -7,14 +7,16 @@ import CopyrightContent from './copyright'
 import MadeContent from './made'
 import MenuContent from './menu'
 import SocialContent from './social'
+import SectionThree from "../../section-three";
 
-const SectionSixContent = ({ handleSubmitClick }) => (
+const SectionSixContent = ({ handleSubmitClick, isMobileView }) => (
   <div className="footer-content">
     <Row>
       <BrandContent />
       <MenuContent />
       <ContactContent
         handleSubmitClick={handleSubmitClick}
+        isMobileView={isMobileView}
       />
     </Row>
     <SocialContent />

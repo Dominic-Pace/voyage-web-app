@@ -7,11 +7,12 @@ import { Col, Row } from 'react-bootstrap'
 
 const StepCard = ({ description, icon, iconStyle, step }) => (
   <Col className="section-two-step-card" md={3}>
-    <Row>
+    <Row style={{ justifyContent: 'center' }}>
       <H1
         rowClassName="landing-step-num"
         color="#C7C7C7"
         bold
+        style={{ width: '100%' }}
       >
         { step }
       </H1>

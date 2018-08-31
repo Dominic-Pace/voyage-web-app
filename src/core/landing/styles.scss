@@ -94,7 +94,8 @@
     flex-direction: column;
     height: 500px;
     @media #{$mobile-device} {
-      padding-top: 500px;
+      background-color: $voyago-lighter-grey;
+      max-width: 1000px;
     }
   }
 }

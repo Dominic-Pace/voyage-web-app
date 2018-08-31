@@ -2,6 +2,8 @@ import {
   FETCH_USER_FAILURE,
   FETCH_USER_REQUEST,
   FETCH_USER_SUCCESS,
+  SET_WINDOW_DIMENSIONS_REQUEST,
+  SET_WINDOW_DIMENSIONS_SUCCESS,
   USER_LOGIN_FAILURE,
   USER_LOGIN_REQUEST,
   USER_LOGIN_SUCCESS,
@@ -30,6 +32,10 @@ export default (state=INITIAL_STATE, action) => {
       return { ...state, isAuthed: true, isRequestingUser: false, user: action.user }
     case FETCH_USER_FAILURE:
       return { ...state, errorMessage: action.error, isAuthed: false, isRequestingUser: false }
+    case SET_WINDOW_DIMENSIONS_REQUEST:
+      return { ...state }
+    case SET_WINDOW_DIMENSIONS_SUCCESS:
+      return { ...state, isMobileView: action.isMobileView }
     case USER_LOGIN_REQUEST:
       return { ...state, isRequesting: true }
     case USER_LOGIN_SUCCESS:
