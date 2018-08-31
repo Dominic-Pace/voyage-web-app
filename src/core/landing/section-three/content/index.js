@@ -4,10 +4,11 @@ import SectionThreeHeader from '../header'
 import SectionThreeSlider from '../slider'
 import SectionThreeFooter from '../footer'
 
-const SectionThreeContent = ({ locations }) => (
+const SectionThreeContent = ({ isMobileView, locations }) => (
   <div>
     <SectionThreeHeader />
     <SectionThreeSlider
+      isMobileView={isMobileView}
       locations={locations}
     />
     <SectionThreeFooter />

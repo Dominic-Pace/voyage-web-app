@@ -4,11 +4,11 @@ import Banner from '../../../components/banner'
 import SectionFiveBanner from '../../../assets/images/landing/five-banner.png'
 import StepFiveContent from './content'
 
-const SectionFive = ({ handleSubmitClick }) => (
+const SectionFive = ({ handleSubmitClick, isMobileView }) => (
   <Banner
     bgImage={SectionFiveBanner}
     className="section-center-container"
-    height={300}
+    height={isMobileView ? null : 300}
   >
     <StepFiveContent
       handleSubmitClick={handleSubmitClick}

@@ -8,7 +8,7 @@ import Icon from '../../../../../components/icons'
 import { Text } from '../../../../../components/text'
 import { TextAreaField, TextInputField } from '../../../../../components/form/text-input'
 
-const ContactContent = ({ handleSubmitClick }) => (
+const ContactContent = ({ handleSubmitClick, isMobileView }) => (
   <Col
     className="footer-content-container"
     md={5}
@@ -20,28 +20,28 @@ const ContactContent = ({ handleSubmitClick }) => (
       <TextInputField
         model="name"
         placeholder="Name"
-        width="28vw"
+        width={`${isMobileView ? 60 : 28}vw`}
       />
       <TextInputField
         model="email"
         placeholder="Email"
-        width="28vw"
+        width={`${isMobileView ? 60 : 28}vw`}
       />
       <TextInputField
         model="subject"
         placeholder="Subject"
-        width="28vw"
+        width={`${isMobileView ? 60 : 28}vw`}
       />
       <TextAreaField
         height={148}
         model="comments"
         placeholder="Comments"
-        width="28vw"
+        width={`${isMobileView ? 60 : 28}vw`}
       />
       <Row className="footer-contact-btn">
         <FormButton
           center
-          label={<span>Send<Icon type="send" size={22}/></span>}
+          label={<span>Send<Icon type="send" size={22} /></span>}
           onClick={handleSubmitClick}
           formState={{ valid: true }}
         />

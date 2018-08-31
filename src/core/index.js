@@ -18,6 +18,12 @@ import 'react-toastify/dist/ReactToastify.css'
 class App extends Component {
   componentDidMount() {
     this.props.fetchUser()
+    this.props.updateWindowDimensions()
+    window.addEventListener("resize", this.props.updateWindowDimensions)
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.updateWindowDimensions)
   }
 
   render () {
@@ -40,7 +46,6 @@ class App extends Component {
                   {routes.map((route, i) => <RouteWithSubRoutes key={i} {...route} />)}
                 </React.Fragment>
             }
-
           </div>
         </ScrollToTop>
       </Router>

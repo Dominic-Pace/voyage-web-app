@@ -57,7 +57,7 @@ export class ReviewCard extends React.Component {
             </H3>
           </Row>
           <Row className="review-card-tag-container">
-            <div>
+            <React.Fragment>
               <Tag
                 style={{
                   fontSize: 12,
@@ -65,7 +65,7 @@ export class ReviewCard extends React.Component {
                 }}
                 title={categories[0].title}
               />
-            </div>
+            </React.Fragment>
           </Row>
         </Col>
       </Grid>

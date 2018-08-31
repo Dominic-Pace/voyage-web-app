@@ -5,7 +5,7 @@ import Banner from '../../../components/banner'
 import SectionThreeBanner from '../../../assets/images/landing/three-banner.png'
 import StepThreeContent from './content'
 
-const SectionThree = ({ locations }) => (
+const SectionThree = ({ isMobileView, locations }) => (
   <Banner
     bgImage={SectionThreeBanner}
     className="section-center-container"
@@ -14,6 +14,7 @@ const SectionThree = ({ locations }) => (
     height={650}
   >
     <StepThreeContent
+      isMobileView={isMobileView}
       locations={locations}
     />
   </Banner>

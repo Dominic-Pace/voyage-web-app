@@ -6,17 +6,17 @@ import { HashLink } from 'react-router-hash-link'
 import './styles.css'
 
 export const RoundedButton = ({
-                                className,
-                                color,
-                                disabled,
-                                label,
-                                linkTo,
-                                onClick,
-                                style,
-                                transparent,
-                                type,
-                                uppercase,
-                              }) => {
+  className,
+  color,
+  disabled,
+  label,
+  linkTo,
+  onClick,
+  style,
+  transparent,
+  type,
+  uppercase,
+}) => {
   const renderButtonType = label => {
     switch(type) {
       case 'link':

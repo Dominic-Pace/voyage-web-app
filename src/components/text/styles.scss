@@ -6,23 +6,44 @@
   font-size: 2rem;
   font-weight: 100;
   letter-spacing: 5px;
+  text-align: center;
   text-transform: uppercase;
+  @media #{$mobile-device} {
+    font-size: 1.5rem;
+    width: 100%;
+  }
 }
 
 .header-lg {
   font-size: 1.5rem;
   font-weight: 100;
   letter-spacing: 5px;
+  text-align: center;
+  @media #{$mobile-device} {
+    font-size: 1.25rem;
+    padding: 0 20px;
+    width: 100%;
+  }
 }
 
 .header-md {
   font-size: 1.25rem;
   font-weight: 200;
   text-align: center;
+  @media #{$mobile-device} {
+    font-size: 1rem;
+    padding: 0 20px;
+    width: 100%;
+  }
 }
 
 .general-text {
   font-size: 1rem;
   font-weight: 200;
   text-align: center;
+  @media #{$mobile-device} {
+    font-size: 0.8rem;
+    padding: 0 20px;
+    width: 100%;
+  }
 }

@@ -6,7 +6,7 @@ import { RoundedButton } from '../../../../components/button'
 import { Row } from 'react-bootstrap'
 
 
-const SectionOneContent = () => (
+const SectionOneContent = ({ isMobileView }) => (
   <Row className="centered-container">
     <H1>Book your next getaway with us!</H1>
     <Text>Voyago's mission is to provide you with a service just as easy as booking a cruise, but anywhere in the world.
@@ -23,9 +23,9 @@ const SectionOneContent = () => (
     <RoundedButton
       className="top-section-btn"
       label="Browse Vacation Packages!"
-      linkTo="/#explore"
+      linkTo={`/${isMobileView ? '' : '#'}explore`}
       transparent
-      type="hashLink"
+      type={isMobileView ? 'link' : 'hashLink'}
     />
   </Row>
 )

@@ -4,7 +4,7 @@ import Image from '../image'
 
 import './styles.css'
 const ErrorImage = ({ message, titleMessage }) => (
-  <div>
+  <React.Fragment>
     <div className="error-img-container">
       <Image
         alt="Error Message"
@@ -18,7 +18,7 @@ const ErrorImage = ({ message, titleMessage }) => (
     <H3 center>
       { message }
     </H3>
-  </div>
+  </React.Fragment>
 )
 
 export default ErrorImage

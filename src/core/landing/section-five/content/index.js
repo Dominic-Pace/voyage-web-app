@@ -16,16 +16,18 @@ const SectionFiveContent = ({ handleSubmitClick }) => (
       model={`${BASE_FORM_REDUCER}${JOIN_MAIL_FORM}`}
     >
       <TextInputField
+        height={50}
         model="email"
         placeholder="Enter Email Address"
-        width="50vw"
+        style={{ marginLeft: -13}}
+        width="80vw"
       />
       <FormButton
         btnStyle={{ borderRadius: 6 }}
         label={<Icon type="send" size={22}/>}
         onClick={handleSubmitClick}
         formState={{valid: true}}
-        style={{ marginLeft: -80 }}
+        style={{ marginLeft: -65 }}
       />
     </Form>
   </div>

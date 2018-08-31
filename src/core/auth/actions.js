@@ -4,6 +4,8 @@ import {
   FETCH_USER_FAILURE,
   FETCH_USER_REQUEST,
   FETCH_USER_SUCCESS,
+  SET_WINDOW_DIMENSIONS_REQUEST,
+  SET_WINDOW_DIMENSIONS_SUCCESS,
   USER_LOGIN_FAILURE,
   USER_LOGIN_REQUEST,
   USER_LOGIN_SUCCESS,
@@ -22,6 +24,7 @@ import {
   authRef, singlePackageRef,
   userInfoRef,
 } from '../../utils/firebase/firebase-refs'
+import {isMobileView} from "../../utils/device";
 
 export const fetchUser = () => dispatch => {
   let userData;
@@ -39,6 +42,11 @@ export const fetchUser = () => dispatch => {
   } else {
     return dispatch({ type: FETCH_USER_FAILURE, error: 'Not Logged in' })
   }
+}
+
+export const updateWindowDimensions = () => dispatch => {
+  dispatch({ type: SET_WINDOW_DIMENSIONS_REQUEST })
+  return dispatch({ type: SET_WINDOW_DIMENSIONS_SUCCESS, isMobileView: isMobileView() })
 }
 
 export const loginUser = userCreds => (

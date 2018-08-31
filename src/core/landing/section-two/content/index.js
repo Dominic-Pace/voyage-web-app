@@ -5,11 +5,11 @@ import SectionTwoHeader from '../header'
 import StepCards from '../step-card/cards'
 
 const SectionTwoContent = () => (
-  <div>
+  <React.Fragment>
     <SectionTwoHeader />
     <StepCards />
     <SectionTwoFooter />
-  </div>
+  </React.Fragment>
 )
 
 export default SectionTwoContent

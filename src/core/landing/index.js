@@ -33,29 +33,43 @@ class LandingPage extends React.Component {
   }
 
   render() {
-    const { featuredLocations } = this.props
+    const { featuredLocations, isMobileView } = this.props
     return (
-      <div>
-        <SectionOne />
-        <SectionTwo />
-        <SectionThree
-          locations={featuredLocations}
+      <React.Fragment>
+        <SectionOne
+          isMobileView={isMobileView}
         />
+        <SectionTwo />
+        {
+          isMobileView
+          ?
+            null
+            :
+            <SectionThree
+              isMobileView={isMobileView}
+              locations={featuredLocations}
+            />
+        }
         <SectionFour
           handleSubmitClick={this.handleCustomVacationClick}
         />
         <SectionFive
           handleSubmitClick={this.handleJoinEmailListClick}
+          isMobileView={isMobileView}
         />
         <SectionSix
           handleSubmitClick={this.handleContactUsClick}
+          isMobileView={isMobileView}
         />
-      </div>
+      </React.Fragment>
     )
   }
 }
 
-const mapStateToProps = ({ forms, homepage }) => {
+const mapStateToProps = ({ auth, forms, homepage }) => {
+  const {
+    isMobileView
+  } = auth
   const {
     packages,
     featuredLocations,
@@ -70,6 +84,7 @@ const mapStateToProps = ({ forms, homepage }) => {
     contactUs,
     customPackage,
     featuredLocations,
+    isMobileView,
     isRequesting,
     joinMail,
     packages,

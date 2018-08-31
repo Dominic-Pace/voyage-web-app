@@ -34,7 +34,7 @@ class PackageView extends React.Component {
   render() {
     const { currentPackage, isAuthed, recommendedThingsToDo } = this.props
     return (
-      <div>
+      <React.Fragment>
         {
           currentPackage ?
             <Grid className="package-container">
@@ -65,7 +65,7 @@ class PackageView extends React.Component {
             :
             <Spinner name="three-bounce" />
         }
-      </div>
+      </React.Fragment>
     )
   }
 }
