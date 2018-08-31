@@ -5,11 +5,13 @@ import StepTwoContent from './content'
 
 import '../styles.css'
 
-const SectionTwo = () => (
+const SectionTwo = ({ isMobileView }) => (
   <Grid
     className="section-two-container"
   >
-    <StepTwoContent />
+    <StepTwoContent
+      isMobileView={isMobileView}
+    />
   </Grid>
 )
 

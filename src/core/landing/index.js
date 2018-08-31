@@ -39,7 +39,9 @@ class LandingPage extends React.Component {
         <SectionOne
           isMobileView={isMobileView}
         />
-        <SectionTwo />
+        <SectionTwo
+          isMobileView={isMobileView}
+        />
         {
           isMobileView
           ?

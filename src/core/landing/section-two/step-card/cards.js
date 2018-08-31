@@ -3,7 +3,7 @@ import React from 'react'
 import { Row } from 'react-bootstrap'
 import StepCard from './'
 
-const StepCards = () => (
+const StepCards = ({ isMobileView }) => (
   <Row className="section-two">
     <StepCard
       description="Browse our pre-built packages and deals or create your own custom Search."
@@ -12,6 +12,7 @@ const StepCards = () => (
         marginBottom: -20,
         marginTop: -50
       }}
+      isMobileView={isMobileView}
       step={1}
     />
     <StepCard
@@ -20,6 +21,7 @@ const StepCards = () => (
       iconStyle={{
         marginTop: -35
       }}
+      isMobileView={isMobileView}
       step={2}
     />
     <StepCard
@@ -29,6 +31,7 @@ const StepCards = () => (
         marginBottom: -20,
         marginTop: -50
       }}
+      isMobileView={isMobileView}
       step={3}
     />
   </Row>

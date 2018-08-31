@@ -40,6 +40,7 @@ const Icon = ({ handleBlur, handleFocus, pointer, size, style, type }) => (
   <img
     alt={type}
     className={(pointer && type === 'menu' ? 'mobile-menu' : (pointer ? 'icon-link' : null))}
+    height={size}
     onBlur={handleBlur}
     onMouseEnter={handleFocus}
     src={types[type]}

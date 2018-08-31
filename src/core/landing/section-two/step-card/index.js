@@ -5,7 +5,7 @@ import Icon from '../../../../components/icons'
 
 import { Col, Row } from 'react-bootstrap'
 
-const StepCard = ({ description, icon, iconStyle, step }) => (
+const StepCard = ({ description, icon, iconStyle, isMobileView, step }) => (
   <Col className="section-two-step-card" md={3}>
     <Row style={{ justifyContent: 'center' }}>
       <H1
@@ -17,7 +17,7 @@ const StepCard = ({ description, icon, iconStyle, step }) => (
         { step }
       </H1>
       <Icon
-        size={300}
+        size={isMobileView ? 200 : 300}
         style={iconStyle}
         type={icon}
       />

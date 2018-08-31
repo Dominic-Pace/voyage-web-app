@@ -4,10 +4,12 @@ import SectionTwoFooter from '../footer'
 import SectionTwoHeader from '../header'
 import StepCards from '../step-card/cards'
 
-const SectionTwoContent = () => (
+const SectionTwoContent = ({ isMobileView }) => (
   <React.Fragment>
     <SectionTwoHeader />
-    <StepCards />
+    <StepCards
+      isMobileView={isMobileView}
+    />
     <SectionTwoFooter />
   </React.Fragment>
 )

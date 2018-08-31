@@ -64,20 +64,23 @@
   &-container {
     display: flex;
     flex-direction: column;
-    height: 500px;
+    height: 650px;
     @extend %vertical-align;
     @media #{$mobile-device} {
-      height: 800px;
+      height: 950px;
     }
   }
   &-header {
     border-bottom: $voyago-lighter-grey 1px solid;
     border-top: $voyago-lighter-grey 1px solid;
     color: $voyago-grey;
+    height: 90px;
     margin: 20px 0 !important;
     padding-top: 20px;
-    padding-bottom: 5px;
-
+    padding-bottom: 20px;
+    @media #{$mobile-device} {
+      height: 75px;
+    }
   }
   &-step {
     &-card {
