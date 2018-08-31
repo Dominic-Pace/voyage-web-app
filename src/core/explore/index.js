@@ -76,10 +76,10 @@ class ExploreView extends React.Component {
   }
 
   render() {
-    const { filters } = this.props
+    const { filters, isMobileView } = this.props
     return (
       <Grid className="explore-container">
-        <Banner filters={filters} />
+        <Banner filters={filters} isMobileView={isMobileView} />
         <Packages
           currentFilter={this.getCurrentFilter()}
           packages={this.filterPackages()}
@@ -89,7 +89,10 @@ class ExploreView extends React.Component {
   }
 }
 
-const mapStateToProps = ({ explore }) => {
+const mapStateToProps = ({ auth, explore }) => {
+  const {
+    isMobileView,
+  } = auth
   const {
     filters,
     packages,
@@ -97,6 +100,7 @@ const mapStateToProps = ({ explore }) => {
   } = explore
   return {
     filters,
+    isMobileView,
     packages,
     isRequesting,
   }

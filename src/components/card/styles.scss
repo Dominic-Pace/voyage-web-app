@@ -355,6 +355,10 @@
   height: 80px;
   margin: 0 20px 0 20px;
   width: 320px;
+  @media #{$mobile-device} {
+    height: 60px;
+    width: 180px;
+  }
   &-selected {
     background-color: $voyago-white-bg;
     border: 1px solid $voyago-grey;
@@ -364,12 +368,19 @@
     height: 80px;
     margin: 0 20px 0 20px;
     width: 320px;
+    @media #{$mobile-device} {
+      height: 60px;
+      width: 180px;
+    }
   }
   &-image {
     background-size: cover;
     background-position-x: center;
     display: table-cell;
     width: 125px;
+    @media #{$mobile-device} {
+      width: 80px;
+    }
   }
   &-title {
     @extend %align-all;
@@ -380,6 +391,10 @@
     height: 100%;
     &:hover {
       color: $voyago-dark;
+    }
+    @media #{$mobile-device} {
+      font-size: 1rem;
+      text-align: center;
     }
   }
 }

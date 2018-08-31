@@ -3,8 +3,10 @@
 .explore {
   &-banner {
     height: 20vh;
-    padding: 20px;
     width: 100%;
+    @media #{$mobile-device} {
+      height: 180px;
+    }
     &-categories {
       justify-content: center;
       padding-bottom: 80px;
@@ -15,12 +17,18 @@
     background-color: $voyago-white;
     height: 100vh;
     max-width: 100vw;
-    padding: 50px;
+    padding: 70px 50px;
+
   }
   &-header {
     margin-top: 3rem;
     text-align: center;
     width: 100%;
+  }
+  &-mobile-banner-categories {
+    display: flex;
+    height: 90px;
+    overflow-x: scroll;
   }
   &-packages {
     padding-bottom: 50px;
