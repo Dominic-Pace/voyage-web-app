@@ -10,10 +10,16 @@
   border-radius: 20px;
   color: $voyago-white;
   padding: 8px 16px 8px 16px;
+  @media #{$mobile-device} {
+    font-size: .8rem;
+  }
   &-transparent {
     border-radius: 20px;
     background-color: transparent;
     border: $voyago-white solid 1px;
     color: $voyago-white;
+    @media #{$mobile-device} {
+      font-size: .9rem;
+    }
   }
 }

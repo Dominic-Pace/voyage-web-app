@@ -41,9 +41,17 @@
   }
 }
 
-.landing-form {
-  @extend %center-align;
-  padding: 10px;
+.landing {
+  &-form {
+    @extend %center-align;
+    padding: 10px;
+  }
+  &-step-num {
+    margin: 0 20px 0 0 !important;
+    padding-left: 20px;
+    text-align: center;
+    width: 100%;
+  }
 }
 
 .package-home-footer {
@@ -54,12 +62,27 @@
 .section-two {
   justify-content: center;
   &-container {
+    display: flex;
+    flex-direction: column;
     height: 500px;
     @extend %vertical-align;
+    @media #{$mobile-device} {
+      height: 800px;
+    }
   }
-  &-step-card {
-    padding-right: 55px;
-    padding-left: 55px;
+  &-header {
+    border-bottom: $voyago-lighter-grey 1px solid;
+    border-top: $voyago-lighter-grey 1px solid;
+    color: $voyago-grey;
+    margin: 20px 0 !important;
+    padding-top: 20px;
+    padding-bottom: 5px;
+
+  }
+  &-step {
+    &-card {
+      padding: 0 55px;
+    }
   }
 }
 
@@ -67,17 +90,27 @@
   @extend %center-align;
   &-container {
     @extend %center-align;
+    display: flex;
+    flex-direction: column;
     height: 500px;
+    @media #{$mobile-device} {
+      padding-top: 500px;
+    }
   }
 }
 
 .section-center-container {
   color: $voyago-white;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
 }
 
 .top-section-btn {
   margin: 20px;
+  @media #{$mobile-device} {
+    margin: 10px;
+  }
 }
 
 .voyago {

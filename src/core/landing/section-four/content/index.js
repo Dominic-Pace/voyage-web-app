@@ -6,7 +6,7 @@ import Icon from '../../../../components/icons'
 import SectionFourHeader from '../header'
 
 const SectionFourContent = ({ handleSubmitClick }) => (
-  <div>
+  <React.Fragment>
     <SectionFourHeader />
     <CustomRequestForm />
     <FormButton
@@ -15,7 +15,7 @@ const SectionFourContent = ({ handleSubmitClick }) => (
       onClick={handleSubmitClick}
       formState={{valid: true}}
     />
-  </div>
+  </React.Fragment>
 )
 
 export default SectionFourContent

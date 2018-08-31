@@ -5,8 +5,9 @@ import { H1 } from '../../../../components/text'
 const SectionTwoHeader = () => (
   <H1
     center
-    color="#798089"
-  >
+    rowClassName="section-two-header"
+    color='798089'
+>
     How it Works
   </H1>
 )

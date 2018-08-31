@@ -59,7 +59,7 @@ class LocationSearchInput extends React.Component {
         onSelect={handleSelect}
       >
         {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
-          <div>
+          <React.Fragment>
             <input {...getInputProps({
                 placeholder: placeholder || 'Search For Your Home Address...',
                 className: className || 'location-search-input',
@@ -79,7 +79,7 @@ class LocationSearchInput extends React.Component {
                 )
               })}
             </div>
-          </div>
+          </React.Fragment>
         )}
       </PlacesAutocomplete>
     )

@@ -9,7 +9,7 @@ import { TextInputField } from '../../../../components/form/text-input'
 import { BASE_FORM_REDUCER, JOIN_MAIL_FORM } from '../../../../components/form/constants'
 
 const SectionFiveContent = ({ handleSubmitClick }) => (
-  <div>
+  <React.Fragment>
     <SectionFiveHeader />
     <Form
       className="landing-form"
@@ -28,7 +28,7 @@ const SectionFiveContent = ({ handleSubmitClick }) => (
         style={{ marginLeft: -80 }}
       />
     </Form>
-  </div>
+  </React.Fragment>
 )
 
 export default SectionFiveContent

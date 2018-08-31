@@ -11,6 +11,7 @@ import SectionFive from './section-five'
 import SectionSix from './section-six'
 
 import './styles.css'
+import {isMobileView} from "../../utils/device";
 
 class LandingPage extends React.Component {
   componentWillMount() {
@@ -35,12 +36,10 @@ class LandingPage extends React.Component {
   render() {
     const { featuredLocations } = this.props
     return (
-      <div>
+      <React.Fragment>
         <SectionOne />
         <SectionTwo />
-        <SectionThree
-          locations={featuredLocations}
-        />
+        <SectionThree locations={featuredLocations} />
         <SectionFour
           handleSubmitClick={this.handleCustomVacationClick}
         />
@@ -50,7 +49,7 @@ class LandingPage extends React.Component {
         <SectionSix
           handleSubmitClick={this.handleContactUsClick}
         />
-      </div>
+      </React.Fragment>
     )
   }
 }

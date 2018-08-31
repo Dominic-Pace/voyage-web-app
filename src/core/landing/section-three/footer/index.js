@@ -5,7 +5,7 @@ import { Row } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
 const SectionThreeFooter = () => (
-  <div>
+  <React.Fragment>
     <Row className="package-home-footer">
       <Link to="/explore">
         <H2 style={{
@@ -20,7 +20,7 @@ const SectionThreeFooter = () => (
     >
       *All prices are per night per customer
     </Text>
-  </div>
+  </React.Fragment>
 )
 
 export default SectionThreeFooter

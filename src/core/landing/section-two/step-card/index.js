@@ -9,11 +9,9 @@ const StepCard = ({ description, icon, iconStyle, step }) => (
   <Col className="section-two-step-card" md={3}>
     <Row>
       <H1
+        rowClassName="landing-step-num"
         color="#C7C7C7"
         bold
-        style={{
-          paddingLeft: 20,
-        }}
       >
         { step }
       </H1>

@@ -3,7 +3,7 @@ import React from 'react'
 import { H1, Text } from '../../../../components/text'
 
 const SectionFiveHeader = () => (
-  <div>
+  <React.Fragment>
     <H1
       center
       style={{ paddingTop: 20 }}
@@ -20,7 +20,7 @@ const SectionFiveHeader = () => (
     >
       Don't miss out on our absolute best deals! Join our mail list today to stay up to date on our hottest deals!
     </Text>
-  </div>
+  </React.Fragment>
 )
 
 export default SectionFiveHeader

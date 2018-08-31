@@ -195,7 +195,7 @@ class BookPackage extends React.Component {
     const { currentPackage } = this.props
     const { currentStep, numOfPeople } = this.state
     return (
-      <div>
+      <React.Fragment>
         {
           currentPackage ?
             <Grid className="booking-container">
@@ -217,7 +217,7 @@ class BookPackage extends React.Component {
             :
             <Spinner name="three-bounce" />
         }
-      </div>
+      </React.Fragment>
     )
   }
 }
