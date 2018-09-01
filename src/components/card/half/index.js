@@ -4,18 +4,6 @@ import { Col, Row } from 'react-bootstrap'
 
 import HalfCardHeader from './header'
 
-const getPriceTagSize = (pricePerPerson) => {
-  if (pricePerPerson < 100 && pricePerPerson > 10) {
-    return '30vw'
-  } else if (pricePerPerson < 1000 && pricePerPerson > 100) {
-    return '28vw'
-  } else if  (pricePerPerson < 10000 && pricePerPerson > 1000) {
-    return '27vw'
-  } else {
-    return '33vw'
-  }
-}
-
 export const HalfSizeCard =
   ({
      beginDate,
@@ -27,7 +15,7 @@ export const HalfSizeCard =
      pricePerPerson,
      title,
    }) => (
-    <Link to={linkTo}>
+    <Link className="half-card-container" to={linkTo}>
       <div
         className="half-card-bg"
         style={{
@@ -39,13 +27,7 @@ export const HalfSizeCard =
           locations={locations}
           title={title}
         />
-        <Row style={{ height: 100 }}/>
-        <Row
-          className="half-card-price"
-          style={{
-            marginLeft: getPriceTagSize(pricePerPerson),
-          }}
-        >
+        <Row className="half-card-price">
           <Col className="half-card-price-text-price">
             ${ Math.round(pricePerPerson) }
           </Col>
