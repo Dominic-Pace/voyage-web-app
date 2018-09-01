@@ -132,6 +132,11 @@
 }
 
 .half-card {
+  &-container {
+    @media #{$mobile-device} {
+      width: 100vw;
+    }
+  }
   &-bg {
     background: rgba(black, 0.2) center;
     background-blend-mode: overlay;
@@ -146,15 +151,38 @@
     &:hover {
       background-blend-mode: normal;
     }
+    @media #{$mobile-device} {
+      height: 225px;
+      margin: 5px 0;
+      width: 100%;
+    }
   }
   &-header {
+    height: 45%;
     margin: 0;
     &-title {
       @extend %text-highlight;
       margin: 10px;
+      @media #{$mobile-device} {
+        padding-left: 10px;
+        padding-right: 0;
+        width: 75%;
+      }
       &-container {
         margin: 10px 0;
+        @media #{$mobile-device} {
+          width: 80%;
+        }
       }
+      &-row {
+        @media #{$mobile-device} {
+          height: 65px;
+        }
+      }
+    }
+    @media #{$mobile-device} {
+      flex-direction: column;
+      height: 40%;
     }
   }
   &-length {
@@ -177,27 +205,51 @@
       @extend %white-text;
       font-weight: 500;
       text-shadow: 1px 1px 1px $voyago-dark;
+      @media #{$mobile-device} {
+        font-size: 12px;
+      }
+    }
+    @media #{$mobile-device} {
+      margin-left: -65px;
+      margin-top: 10px;
     }
   }
   &-price {
+    align-items: center;
     background-color: rgba($voyago-off-white, 0.2);
     border: 1px $voyago-white-bg solid;
-    height: 66px;
-    margin-right: 35px;
-    padding-left: 10px;
-    padding-top: 8px;
+    margin-left: 27vw;
+    margin-top: 80px;
+    padding: 0 15px;
+    width: fit-content;
+    @media #{$mobile-device} {
+      margin-left: 50vw;
+      margin-top: 50px;
+    }
+    @media #{$tablet-device} {
+      margin-left: 50vw;
+      margin-top: 50px;
+    }
     &-text {
       text-align: center;
       &-descr {
         @extend %text-highlight;
         margin-left: 15px;
         margin-top: -3px;
+        @media #{$mobile-device} {
+          margin-left: 10px;
+          margin-top: -7px;
+        }
       }
       &-price {
         @extend %text-highlight;
-        font-weight: 700;
+        font-weight: 400;
         font-size: 3rem;
-        margin-top: -10px;
+        margin-top: 4px;
+        @media #{$mobile-device} {
+          font-size: 2rem;
+          margin-top: -2px;
+        }
       }
     }
   }

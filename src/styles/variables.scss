@@ -19,7 +19,7 @@ $voyago-white: #FFFFFF;
 
 // Breakpoints
 $mobile-device: "only screen and (max-width : 768px)";
-$tablet-device: "only screen and (max-width : 968px)";
+$tablet-device: "only screen and (min-width : 768px) and (max-width : 968px)";
 
 // Typography
 $font-stack:    Avenir, sans-serif;

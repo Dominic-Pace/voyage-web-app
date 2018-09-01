@@ -12,8 +12,8 @@ const HalfCardLengthSection = ({ lengthInDays, locations, title }) => (
         DAYS
       </div>
     </Col>
-    <Col className="half-card-">
-      <H3 bold className="half-card-header-title">
+    <Col className="half-card-header-title-container">
+      <H3 bold className="half-card-header-title" rowClassName="half-card-header-title-row">
         { title }
       </H3>
       <div className="half-card-location">
