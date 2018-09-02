@@ -27,6 +27,7 @@ const ActivitiesView = ({
           <FunCard
             addOn={addOn}
             handleClick={handleActivityClick}
+            isMobileView={isMobileView}
             key={addOn.name}
             selected={selectedActivities.find(activity => activity.id === addOn.id)}
           />

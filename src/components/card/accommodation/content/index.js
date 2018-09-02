@@ -22,10 +22,10 @@ const renderAccommodationPrice = (accommodation, numOfPeople) => {
 }
 
 
-const AccommodationContent = ({ accommodation, numOfPeople }) => (
+const AccommodationContent = ({ accommodation, isMobileView, numOfPeople }) => (
   <Col className="accommodation-card-content">
     <Col className="accommodation-card-content-left">
-      <Row>
+      <Row style={{ justifyContent: isMobileView && 'center' }}>
          <span className="accommodation-card-rating">
           <Rating
             emptySymbol="fa fa-star-o fa-2x"
@@ -75,7 +75,11 @@ const AccommodationContent = ({ accommodation, numOfPeople }) => (
         {
           accommodation.isRecommended &&
           <div className="accommodation-card-recommended-container">
-            <Image image="logo" size={96} />
+            <Image
+              image="logo"
+              size={isMobileView ? 64 : 96}
+              style={{ marginLeft: isMobileView && 20 }}
+            />
             <div className="accommodation-card-recommended-text">
               Voyago Recommended
             </div>

@@ -16,31 +16,35 @@ class AccommodationView extends React.Component {
     }
   }
 
-  renderAccommodationCard = (accommodation, handleAccommodationClick, numOfPeople, selectedAccommodation) => (
-    <AccommodationCard
-      accommodation={accommodation}
-      handleClick={handleAccommodationClick}
-      numOfPeople={numOfPeople}
-      selected={selectedAccommodation && (accommodation.id === selectedAccommodation.id)}
-    />
-  )
+  renderAccommodationCard = accommodation => {
+    const { handleAccommodationClick, isMobileView, numOfPeople, selectedAccommodation } = this.props
+    return (
+      <AccommodationCard
+        accommodation={accommodation}
+        handleClick={handleAccommodationClick}
+        isMobileView={isMobileView}
+        numOfPeople={numOfPeople}
+        selected={selectedAccommodation && (accommodation.id === selectedAccommodation.id)}
+      />
+    )
+  }
 
   render() {
-    const { accommodations, handleAccommodationClick, numOfPeople, selectedAccommodation } = this.props
+    const { accommodations, numOfPeople } = this.props
     return (
       <Grid className="booking-view-container">
         {
           accommodations.map(accommodation => {
             if (accommodation.name) {
-              return this.renderAccommodationCard(accommodation, handleAccommodationClick, numOfPeople, selectedAccommodation)
+              return this.renderAccommodationCard(accommodation)
             }
             if (numOfPeople <= 2) {
               if (accommodation.twoPersonPrice) {
-                return this.renderAccommodationCard(accommodation, handleAccommodationClick, numOfPeople, selectedAccommodation)
+                return this.renderAccommodationCard(accommodation)
               }
             } else {
               if (accommodation.threeToFourPersonPrice) {
-                return this.renderAccommodationCard(accommodation, handleAccommodationClick, numOfPeople, selectedAccommodation)
+                return this.renderAccommodationCard(accommodation)
               }
             }
           })

@@ -9,7 +9,7 @@ import { H2 } from '../../../components/text'
 import { TextInputField } from '../../../components/form'
 import { getMinAgeDate } from '../../../utils/date'
 
-const renderTravelerForm = (forms, travelerNumber) => {
+const renderTravelerForm = (forms, travelerNumber, isMobileView) => {
   const modelName = `${TRAVELER_INFO_FORM}${travelerNumber}`
   return (
     <Form
@@ -24,24 +24,28 @@ const renderTravelerForm = (forms, travelerNumber) => {
           defaultValue=""
           model="firstName"
           placeholder="First Name"
+          width={isMobileView && '90vw'}
         />
       </Row>
       <Row>
         <TextInputField
           model="lastName"
           placeholder="Last Name"
+          width={isMobileView && '90vw'}
         />
       </Row>
       <Row>
         <TextInputField
           model="email"
           placeholder="Email"
+          width={isMobileView && '90vw'}
         />
       </Row>
       <Row>
         <TextInputField
           model="phone"
           placeholder="Phone"
+          width={isMobileView && '90vw'}
         />
       </Row>
       <Row className="personal-info-birthday">
@@ -54,7 +58,7 @@ const renderTravelerForm = (forms, travelerNumber) => {
             min={getMinAgeDate() - 100}
             model="birthday"
             type="date"
-            width="12vw"
+            width={isMobileView ? '40vw' : '12vw'}
           />
         </Col>
       </Row>
@@ -62,7 +66,7 @@ const renderTravelerForm = (forms, travelerNumber) => {
   )
 }
 
-const PersonalInfoView = ({ forms, numOfPeople }) => {
+const PersonalInfoView = ({ forms, isMobileView, numOfPeople }) => {
   let travelers = []
   for (let i = 0; i < numOfPeople; i++) {
     travelers.push({})
@@ -71,7 +75,7 @@ const PersonalInfoView = ({ forms, numOfPeople }) => {
     <Grid className="personal-info-container">
       {
         travelers.map((user, key) => (
-          renderTravelerForm(forms.forms, key)
+          renderTravelerForm(forms.forms, key, isMobileView)
         ))
       }
     </Grid>

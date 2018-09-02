@@ -172,12 +172,14 @@ class BookPackage extends React.Component {
         return <AccommodationsView
           accommodations={accommodations}
           handleAccommodationClick={accommodation => { this.handleAccommodationSelect(accommodation) }}
+          isMobileView={isMobileView}
           numOfPeople={numOfPeople}
           selectedAccommodation={selectedAccommodation}
         />
       case 2:
         return <TravelerInfoView
           forms={forms}
+          isMobileView={isMobileView}
           numOfPeople={numOfPeople}
         />
       case 3:

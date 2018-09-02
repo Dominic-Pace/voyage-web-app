@@ -3,6 +3,7 @@ import React from 'react'
 import Content from './content'
 import WideImage from '../wide-image'
 import { Grid } from 'react-bootstrap'
+import {isMobileView} from "../../../utils/device";
 
 const determineClassName = (accommodation, selected)=> {
   if (selected) {
@@ -13,12 +14,12 @@ const determineClassName = (accommodation, selected)=> {
     return 'wide-card-container'
   }
 }
-export const AccommodationCard = ({ accommodation, handleClick, numOfPeople, selected }) => (
+export const AccommodationCard = ({ accommodation, handleClick, isMobileView, numOfPeople, selected }) => (
   <Grid
     className={determineClassName(accommodation, selected)}
     onClick={() => { handleClick(accommodation) }}
   >
-    <WideImage imageUrl={accommodation.imageUrl} selected={selected} />
-    <Content accommodation={accommodation} numOfPeople={numOfPeople} />
+    <WideImage imageUrl={accommodation.imageUrl} isMobileView={isMobileView} selected={selected} />
+    <Content accommodation={accommodation} isMobileView={isMobileView} numOfPeople={numOfPeople} />
   </Grid>
 )
