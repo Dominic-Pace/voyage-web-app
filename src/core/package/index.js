@@ -32,18 +32,22 @@ class PackageView extends React.Component {
   normalizeLocationPathname = () => window.location.pathname.replace('/package/', '')
 
   render() {
-    const { currentPackage, isAuthed, recommendedThingsToDo } = this.props
+    const { currentPackage, isAuthed, isMobileView, recommendedThingsToDo } = this.props
     return (
       <React.Fragment>
         {
           currentPackage ?
             <Grid className="package-container">
-              <Banner currentPackage={currentPackage}/>
+              <Banner
+                currentPackage={currentPackage}
+                isMobileView={isMobileView}
+              />
               <Overview
                 currentPackage={currentPackage}
               />
               <SampleItinerary
                 currentPackage={currentPackage}
+                isMobileView={isMobileView}
               />
               <RecommendedActivities
                 recommendedThingsToDo={recommendedThingsToDo}
@@ -78,10 +82,12 @@ const mapStateToProps = ({ auth, travelPackage }) => {
   } = travelPackage
   const {
     isAuthed,
+    isMobileView,
   } = auth
   return {
     currentPackage,
     isAuthed,
+    isMobileView,
     isRequesting,
     recommendedThingsToDo,
   }

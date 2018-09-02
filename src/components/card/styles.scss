@@ -283,11 +283,19 @@
     margin: 5px;
     padding: 0;
     width: 30%;
+    @media #{$tablet-device} {
+      width: 80%;
+    }
     &:hover {
       box-shadow: 0 8px 8px 0 rgba($voyago-primary, 0.2), 6px 12px 20px 6px rgba($voyago-primary, 0.19);
     }
   }
   &-name{
+    font-size: 1rem;
+    line-height: 1rem  !important;
+    @media #{$tablet-device} {
+      font-size: 0.8rem !important;
+    }
     &-container {
       height: 60%;
       margin: 0;
@@ -299,7 +307,6 @@
     }
   }
   &-tag-container {
-    height: 40%;
     justify-content: center;
     margin: 0;
   }

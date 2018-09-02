@@ -52,7 +52,7 @@ export class ReviewCard extends React.Component {
         </Col>
         <Col style={{ width: '60%' }}>
           <Row className="review-card-name-container">
-            <H3 center rowClassName="review-card-name-row" style={{ fontSize: '1rem', lineHeight: '1rem' }}>
+            <H3 center className="review-card-name" rowClassName="review-card-name-row">
               { name.toUpperCase() }
             </H3>
           </Row>

@@ -4,7 +4,7 @@ import { H1 } from '../../../components/text'
 import { getDifferenceInDays } from '../../../utils/date'
 
 
-const PackageBanner = ({ currentPackage }) => {
+const PackageBanner = ({ currentPackage, isMobileView }) => {
   const differenceInDays = getDifferenceInDays(currentPackage.startDate, currentPackage.endDate)
 
   return (
@@ -18,7 +18,7 @@ const PackageBanner = ({ currentPackage }) => {
         color="#FFF"
         rowClassName="booking-review-header-image-row"
         style={{
-          fontSize: '3rem',
+          fontSize: !isMobileView && '3rem',
           textShadow: '1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000',
         }}
       >

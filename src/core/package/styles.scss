@@ -1,10 +1,21 @@
 @import '../../styles/common.scss';
 
+strong {
+  @media #{$tablet-device} {
+    letter-spacing: 1px;
+    font-style: italic;
+    font-weight: bold;
+  }
+}
+
 .package {
   &-activities {
     &-container {
       justify-content: center;
       padding: 0 20px 100px 20px;
+      @media #{$tablet-device} {
+        padding: 0 20px 40px 20px;
+      }
     }
     &-title {
       justify-content: center;
@@ -22,6 +33,9 @@
     font-size: 4rem;
     height: 60vh;
     width: 100vw;
+    @media #{$tablet-device} {
+      height: 250px;
+    }
     &-title {
       padding-top: 33vh;
       text-align: center;
@@ -50,7 +64,11 @@
       justify-content: center;
       margin-left: 15px;
       width: 25vw;
-      &-description {
+      @media #{$tablet-device} {
+        margin-left: 0;
+        width: 100%;
+      }
+        &-description {
         font-size: 0.8rem;
         font-style: italic;
         padding: 20px;
@@ -78,12 +96,18 @@
       justify-content: center;
       margin-bottom: 200px;
       width: 100vw;
+      @media #{$tablet-device} {
+        height: inherit;
+      }
     }
     &-warning {
       font-size: 0.5rem;
       padding-bottom: 100px;
       text-align: center;
       font-style: italic;
+      @media #{$tablet-device} {
+        padding-top: 20px;
+      }
     }
   }
   &-itinerary {
@@ -93,11 +117,17 @@
       margin: 0;
       padding: 20px 200px 20px 140px;
       width: 100%;
+      @media #{$tablet-device} {
+        padding: 20px 0;
+      }
     }
     &-container {
       display: grid;
       padding: 80px 40px;
       justify-content: center;
+      @media #{$tablet-device} {
+        padding: 20px 0;
+      }
     }
     &-day {
       font-size: 1.25rem;
@@ -106,11 +136,20 @@
       text-align: center;
       text-orientation: upright;
       writing-mode: vertical-rl;
+      @media #{$tablet-device} {
+        letter-spacing: 2px;
+        writing-mode: initial;
+      }
     }
     &-desc {
       margin: 0;
       padding: 10px 40px;
       width: 90%;
+    }
+    &-title {
+      @media #{$tablet-device} {
+        margin-bottom: 20px !important;
+      }
     }
   }
   &-overview {
@@ -123,12 +162,20 @@
       justify-content: center;
       margin: 0;
       padding: 40px 25vw;
+      @media #{$tablet-device} {
+        padding: 20px 10px;
+        text-align: center;
+      }
     }
     &-title {
       font-size: 2.5rem;
       justify-content: center;
       margin: 0;
       text-transform: uppercase;
+      text-align: center;
+      @media #{$tablet-device} {
+        font-size: 1.5rem;
+      }
     }
   }
 }
