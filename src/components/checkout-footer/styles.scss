@@ -24,20 +24,40 @@
     &-dates {
       color: $voyago-grey;
       font-size: 14px;
+      @media #{$tablet-device} {
+        font-size: 0.7rem;
+        padding-left: 6px;
+      }
     }
     &-logo-container {
       padding-left: 12px;
       width: 5%;
+      @media #{$tablet-device} {
+        padding-left: 0;
+      }
     }
     &-name {
-      margin-top: 10px;
-      padding-left: 20px;
+      @media #{$tablet-device} {
+        font-size: 0.7rem;
+        text-align: center;
+      }
+      &-container {
+        margin-top: 10px;
+        padding-left: 20px;
+        @media #{$tablet-device} {
+          padding-left: 35px;
+        }
+      }
     }
     &-rating {
       color: $voyago-pink;
       font-size: 8px;
       padding-left: 15px;
       display: initial;
+      @media #{$tablet-device} {
+        font-size: 6px;
+        padding-left: 4px;
+      }
       &-num {
         color: $voyago-grey;
         font-size: 14px;
@@ -58,6 +78,12 @@
         font-weight: bold;
         padding-left: 5px;
         padding-right: 8px;
+        @media #{$tablet-device} {
+          display: flex;
+          flex-direction: column;
+          font-size: 1rem;
+          text-align: center;
+        }
       }
       &-per {
         font-size: .7rem;

@@ -24,6 +24,7 @@ const CheckoutFooter = ({
   currentStep,
   handleNumOfPeopleSelect,
   isAuthed,
+  isMobileView,
   numOfPeople,
   onButtonClick
 }) => {
@@ -40,8 +41,8 @@ const CheckoutFooter = ({
         />
       </Col>
       <Col style={{ width: '45%'}}>
-        <div className="checkout-footer-name">
-          <div>
+        <div className="checkout-footer-name-container">
+          <div className="checkout-footer-name">
             { currentPackage.name }
           </div>
           <div className="checkout-footer-dates">
@@ -110,7 +111,7 @@ const CheckoutFooter = ({
             style={{
               borderRadius: 3,
               fontWeight: 600,
-              width: '30%',
+              width: isMobileView ? '55%' : '30%',
             }}
             type={buttonType}
             uppercase

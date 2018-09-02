@@ -61,6 +61,7 @@ class PackageView extends React.Component {
                 buttonType="hashLink"
                 currentPackage={currentPackage}
                 isAuthed={isAuthed}
+                isMobileView={isMobileView}
                 onButtonClick={() => {
                   !isAuthed && toast.info('In order to plan a trip, please login or register!')
                 }}
