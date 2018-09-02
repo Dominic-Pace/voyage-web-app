@@ -177,6 +177,7 @@
       &-row {
         @media #{$mobile-device} {
           height: 65px;
+          margin: 0;
         }
       }
     }

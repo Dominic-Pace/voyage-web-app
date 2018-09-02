@@ -19,6 +19,10 @@
   &-link {
     &-container {
       width: 40%;
+      @media #{$tablet-device} {
+        align-items: center;
+        display: flex;
+      }
     }
   }
   &-title-container {

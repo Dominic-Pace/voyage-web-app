@@ -15,7 +15,7 @@ import '../styles.css'
 
 class LoginView extends React.Component {
   render() {
-    const { login } = this.props
+    const { isMobileView, login } = this.props
     return (
       <Grid className="login-container">
         <Form
@@ -29,7 +29,8 @@ class LoginView extends React.Component {
             <TextInputField
               model="email"
               placeholder="Email"
-              validation={{ validator: isEmail, errorMessage: errorMessages.isEmail}}
+              validation={{ validator: isEmail, errorMessage: errorMessages.isEmail }}
+              width={isMobileView && '80vw'}
             />
           </Row>
           <Row>
@@ -37,6 +38,7 @@ class LoginView extends React.Component {
               model="password"
               placeholder="Password"
               type="password"
+              width={isMobileView && '80vw'}
             />
           </Row>
           <Row>
@@ -70,6 +72,7 @@ const mapStateToProps = ({ auth, forms }) => {
   const {
     errorMessage,
     isAuthed,
+    isMobileView,
     isRequesting,
     user,
   } = auth
@@ -77,6 +80,7 @@ const mapStateToProps = ({ auth, forms }) => {
   return {
     errorMessage,
     isAuthed,
+    isMobileView,
     isRequesting,
     login,
     user,

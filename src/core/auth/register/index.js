@@ -14,7 +14,7 @@ import '../styles.css'
 
 class RegisterView extends React.Component {
   render() {
-    const { register } = this.props
+    const { isMobileView, register } = this.props
     return (
       <Grid className="login-container">
         <Form
@@ -29,6 +29,7 @@ class RegisterView extends React.Component {
               model="email"
               placeholder="Email"
               validation={{ validator: isEmail, errorMessage: errorMessages.isEmail}}
+              width={isMobileView && '80vw'}
             />
           </Row>
           <Row>
@@ -36,6 +37,7 @@ class RegisterView extends React.Component {
               model="password"
               placeholder="Password"
               type="password"
+              width={isMobileView && '80vw'}
             />
           </Row>
           <Row>
@@ -64,11 +66,13 @@ class RegisterView extends React.Component {
 
 const mapStateToProps = ({ auth, forms }) => {
   const {
+    isMobileView,
     isRequesting,
     user,
   } = auth
   const { register } = forms
   return {
+    isMobileView,
     isRequesting,
     register,
     user,

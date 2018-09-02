@@ -14,6 +14,7 @@ strong {
       justify-content: center;
       padding: 0 20px 100px 20px;
       @media #{$tablet-device} {
+        margin: 0;
         padding: 0 20px 40px 20px;
       }
     }
@@ -106,7 +107,7 @@ strong {
       text-align: center;
       font-style: italic;
       @media #{$tablet-device} {
-        padding-top: 20px;
+        padding-top: 80px;
       }
     }
   }
