@@ -2,15 +2,13 @@ import React from 'react'
 import HorizontalScroll from 'react-scroll-horizontal'
 import Tag from '../../../../components/tag'
 
-const ActivityFilters = ({ handleClick, yelpTags }) => (
-  <HorizontalScroll
-    className="explore-banner-categories"
-    reverseScroll
-  >
+const renderFilters = (handleClick, yelpTags) => (
+  <React.Fragment>
     {
       yelpTags ?
         yelpTags.map(tag => (
           <Tag
+            classPrefix="filter"
             key={tag.displayName}
             onClick={() => handleClick(tag.filterName)}
             style={{
@@ -25,7 +23,26 @@ const ActivityFilters = ({ handleClick, yelpTags }) => (
         :
         null
     }
-  </HorizontalScroll>
+  </React.Fragment>
+)
+
+const ActivityFilters = ({ handleClick, isMobileView, yelpTags }) => (
+  <React.Fragment>
+    {
+      isMobileView
+        ?
+        <div className="explore-mobile-banner-categories">
+          { renderFilters(handleClick, yelpTags) }
+        </div>
+        :
+        <HorizontalScroll
+          className="explore-banner-categories"
+          reverseScroll
+        >
+          { renderFilters(handleClick, yelpTags) }
+        </HorizontalScroll>
+    }
+  </React.Fragment>
 )
 
 export default ActivityFilters

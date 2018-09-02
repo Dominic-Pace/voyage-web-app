@@ -6,10 +6,18 @@ import { Grid } from 'react-bootstrap'
 
 import '../styles.css'
 
-const ActivitiesView = ({ handleActivityClick, handleFilterClick, selectedActivities, thingsToDo, yelpTags }) => (
+const ActivitiesView = ({
+  handleActivityClick,
+  handleFilterClick,
+  isMobileView,
+  selectedActivities,
+  thingsToDo,
+  yelpTags,
+}) => (
   <Grid className="booking-view-container">
     <Filters
       handleClick={handleFilterClick}
+      isMobileView={isMobileView}
       yelpTags={yelpTags}
     />
     {

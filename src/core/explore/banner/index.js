@@ -41,7 +41,6 @@ const ExploreBanner = ({ filters, isMobileView }) => (
           { renderFilters(filters) }
         </HorizontalScroll>
     }
-
   </Row>
 )
 

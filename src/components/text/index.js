@@ -26,8 +26,9 @@ export const H1 = ({ bold, center, className, color, children, rowClassName, sty
   </Row>
 )
 
-export const H2 = ({ bold, center, className, color, children, style }) => (
+export const H2 = ({ bold, center, className, color, children, rowClassName, style }) => (
   <Row
+    className={rowClassName}
     md={12}
     style={{
       justifyContent: center ? 'center' : null,

@@ -1,13 +1,13 @@
 import React from 'react'
 
-import { Col, Row } from 'react-bootstrap'
+import { Col, Grid, Row } from 'react-bootstrap'
 import { H2 } from '../../text'
 import Rating from 'react-rating'
 import Tag from '../../tag'
 
 const FunContent = ({ addOn }) => (
-  <Col className="fun-card-content">
-    <Col className="fun-card-content-left">
+  <Grid className="fun-card-content">
+    <Row>
       <H2
         bold
         className="fun-card-name"
@@ -15,30 +15,33 @@ const FunContent = ({ addOn }) => (
       >
         { addOn.name }
       </H2>
-      <div className="fun-card-phone">
-        { addOn.display_phone }
-      </div>
-      <Row className="fun-card-address">
-        {
-          addOn.location.display_address.map(address => (
-            <div key={address}>{address}</div>
-          ))
-        }
-      </Row>
-      <Row className="fun-card-tags">
-        {
-          addOn.categories.map(category => (
-            <Tag
-              title={category.title}
-            />
-          ))
-        }
-      </Row>
-    </Col>
-    <Col className="fun-card-content-right">
-      <div className="fun-card-map">
-      </div>
-      <div className="fun-card-rating-container">
+    </Row>
+    <Row>
+      <Col className="fun-card-content-left">
+        <div className="fun-card-phone">
+          { addOn.display_phone }
+        </div>
+        <Row className="fun-card-address">
+          {
+            addOn.location.display_address.map(address => (
+              <div key={address}>{address}</div>
+            ))
+          }
+        </Row>
+        <Row className="fun-card-tags">
+          {
+            addOn.categories.map(category => (
+              <Tag
+                title={category.title}
+              />
+            ))
+          }
+        </Row>
+      </Col>
+      <Col className="fun-card-content-right">
+        <div className="fun-card-map">
+        </div>
+        <div className="fun-card-rating-container">
         <span className="fun-card-rating">
           <Rating
             emptySymbol="fa fa-star-o fa-2x"
@@ -48,10 +51,11 @@ const FunContent = ({ addOn }) => (
             readonly
           />
         </span>
-        <span className="package-footer-rating-num">({addOn.review_count})</span>
-      </div>
-    </Col>
-  </Col>
+          <span className="fun-card-rating-num">({addOn.review_count})</span>
+        </div>
+      </Col>
+    </Row>
+  </Grid>
 )
 
 export default FunContent

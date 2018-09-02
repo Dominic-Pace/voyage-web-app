@@ -1,8 +1,8 @@
 import React from 'react'
 
-const Tag = ({ onClick, size, style, title }) => (
+const Tag = ({ classPrefix, onClick, size, style, title }) => (
   <div
-    className="fun-card-tags-card"
+    className={`${classPrefix || 'fun'}-card-tags-card`}
     key={title}
     onClick={onClick}
     style={{

@@ -135,6 +135,7 @@ class BookPackage extends React.Component {
       accommodations,
       currentPackage,
       forms,
+      isMobileView,
       isRequesting,
       profileData,
       thingsToDo,
@@ -162,6 +163,7 @@ class BookPackage extends React.Component {
         return <ActivitiesView
           handleActivityClick={activityId => { this.handleActivitySelect(activityId) }}
           handleFilterClick={category => {this.props.fetchThingsToDo(locationName, category)}}
+          isMobileView={isMobileView}
           selectedActivities={selectedActivities}
           thingsToDo={thingsToDo}
           yelpTags={yelpTags}
@@ -222,7 +224,8 @@ class BookPackage extends React.Component {
   }
 }
 
-const mapStateToProps = ({ forms, travelPackage, userProfile }) => {
+const mapStateToProps = ({ auth, forms, travelPackage, userProfile }) => {
+  const { isMobileView } = auth
   const {
     accommodations,
     currentPackage,
@@ -236,6 +239,7 @@ const mapStateToProps = ({ forms, travelPackage, userProfile }) => {
     accommodations,
     currentPackage,
     forms,
+    isMobileView,
     isRequesting,
     profileData,
     selectedActivities,
