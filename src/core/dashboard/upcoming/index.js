@@ -9,7 +9,7 @@ const UpcomingTrips = () => (
       <TitleCard
         image="http://eric.bodyworkbiz.com/wp-content/uploads/2014/07/dream-destination-39676.jpg"
         linkTo={`/itinerary`}
-        selected
+        upcoming
       >
         <div className="dashboard-upcoming-trip-title">
           Polynesian Islands

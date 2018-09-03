@@ -56,11 +56,22 @@ const TagCard = ({
   </Link>
 )
 
-export const TitleCard = ({ children, image, linkTo, selected }) => (
+export const TitleCard = ({ children, image, linkTo, selected, upcoming }) => (
   <Link to={linkTo}>
-    <div className={`title-card${selected ? '-selected' : ''}`}>
+    <div className={`title-card${
+      selected
+        ?
+        '-selected'
+        :
+        upcoming
+          ?
+          '-upcoming'
+          :
+          ''
+      }`}
+    >
       <div
-        className="title-card-image"
+        className={`title-card-image${upcoming ? '-upcoming' : ''}`}
         style={{
           backgroundImage: `url(${image})`,
         }}
