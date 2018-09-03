@@ -25,6 +25,7 @@ const CheckoutFooter = ({
   handleNumOfPeopleSelect,
   isAuthed,
   isMobileView,
+  nextBtnSize,
   numOfPeople,
   onButtonClick
 }) => {
@@ -63,7 +64,7 @@ const CheckoutFooter = ({
       <Col className="checkout-footer-checkout-container">
         <div className="checkout-footer-checkout-btn-container">
           {
-            handleNumOfPeopleSelect && (currentStep !== 0) &&
+            (handleNumOfPeopleSelect) && (currentStep !== 0) && !isMobileView &&
             <div className="checkout-footer-total-title">{`# of People: `}</div>
           }
           {
@@ -72,6 +73,7 @@ const CheckoutFooter = ({
               defaultValue={numOfPeopleOptions[3]}
               handleChange={handleNumOfPeopleSelect}
               options={numOfPeopleOptions}
+              style={{ marginLeft: -22 }}
             />
           }
           <span className="checkout-footer-total-amount">
@@ -86,23 +88,25 @@ const CheckoutFooter = ({
             /person
           </span>
         </span>
-          {
-            numOfPeople &&
-            <Col className="checkout-footer-total">
-              {`TOTAL: `}
-            </Col>
-          }
-          {
-            numOfPeople &&
-            <span className="checkout-footer-total-amount">
-              {
-                checkoutPrice ?
-                  `$${Math.round(checkoutPrice) * numOfPeople}`
-                  :
-                  `$${Math.round(calculatePackagePrice(currentPackage)) * numOfPeople}`
-              }
-        </span>
-          }
+          <div className="checkout-footer-total-container">
+            {
+              numOfPeople &&
+              <Col className="checkout-footer-total">
+                {`TOTAL: `}
+              </Col>
+            }
+            {
+              numOfPeople &&
+              <span className="checkout-footer-total-amount">
+                {
+                  checkoutPrice ?
+                    `$${Math.round(checkoutPrice) * numOfPeople}`
+                    :
+                    `$${Math.round(calculatePackagePrice(currentPackage)) * numOfPeople}`
+                }
+              </span>
+            }
+          </div>
           <RoundedButton
             className="top-section-btn"
             label={buttonLabel}
@@ -111,7 +115,7 @@ const CheckoutFooter = ({
             style={{
               borderRadius: 3,
               fontWeight: 600,
-              width: isMobileView ? '55%' : '30%',
+              width: nextBtnSize || '30%',
             }}
             type={buttonType}
             uppercase

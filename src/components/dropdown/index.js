@@ -10,7 +10,8 @@ class Dropdown extends React.Component {
       handleChange,
       options,
       placeholder,
-      placement
+      placement,
+      style,
     } = this.props
     return (
       <Select
@@ -20,6 +21,7 @@ class Dropdown extends React.Component {
         onChange={handleChange}
         options={options}
         placeholder={placeholder || ''}
+        styles={style}
       />
     )
   }

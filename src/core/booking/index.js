@@ -196,7 +196,7 @@ class BookPackage extends React.Component {
   }
 
   render() {
-    const { currentPackage } = this.props
+    const { currentPackage, isMobileView } = this.props
     const { currentStep, numOfPeople } = this.state
     return (
       <React.Fragment>
@@ -213,6 +213,8 @@ class BookPackage extends React.Component {
                 currentPackage={currentPackage}
                 currentStep={currentStep}
                 handleNumOfPeopleSelect={selectedOption => { this.setState({ numOfPeople: selectedOption.value })}}
+                isMobileView={isMobileView}
+                nextBtnSize="30%"
                 numOfPeople={numOfPeople}
                 onButtonClick={(currentStep === 3) ? this.handleCompleteOrderClick : this.onClickNext}
                 checkoutPrice={calculatePrice(currentPackage.validStartingAt, this.calculateCheckoutPrice())}

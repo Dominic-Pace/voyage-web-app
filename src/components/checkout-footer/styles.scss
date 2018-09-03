@@ -67,9 +67,22 @@
     &-total {
       align-self: center;
       font-size: 1.25rem;
+      @media #{$tablet-device} {
+        font-size: 0.7rem;
+      }
+      &-container {
+        @media #{$tablet-device} {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+        }
+      }
       &-title {
         align-self: center;
         padding-right: 10px;
+        @media #{$tablet-device} {
+          font-size: 0.7rem;
+        }
       }
       &-amount {
         align-self: center;
@@ -81,7 +94,8 @@
         @media #{$tablet-device} {
           display: flex;
           flex-direction: column;
-          font-size: 1rem;
+          font-size: 0.8rem;
+          padding: 0;
           text-align: center;
         }
       }

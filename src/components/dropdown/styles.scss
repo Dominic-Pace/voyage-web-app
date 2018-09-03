@@ -1,11 +1,26 @@
+@import '../../styles/common.scss';
+
 .css-10nd86i {
   align-self: center;
   box-sizing: border-box;
   padding-right: 20px;
   position: relative;
   width: 100px;
+  @media #{$tablet-device} {
+    padding-left: 2px;
+    padding-right: 0;
+  }
 }
 
 .css-1wy0on6 {
   cursor: pointer;
+  @media #{$tablet-device} {
+    height: 0;
+  }
+}
+
+.css-va7pk8 {
+  @media #{$tablet-device} {
+    padding-left: 4px;
+  }
 }

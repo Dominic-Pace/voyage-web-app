@@ -60,6 +60,7 @@ class PackageView extends React.Component {
                 buttonLabel="Book Now"
                 buttonType="hashLink"
                 currentPackage={currentPackage}
+                nextBtnSize={isMobileView ? '55%' : '30%'}
                 isAuthed={isAuthed}
                 isMobileView={isMobileView}
                 onButtonClick={() => {
