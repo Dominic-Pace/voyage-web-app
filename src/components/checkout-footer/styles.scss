@@ -71,8 +71,8 @@
         font-size: 0.7rem;
       }
       &-container {
+        display: flex;
         @media #{$tablet-device} {
-          display: flex;
           flex-direction: column;
           justify-content: center;
         }
