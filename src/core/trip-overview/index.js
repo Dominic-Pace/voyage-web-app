@@ -1,15 +1,16 @@
 import React from 'react'
 
+import ItineraryView from './itinerary'
 import JustBooked from './just-booked'
 
 import './styles.css'
 
-const ItineraryView = () => (
+const TripOverview = () => (
   <React.Fragment>
     {
-      <JustBooked />
+      <ItineraryView />
     }
   </React.Fragment>
 )
 
-export default ItineraryView
+export default TripOverview

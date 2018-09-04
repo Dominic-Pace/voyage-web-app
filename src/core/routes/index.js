@@ -1,7 +1,7 @@
 import BookingView from '../booking'
 import DashboardView from '../dashboard'
 import ExploreView from '../explore'
-import ItineraryView from '../itinerary'
+import TripOverview from '../trip-overview'
 import LoginView from '../auth/login'
 import PackageView from '../package'
 import RegisterView from '../auth/register'
@@ -39,8 +39,8 @@ const routes = [
     component: DashboardView
   },
   {
-    path: '/itinerary',
-    component: ItineraryView
+    path: '/trip',
+    component: TripOverview
   },
 ]
 

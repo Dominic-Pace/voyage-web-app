@@ -8,7 +8,6 @@ const SectionThreeSlider = ({ isMobileView, locations }) => (
     {
       locations ?
         locations.map(featuredLocation => {
-          console.log('is mobile?', isMobileView)
           return (
               <PackageCard
                 imageUrl={featuredLocation.coverImageUrl}
