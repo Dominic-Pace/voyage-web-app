@@ -30,6 +30,68 @@
       }
     }
   }
+  &-form {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 40px;
+    &-dual-row {
+      flex-direction: column;
+      margin-left: 15px;
+    }
+    &-label {
+      font-size: 0.8rem;
+      width: 60%;
+    }
+  }
+  &-modal {
+    background-color: white;
+    box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2), 0 4px 20px 0 rgba(0,0,0,0.19);
+    margin: auto;
+    width: 50%;
+    z-index: 101;
+    &-container {
+      background-color: rgba(0,0,0,0.4);
+      display: flex;
+      height: 100vh;
+      position: fixed;
+      width: 100vw;
+      z-index: 100;
+    }
+    &-footer {
+      &-cancel {
+        width: 50%;
+      }
+      &-container {
+        display: flex;
+        height: 40px;
+        justify-content: center;
+        margin: 10px 0;
+        width: 100%;
+      }
+      &-save {
+        width: 50%;
+      }
+    }
+    &-header {
+      &-close {
+        cursor: pointer;
+        display: flex;
+        justify-self: flex-end;
+      }
+      &-container {
+        display: flex;
+        height: 40px;
+        padding: 10px 0 5px 20px;
+        width: 100%;
+      }
+      &-title {
+        font-size: 1.5rem;
+        width: 100%;
+      }
+    }
+  }
   &-container {
     align-items: center;
     display: flex;

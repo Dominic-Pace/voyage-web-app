@@ -3,6 +3,7 @@ import React from 'react'
 import CarFill from './vectors/car-fill.svg'
 import CheckMark from './vectors/checkmark.svg'
 import Close from './vectors/close.svg'
+import CloseDark from './vectors/close-dark.svg'
 import Food from './vectors/food.svg'
 import HeartFill from './vectors/heart-fill.svg'
 import HeartLine from './vectors/heart-line.svg'
@@ -21,6 +22,7 @@ const types = {
   carFill: CarFill,
   checkmark: CheckMark,
   close: Close,
+  closeDark: CloseDark,
   food: Food,
   heartFill: HeartFill,
   heartLine: HeartLine,

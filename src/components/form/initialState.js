@@ -20,6 +20,17 @@ export const customPackageForm = {
   totalBudget: undefined,
 }
 
+export const itineraryEventForm = {
+  name: '',
+  startTime: '',
+  type: '',
+  description: '',
+  pricePerPerson: {
+    price: 0,
+    for: '',
+  }
+}
+
 export const joinMailListForm = {
   email: '',
 }

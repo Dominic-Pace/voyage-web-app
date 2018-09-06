@@ -1,6 +1,7 @@
 import {
   contactUsForm,
   customPackageForm,
+  itineraryEventForm,
   joinMailListForm,
   travelerInfoForm,
   userProfileForm,
@@ -9,6 +10,7 @@ import {
 import {
   CONTACT_FORM,
   CUSTOM_PACKAGE_FORM,
+  ITINERARY_EVENT_FORM,
   JOIN_MAIL_FORM,
   LOGIN_FORM,
   REGISTER_FORM,
@@ -19,6 +21,7 @@ import {
 export const formState = {
   [CONTACT_FORM]: contactUsForm,
   [CUSTOM_PACKAGE_FORM]: customPackageForm,
+  [ITINERARY_EVENT_FORM]: itineraryEventForm,
   [JOIN_MAIL_FORM]: joinMailListForm,
   [LOGIN_FORM]: userForm,
   [REGISTER_FORM]: userForm,

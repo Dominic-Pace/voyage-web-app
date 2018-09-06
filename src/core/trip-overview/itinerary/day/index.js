@@ -17,7 +17,7 @@ const getHoursBetween = (startTime, nextTime) => {
   return `${diffInMin}m`
 }
 
-const ItineraryDayCard = ({ itinerary }) => (
+const ItineraryDayCard = ({ handleEventClick, itinerary }) => (
   <div className="itinerary-group-container">
     {
       itinerary && itinerary.map((day, index) => (
@@ -26,7 +26,10 @@ const ItineraryDayCard = ({ itinerary }) => (
           {
             day.events.map((event, index) => (
               <React.Fragment>
-                <EventCard event={event}/>
+                <EventCard
+                  event={event}
+                  handleClick={handleEventClick}
+                />
                 {
                   (day.events.length !== index + 1)
                   ?

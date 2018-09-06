@@ -4,8 +4,8 @@ import moment from 'moment'
 import { Row } from 'react-bootstrap'
 import Icon, { getTypeText } from '../../icon'
 
-const EventCard = ({ event }) => (
-  <div className="itinerary-group-event-container">
+const EventCard = ({ event, handleClick }) => (
+  <div className="itinerary-group-event-container" onClick={() => { handleClick(event)}}>
     <Row className="itinerary-group-event-title">
       {event.name}
     </Row>
