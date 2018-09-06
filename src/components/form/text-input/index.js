@@ -50,10 +50,11 @@ export const TextInputField = (
   </Row>
 )
 
-export const TextAreaField = ({ height, model, placeholder, style, width }) => (
+export const TextAreaField = ({ defaultValue, height, model, placeholder, style, width }) => (
   <Row className="text-form-container">
     <Control.textarea
       className="text-form-field"
+      defaultValue={defaultValue}
       model={`.${model}`}
       placeholder={placeholder}
       style={{

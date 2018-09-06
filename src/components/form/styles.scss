@@ -32,10 +32,6 @@
     padding: 5px;
   }
   &-field {
-    -webkit-transition: all 0.30s ease-in-out;
-    -moz-transition: all 0.30s ease-in-out;
-    -ms-transition: all 0.30s ease-in-out;
-    -o-transition: all 0.30s ease-in-out;
     border: 1px solid #DDDDDD;
     font-size: 0.8rem;
     outline: none;
@@ -43,8 +39,6 @@
     &:focus {
       border: 1px solid $voyago-primary;
       box-shadow: 0 0 5px $voyago-primary;
-      font-size: 1rem;
-      padding: 7px;
     }
   }
 }
