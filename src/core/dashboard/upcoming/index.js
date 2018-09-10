@@ -1,26 +1,36 @@
 import React from 'react'
+import moment from 'moment'
+import { Row } from 'react-bootstrap'
 
 import Title from '../title'
 import { TitleCard } from '../../../components/card'
 
-const UpcomingTrips = () => (
+const UpcomingTrips = ({ trips }) => (
     <div className="dashboard-upcoming-container">
       <Title>Upcoming Trips</Title>
-      <TitleCard
-        image="http://eric.bodyworkbiz.com/wp-content/uploads/2014/07/dream-destination-39676.jpg"
-        linkTo={`/trip`}
-        upcoming
-      >
-        <div className="dashboard-upcoming-trip-title">
-          Polynesian Islands
-        </div>
-        <div className="dashboard-upcoming-trip-date">
-          Starting: Sep 25, 2018
-        </div>
-        <div className="dashboard-upcoming-trip-date">
-          Ending: Sep 30, 2018
-        </div>
-      </TitleCard>
+      {
+      }
+      <Row>
+        {
+          Object.values(trips).map(trip => (
+            <TitleCard
+              image={trip.imageUrl}
+              linkTo={`/trip/${trip.id}`}
+              upcoming
+            >
+              <div className="dashboard-upcoming-trip-title">
+                {trip.requestedAccommodation.location}
+              </div>
+              <div className="dashboard-upcoming-trip-date">
+                {`Starting: ${moment(trip.startDate).format("MMM Do, YYYY")}`}
+              </div>
+              <div className="dashboard-upcoming-trip-date">
+                {`Ending: ${moment(trip.endDate).format("MMM Do, YYYY")}`}
+              </div>
+            </TitleCard>
+          ))
+        }
+      </Row>
     </div>
 )
 

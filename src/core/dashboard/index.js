@@ -21,10 +21,10 @@ class DashboardView extends React.Component {
   }
 
   render () {
-    const { categories, packages } = this.props
+    const { categories, packages, user } = this.props
     return (
       <div className="dashboard-container">
-        <UpcomingTrips />
+        <UpcomingTrips trips={user.trips} />
         {
           (packages && categories) && categories.map(category =>(
             <div className="dashboard-section-container">
@@ -55,7 +55,8 @@ class DashboardView extends React.Component {
   }
 }
 
-const mapStateToProps = ({ dashboard, explore }) => {
+const mapStateToProps = ({ auth, dashboard, explore }) => {
+  const { user } = auth
   const { categories } = dashboard
   const {
     isRequesting,
@@ -64,7 +65,8 @@ const mapStateToProps = ({ dashboard, explore }) => {
   return {
     categories,
     isRequesting,
-    packages
+    packages,
+    user,
   }
 }
 export default connect(mapStateToProps, { ...actions })(DashboardView)
