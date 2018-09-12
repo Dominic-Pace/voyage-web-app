@@ -15,7 +15,7 @@ import '../styles.css'
 
 class LoginView extends React.Component {
   render() {
-    const { isMobileView, login } = this.props
+    const { isMobileView, login, redirectRoute, updateLoginRoute } = this.props
     return (
       <Grid className="login-container">
         <Form
@@ -49,6 +49,10 @@ class LoginView extends React.Component {
               <RoundedButton
                 label="Login"
                 onClick={() => { this.props.loginUser(login).then(() => {
+                  if (redirectRoute) {
+                    updateLoginRoute(null)
+                    return this.props.history.push(redirectRoute)
+                  }
                   if (this.props.isAuthed) {
                     return this.props.history.push('/explore')
                   }
@@ -68,7 +72,7 @@ class LoginView extends React.Component {
   }
 }
 
-const mapStateToProps = ({ auth, forms }) => {
+const mapStateToProps = ({ auth, forms, route }) => {
   const {
     errorMessage,
     isAuthed,
@@ -77,12 +81,15 @@ const mapStateToProps = ({ auth, forms }) => {
     user,
   } = auth
   const { login } = forms
+  const { redirectRoute } = route
+
   return {
     errorMessage,
     isAuthed,
     isMobileView,
     isRequesting,
     login,
+    redirectRoute,
     user,
   }
 }

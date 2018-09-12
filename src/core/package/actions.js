@@ -24,6 +24,8 @@ import {
 
 const yelpToken = 'Bearer DzOG5TNVYEC9NsBLSslQBBKGXBCjiP4gbmbqYqdSKIQwu95WBK-KrtTYfs2PzNp0qQwuVSqfbpFSZTdP0jt1Nxtmo2p_KFwUpouoTlNa8je4JT8p65e692h4bHpnW3Yx'
 
+export { updateLoginRoute } from '../routes/actions'
+
 export const fetchPackageById = id => (
   dispatch => {
     let currentPackage = {}

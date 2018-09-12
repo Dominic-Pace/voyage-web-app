@@ -6,6 +6,7 @@ import Categories from './core/landing/reducer'
 import Dashboard from './core/dashboard/reducer'
 import Explore from './core/explore/reducer'
 import Package from './core/package/reducer'
+import RouteReducer from './core/routes/reducer'
 import Trips from './core/trip-overview/reducer'
 import UserProfile from './core/user/reducer'
 
@@ -17,6 +18,7 @@ const RootReducer = combineReducers({
   explore: Explore,
   forms: combineForms(formState, 'forms'),
   homepage: Categories,
+  route: RouteReducer,
   travelPackage: Package,
   trips: Trips,
   userProfile: UserProfile,

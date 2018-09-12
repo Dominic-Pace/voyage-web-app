@@ -32,7 +32,14 @@ class PackageView extends React.Component {
   normalizeLocationPathname = () => window.location.pathname.replace('/package/', '')
 
   render() {
-    const { currentPackage, isAuthed, isMobileView, recommendedThingsToDo } = this.props
+    const {
+      currentPackage,
+      isAuthed,
+      isMobileView,
+      recommendedThingsToDo,
+      updateLoginRoute,
+    } = this.props
+
     return (
       <React.Fragment>
         {
@@ -63,9 +70,7 @@ class PackageView extends React.Component {
                 nextBtnSize={isMobileView ? '55%' : '30%'}
                 isAuthed={isAuthed}
                 isMobileView={isMobileView}
-                onButtonClick={() => {
-                  !isAuthed && toast.info('In order to plan a trip, please login or register!')
-                }}
+                onButtonClick={() => { !isAuthed && updateLoginRoute(this.props.location.pathname.replace('package', 'booking')) }}
               />
             </Grid>
             :

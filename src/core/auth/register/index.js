@@ -14,7 +14,7 @@ import '../styles.css'
 
 class RegisterView extends React.Component {
   render() {
-    const { isMobileView, register } = this.props
+    const { isMobileView, redirectRoute, register, updateLoginRoute } = this.props
     return (
       <Grid className="login-container">
         <Form
@@ -46,8 +46,12 @@ class RegisterView extends React.Component {
             <Col className="login-btn-container">
               <RoundedButton
                 label="Register"
-                linkTo="/"
-                onClick={() => {this.props.registerUser(register)}}
+                linkTo={redirectRoute || '/'}
+                onClick={() => {
+                  this.props.registerUser(register).then(() => {
+                    updateLoginRoute(null)
+                  })
+                }}
                 style={{
                   borderRadius: 3,
                   fontWeight: 600,
@@ -64,16 +68,18 @@ class RegisterView extends React.Component {
   }
 }
 
-const mapStateToProps = ({ auth, forms }) => {
+const mapStateToProps = ({ auth, forms, route }) => {
   const {
     isMobileView,
     isRequesting,
     user,
   } = auth
   const { register } = forms
+  const { redirectRoute } = route
   return {
     isMobileView,
     isRequesting,
+    redirectRoute,
     register,
     user,
   }

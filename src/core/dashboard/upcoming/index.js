@@ -1,17 +1,19 @@
 import React from 'react'
 import moment from 'moment'
+
 import { Row } from 'react-bootstrap'
+import Spinner from 'react-spinkit'
 
 import Title from '../title'
 import { TitleCard } from '../../../components/card'
 
 const UpcomingTrips = ({ trips }) => (
-    <div className="dashboard-upcoming-container">
-      <Title>Upcoming Trips</Title>
+  <div className="dashboard-upcoming-container">
+    <Title>Upcoming Trips</Title>
+    <Row>
       {
-      }
-      <Row>
-        {
+        trips
+          ?
           Object.values(trips).map(trip => (
             <TitleCard
               image={trip.imageUrl}
@@ -29,9 +31,11 @@ const UpcomingTrips = ({ trips }) => (
               </div>
             </TitleCard>
           ))
-        }
-      </Row>
-    </div>
+          :
+          <Spinner name="three-bounce" />
+      }
+    </Row>
+  </div>
 )
 
 export default UpcomingTrips

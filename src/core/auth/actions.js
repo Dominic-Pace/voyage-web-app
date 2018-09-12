@@ -1,4 +1,5 @@
 import { toast } from 'react-toastify'
+import { isMobileView } from '../../utils/device'
 
 import {
   FETCH_USER_FAILURE,
@@ -21,10 +22,11 @@ import {
 } from './types'
 
 import {
-  authRef, singlePackageRef,
+  authRef,
   userInfoRef,
 } from '../../utils/firebase/firebase-refs'
-import {isMobileView} from "../../utils/device";
+
+export { updateLoginRoute } from '../routes/actions'
 
 export const fetchUser = () => dispatch => {
   let userData;
