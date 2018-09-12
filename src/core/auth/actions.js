@@ -106,6 +106,7 @@ export const registerUser = user  => (
             address: '',
             coords: {}
           },
+          trips: {},
         })
       }).then(() => {
         dispatch({ type: USER_SAVE_REG_INFO_SUCCESS})
