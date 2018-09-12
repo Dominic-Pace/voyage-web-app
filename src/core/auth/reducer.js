@@ -43,9 +43,7 @@ export default (state=INITIAL_STATE, action) => {
         ...state,
         isAuthed: true,
         isRequesting: false,
-        user: {
-          id: action.user.uid
-        },
+        user: action.user,
       }
     case USER_LOGIN_FAILURE:
       return {

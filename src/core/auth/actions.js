@@ -29,7 +29,7 @@ import {
 export { updateLoginRoute } from '../routes/actions'
 
 export const fetchUser = () => dispatch => {
-  let userData;
+  let userData
   const userId = localStorage.getItem('voyagoUser')
   dispatch({ type: FETCH_USER_REQUEST })
 
@@ -51,20 +51,23 @@ export const updateWindowDimensions = () => dispatch => {
   return dispatch({ type: SET_WINDOW_DIMENSIONS_SUCCESS, isMobileView: isMobileView() })
 }
 
-export const loginUser = userCreds => (
-  dispatch => {
-    dispatch({ type: USER_LOGIN_REQUEST })
-    return authRef.signInWithEmailAndPassword(userCreds.email, userCreds.password)
-      .then(res => {
+export const loginUser = userCreds => dispatch => {
+  let userData
+  dispatch({ type: USER_LOGIN_REQUEST })
+  return authRef.signInWithEmailAndPassword(userCreds.email, userCreds.password)
+    .then(res => {
+      return userInfoRef(res.user.uid).once('value', user => {
         localStorage.setItem('voyagoUser', res.user.uid)
         toast.success('Successfully Logged In! Bon Voyago!')
-        dispatch({ type: USER_LOGIN_SUCCESS, user: res.user })
+        userData = user.val()
+      }).then(res => {
+        dispatch({ type: USER_LOGIN_SUCCESS, user: userData })
       }).catch(err => {
         toast.error('Invalid Email or Password. Please try again!')
         dispatch({ type: USER_LOGIN_FAILURE, error: 'Invalid Email or Password. Please try again!' })
       })
-  }
-)
+    })
+}
 
 export const logoutUser = () => (
   dispatch => {
