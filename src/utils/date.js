@@ -1,3 +1,5 @@
+import moment from 'moment'
+
 const diffInDays = timeDiff => Math.ceil(timeDiff / (1000 * 3600 * 24))
 
 export const calculatePrice = (validDate, price) => {
@@ -61,4 +63,26 @@ export const getMinAgeDate = () => {
   }
 
   return `${yyyy - 18}-${mm}-${dd}`
+}
+
+export const getDayOfWeek = date => {
+  const dayNumber = moment(date).day()
+  switch(dayNumber) {
+    case 1:
+      return 'Monday'
+    case 2:
+      return 'Tuesday'
+    case 3:
+      return 'Wednesday'
+    case 4:
+      return 'Thursday'
+    case 5:
+      return 'Friday'
+    case 6:
+      return 'Saturday'
+    case 7:
+      return 'Sunday'
+    default:
+      return ''
+  }
 }

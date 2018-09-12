@@ -39,13 +39,15 @@ class ItineraryView extends React.Component {
 
   render() {
     const { selectedEvent } = this.state
+    const { trip } = this.props
     return (
       <Grid className="itinerary-container">
-        <ItineraryBanner />
-        <DaysUntil />
+        <ItineraryBanner trip={trip} />
+        <DaysUntil trip={trip} />
         <ItineraryDayCard
           handleEventClick={this.handleEventClick}
           itinerary={mockItinerary}
+          trip={trip}
         />
         <Modal
           handleClose={this.handleModalClose}
@@ -53,9 +55,9 @@ class ItineraryView extends React.Component {
           show={this.state.show}
           title="Update Itinerary"
         >
-        <ItineraryEventForm
-          event={selectedEvent}
-        />
+          <ItineraryEventForm
+            event={selectedEvent}
+          />
         </Modal>
       </Grid>
     )

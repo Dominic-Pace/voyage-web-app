@@ -1,5 +1,5 @@
 import React from 'react'
-import connect from 'react-redux/es/connect/connect'
+import { connect } from 'react-redux'
 import { filter } from 'lodash'
 import * as actions from './actions'
 import { calculatePackagePrice, getDifferenceInDays } from '../../utils/date'
@@ -9,7 +9,6 @@ import Title from './title'
 import UpcomingTrips from './upcoming'
 
 import './styles.css'
-import HorizontalScroll from "react-scroll-horizontal";
 
 class DashboardView extends React.Component {
   componentDidMount() {
@@ -36,6 +35,8 @@ class DashboardView extends React.Component {
                     travelPackage => travelPackage.categoryTag.includes(category.id)
                   ).map(featuredPackage => (
                     <HalfSizeCard
+                      beginDate={featuredPackage.startDate}
+                      endDate={featuredPackage.endDate}
                       imageUrl={featuredPackage.imageUrl}
                       key={featuredPackage.name}
                       lengthInDays={getDifferenceInDays(featuredPackage.startDate, featuredPackage.endDate)}

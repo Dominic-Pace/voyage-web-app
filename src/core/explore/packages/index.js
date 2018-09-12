@@ -17,6 +17,8 @@ const Packages = ({ currentFilter, packages }) => (
             ?
             packages.map(travelPackage => (
                 <HalfSizeCard
+                  beginDate={travelPackage.startDate}
+                  endDate={travelPackage.endDate}
                   imageUrl={travelPackage.imageUrl}
                   key={travelPackage.name}
                   lengthInDays={getDifferenceInDays(travelPackage.startDate, travelPackage.endDate)}

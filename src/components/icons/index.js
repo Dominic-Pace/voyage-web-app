@@ -1,5 +1,6 @@
 import React from 'react'
 
+import Calendar from './vectors/calendar.svg'
 import CarFill from './vectors/car-fill.svg'
 import CheckMark from './vectors/checkmark.svg'
 import Close from './vectors/close.svg'
@@ -19,6 +20,7 @@ import UserSelected from './vectors/user-selected.svg'
 import WorldAwaits from './vectors/world-awaits.svg'
 
 const types = {
+  calendar: Calendar,
   carFill: CarFill,
   checkmark: CheckMark,
   close: Close,

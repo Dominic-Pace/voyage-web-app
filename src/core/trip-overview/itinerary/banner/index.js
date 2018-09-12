@@ -1,10 +1,10 @@
 import React from 'react'
-import { H1 } from '../../../../components/text/index'
+import { H1 } from '../../../../components/text'
 
-const ItineraryBanner = () => (
+const ItineraryBanner = ({ trip }) => (
   <div
     className="itinerary-banner"
-    style={{ backgroundImage: `url(https://cdn-images-1.medium.com/max/1330/1*_6EdJgpcWyeWne36eFH7eA@2x.jpeg)` }}
+    style={{ backgroundImage: `url(${trip.imageUrl})` }}
   >
     <H1
       bold
@@ -17,7 +17,7 @@ const ItineraryBanner = () => (
       }}
     >
       <div style={{ textAlign: 'center' }}>
-        San Diego, CA
+        {trip.location.name}
       </div>
     </H1>
   </div>

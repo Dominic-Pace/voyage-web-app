@@ -18,7 +18,8 @@ const NavigationTabs = ({ handleLogoutClick, user }) => (
             linkTo={homePath}
             selected={
               window.location.pathname === homePath ||
-              window.location.pathname.includes('itinerary')
+              window.location.pathname.includes('itinerary') ||
+              window.location.pathname.includes('trip')
             }
           >
             Dashboard
