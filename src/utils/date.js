@@ -19,9 +19,11 @@ export const calculatePrice = (validDate, price) => {
 export const calculatePackagePrice = travelPackage => {
   const diffInDays = getDateDiffFromToday(travelPackage.validStartingAt)
 
-  const beforeCalcPrice = (travelPackage.flightPrice +
-      travelPackage.accommodationPrice +
-      travelPackage.otherPrice
+  const beforeCalcPrice = (
+    travelPackage.flightPrice +
+        (travelPackage.accommodationPrice / 4)
+        * getDifferenceInDays(travelPackage.startDate, travelPackage.endDate) +
+    travelPackage.otherPrice
   )
 
   if (diffInDays <= 3) {

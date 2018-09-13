@@ -1,5 +1,8 @@
 import React from 'react'
-import { calculatePackagePrice, getDifferenceInDays } from '../../utils/date'
+import {
+  calculatePackagePrice,
+  getDifferenceInDays
+} from '../../utils/date'
 
 import { Col, Row } from 'react-bootstrap'
 import Image from '../image'

@@ -3,7 +3,6 @@ import React from 'react'
 import Content from './content'
 import WideImage from '../wide-image'
 import { Grid } from 'react-bootstrap'
-import {isMobileView} from "../../../utils/device";
 
 const determineClassName = (accommodation, selected)=> {
   if (selected) {
