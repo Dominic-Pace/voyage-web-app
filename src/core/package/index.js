@@ -17,14 +17,13 @@ import './styles.css'
 class PackageView extends React.Component {
   componentWillMount() {
     this.props.fetchPackageById(this.normalizeLocationPathname()).then(() => {
-      const locations = _.get(this.props, 'currentPackage.locations', [])
-      const recommendedThingsToDo = _.get(this.props, 'currentPackage.recommendedThingsToDo', [])
+      const locations = this.props.currentPackage.locations
       if (_.size(locations) === 1) {
         this.setState({ locationName: locations.location1 })
-        this.props.fetchThingsToDo(locations.location1, null, recommendedThingsToDo)
+        this.props.fetchThingsToDo(locations.location1, null, this.props.currentPackage.recommendedThingsToDo)
       } else {
         this.setState({ locationName: locations.location2 })
-        this.props.fetchThingsToDo(locations.location2, null, recommendedThingsToDo)
+        this.props.fetchThingsToDo(locations.location2, null, this.props.currentPackage.recommendedThingsToDo)
       }
     })
   }

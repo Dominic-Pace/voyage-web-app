@@ -195,6 +195,8 @@ class BookPackage extends React.Component {
     }
   }
 
+  setIsBtnDisabled = () => (this.state.currentStep === 0) && (this.state.selectedActivities.length === 0)
+
   render() {
     const { currentPackage, isMobileView } = this.props
     const { currentStep, numOfPeople } = this.state
@@ -213,6 +215,7 @@ class BookPackage extends React.Component {
                 currentPackage={currentPackage}
                 currentStep={currentStep}
                 handleNumOfPeopleSelect={selectedOption => { this.setState({ numOfPeople: selectedOption.value })}}
+                isButtonDisabled={this.setIsBtnDisabled()}
                 isMobileView={isMobileView}
                 nextBtnSize="30%"
                 numOfPeople={numOfPeople}

@@ -28,6 +28,7 @@ const CheckoutFooter = ({
   handleNumOfPeopleSelect,
   isAuthed,
   isMobileView,
+  isButtonDisabled,
   nextBtnSize,
   numOfPeople,
   onButtonClick
@@ -112,6 +113,7 @@ const CheckoutFooter = ({
           </div>
           <RoundedButton
             className="top-section-btn"
+            disabled={isButtonDisabled}
             label={buttonLabel}
             linkTo={isAuthed ? `/booking/${currentPackage.id}` : '/auth'}
             onClick={onButtonClick}
