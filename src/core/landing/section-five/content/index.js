@@ -8,7 +8,11 @@ import { TextInputField } from '../../../../components/form/text-input'
 
 import { BASE_FORM_REDUCER, JOIN_MAIL_FORM } from '../../../../components/form/constants'
 
-const SectionFiveContent = ({ handleSubmitClick }) => (
+const isButtonDisabled = joinMail => {
+  return !joinMail.email;
+
+}
+const SectionFiveContent = ({ handleSubmitClick, joinMail }) => (
   <div>
     <SectionFiveHeader />
     <Form
@@ -24,6 +28,7 @@ const SectionFiveContent = ({ handleSubmitClick }) => (
       />
       <FormButton
         btnStyle={{ borderRadius: 6 }}
+        disabled={isButtonDisabled(joinMail)}
         label={<Icon type="send" size={22}/>}
         onClick={handleSubmitClick}
         formState={{valid: true}}

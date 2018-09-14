@@ -4,9 +4,10 @@ import { Grid } from 'react-bootstrap'
 import SectionSixContent from './content'
 import SectionThree from "../section-three";
 
-const SectionSix = ({ handleSubmitClick, isMobileView }) => (
+const SectionSix = ({ contactUs, handleSubmitClick, isMobileView }) => (
   <Grid className="footer-container">
     <SectionSixContent
+      contactUs={contactUs}
       handleSubmitClick={handleSubmitClick}
       isMobileView={isMobileView}
     />

@@ -5,13 +5,24 @@ import { FormButton } from '../../../../components/form/button'
 import Icon from '../../../../components/icons'
 import SectionFourHeader from '../header'
 
-const SectionFourContent = ({ handleSubmitClick }) => (
+const isButtonDisabled = customPackage => !customPackage.comments ||
+  !customPackage.destination ||
+  !customPackage.email ||
+  !customPackage.flexible ||
+  !customPackage.homeAirport ||
+  !customPackage.name ||
+  !customPackage.numberOfPeople ||
+  !customPackage.tags ||
+  !customPackage.totalBudget
+
+const SectionFourContent = ({ customPackage, handleSubmitClick }) => (
   <React.Fragment>
     <SectionFourHeader />
     <CustomRequestForm />
     <FormButton
       center
-      label={<span><Icon type="send" size={22}/>Get Your Quote Today!</span>}
+      disabled={isButtonDisabled(customPackage)}
+      label={<span><Icon type="send" size={22} />Get Your Quote Today!</span>}
       onClick={handleSubmitClick}
       formState={{valid: true}}
     />

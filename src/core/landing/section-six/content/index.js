@@ -9,12 +9,13 @@ import MenuContent from './menu'
 import SocialContent from './social'
 import SectionThree from "../../section-three";
 
-const SectionSixContent = ({ handleSubmitClick, isMobileView }) => (
+const SectionSixContent = ({ contactUs, handleSubmitClick, isMobileView }) => (
   <div className="footer-content">
     <Row>
       <BrandContent />
       <MenuContent />
       <ContactContent
+        contactUs={contactUs}
         handleSubmitClick={handleSubmitClick}
         isMobileView={isMobileView}
       />

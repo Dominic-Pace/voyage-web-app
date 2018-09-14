@@ -33,7 +33,13 @@ class LandingPage extends React.Component {
   }
 
   render() {
-    const { featuredLocations, isMobileView } = this.props
+    const {
+      contactUs,
+      customPackage,
+      featuredLocations,
+      isMobileView,
+      joinMail
+    } = this.props
     return (
       <React.Fragment>
         <SectionOne
@@ -53,13 +59,16 @@ class LandingPage extends React.Component {
             />
         }
         <SectionFour
+          customPackage={customPackage}
           handleSubmitClick={this.handleCustomVacationClick}
         />
         <SectionFive
           handleSubmitClick={this.handleJoinEmailListClick}
           isMobileView={isMobileView}
+          joinMail={joinMail}
         />
         <SectionSix
+          contactUs={contactUs}
           handleSubmitClick={this.handleContactUsClick}
           isMobileView={isMobileView}
         />

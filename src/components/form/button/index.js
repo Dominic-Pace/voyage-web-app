@@ -5,7 +5,7 @@ import { Row } from 'react-bootstrap'
 
 import '../styles.css'
 
-export const FormButton = ({ btnStyle, center, formState, label, onClick, style }) => (
+export const FormButton = ({ btnStyle, center, disabled, label, onClick, style }) => (
   <Row
     className="form-btn-container"
     style={{
@@ -17,7 +17,7 @@ export const FormButton = ({ btnStyle, center, formState, label, onClick, style 
   >
     <RoundedButton
       label={label}
-      disabled={!formState.valid}
+      disabled={disabled}
       onClick={onClick}
       style={btnStyle}
     />

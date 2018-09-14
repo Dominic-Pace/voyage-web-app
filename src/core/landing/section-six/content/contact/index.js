@@ -8,7 +8,12 @@ import Icon from '../../../../../components/icons'
 import { Text } from '../../../../../components/text'
 import { TextAreaField, TextInputField } from '../../../../../components/form/text-input'
 
-const ContactContent = ({ handleSubmitClick, isMobileView }) => (
+const isButtonDisabled = contactUs => !contactUs.comments ||
+  !contactUs.email ||
+  !contactUs.name ||
+  !contactUs.subject
+
+const ContactContent = ({ contactUs, handleSubmitClick, isMobileView }) => (
   <Col
     className="footer-content-container"
     md={5}
@@ -41,6 +46,7 @@ const ContactContent = ({ handleSubmitClick, isMobileView }) => (
       <Row className="footer-contact-btn">
         <FormButton
           center
+          disabled={isButtonDisabled(contactUs)}
           label={<span>Send<Icon type="send" size={22} /></span>}
           onClick={handleSubmitClick}
           formState={{ valid: true }}
