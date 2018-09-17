@@ -1,12 +1,13 @@
 import React from 'react'
+import { get } from 'lodash'
 
+import { AccommodationCard } from '../../../components/card/accommodation'
 import { Grid, Row } from 'react-bootstrap'
 import { H1 } from '../../../components/text'
 import Map from '../../../components/map'
+import { ReviewCard } from '../../../components/card'
 
 import '../styles.css'
-import { ReviewCard } from '../../../components/card'
-import { AccommodationCard } from '../../../components/card/accommodation'
 
 const ReviewView = ({ currentPackage, forms, numOfPeople, selectedAccommodation, selectedActivities }) => {
 
@@ -99,7 +100,6 @@ const ReviewView = ({ currentPackage, forms, numOfPeople, selectedAccommodation,
         <Row className="booking-review-passengers-container">
           {
             passengers.map((passenger, key) => {
-
               return (
                 <div className="booking-review-passengers-card">
                   <div className="booking-review-passengers-card-title">
@@ -110,7 +110,7 @@ const ReviewView = ({ currentPackage, forms, numOfPeople, selectedAccommodation,
                     Full name:
                   </span>
                     <span>
-                    {`${passenger.firstName.value} ${passenger.lastName.value}`}
+                    {`${get(passenger, 'firstName.value', '')} ${get(passenger, 'lastName.value', '')}`}
                   </span>
                   </Row>
                   <Row className="booking-review-passengers-row">
@@ -118,7 +118,7 @@ const ReviewView = ({ currentPackage, forms, numOfPeople, selectedAccommodation,
                     Date of Birth:
                   </span>
                     <span>
-                    {passenger.birthday.value}
+                    {get(passenger, 'birthday.value', 'None Supplied')}
                   </span>
                   </Row>
                   <Row className="booking-review-passengers-row">
@@ -126,7 +126,7 @@ const ReviewView = ({ currentPackage, forms, numOfPeople, selectedAccommodation,
                     Email:
                   </span>
                     <span>
-                    {passenger.email.value || 'None Supplied'}
+                    {get(passenger, 'email.value', 'None Supplied')}
                   </span>
                   </Row>
                   <Row className="booking-review-passengers-row">
@@ -134,7 +134,7 @@ const ReviewView = ({ currentPackage, forms, numOfPeople, selectedAccommodation,
                     Phone Number:
                   </span>
                     <span>
-                    {passenger.phone.value || 'None Supplied'}
+                    {get(passenger, 'phone.value', 'None Supplied')}
                   </span>
                   </Row>
                 </div>
