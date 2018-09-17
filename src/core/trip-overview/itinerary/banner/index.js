@@ -1,7 +1,7 @@
 import React from 'react'
 import { H1 } from '../../../../components/text'
 
-const ItineraryBanner = ({ trip }) => (
+const ItineraryBanner = ({ isMobileView, trip }) => (
   <div
     className="itinerary-banner"
     style={{ backgroundImage: `url(${trip.imageUrl})` }}
@@ -12,7 +12,7 @@ const ItineraryBanner = ({ trip }) => (
       color="#FFF"
       rowClassName="itinerary-banner-title-container"
       style={{
-        fontSize: '3rem',
+        fontSize: isMobileView ? '2rem' : '3rem',
         textShadow: '1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000',
       }}
     >

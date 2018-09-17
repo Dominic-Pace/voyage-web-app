@@ -98,45 +98,48 @@ const ReviewView = ({ currentPackage, forms, numOfPeople, selectedAccommodation,
         </Row>
         <Row className="booking-review-passengers-container">
           {
-            passengers.map((passenger, key) => (
-              <div className="booking-review-passengers-card">
-                <div className="booking-review-passengers-card-title">
-                  {`Passenger ${key + 1}`}
-                </div>
-                <Row className="booking-review-passengers-row">
+            passengers.map((passenger, key) => {
+
+              return (
+                <div className="booking-review-passengers-card">
+                  <div className="booking-review-passengers-card-title">
+                    {`Passenger ${key + 1}`}
+                  </div>
+                  <Row className="booking-review-passengers-row">
                   <span className="booking-review-passengers-bold-title">
                     Full name:
                   </span>
-                  <span>
+                    <span>
                     {`${passenger.firstName.value} ${passenger.lastName.value}`}
                   </span>
-                </Row>
-                <Row className="booking-review-passengers-row">
+                  </Row>
+                  <Row className="booking-review-passengers-row">
                   <span className="booking-review-passengers-bold-title">
                     Date of Birth:
                   </span>
-                  <span>
+                    <span>
                     {passenger.birthday.value}
                   </span>
-                </Row>
-                <Row className="booking-review-passengers-row">
+                  </Row>
+                  <Row className="booking-review-passengers-row">
                   <span className="booking-review-passengers-bold-title">
                     Email:
                   </span>
-                  <span>
+                    <span>
                     {passenger.email.value || 'None Supplied'}
                   </span>
-                </Row>
-                <Row className="booking-review-passengers-row">
+                  </Row>
+                  <Row className="booking-review-passengers-row">
                   <span className="booking-review-passengers-bold-title">
                     Phone Number:
                   </span>
-                  <span>
+                    <span>
                     {passenger.phone.value || 'None Supplied'}
                   </span>
-                </Row>
-              </div>
-            ))
+                  </Row>
+                </div>
+              )
+            })
           }
         </Row>
       </Row>

@@ -1,3 +1,5 @@
+@import '../../styles/common.scss';
+
 .basic-modal {
   background-color: white;
   box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2), 0 4px 20px 0 rgba(0,0,0,0.19);
@@ -6,6 +8,9 @@
   overflow-y: auto;
   width: 50%;
   z-index: 101;
+  @media #{$mobile-device} {
+    width: 90%;
+  }
   &-container {
     background-color: rgba(0,0,0,0.4);
     display: flex;

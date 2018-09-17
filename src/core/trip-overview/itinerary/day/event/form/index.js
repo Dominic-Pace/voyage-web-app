@@ -30,6 +30,10 @@ const ItineraryEventForm = ({ event }) => {
         defaultValue={get(event, 'name', '')}
         model="name"
         placeholder="Name"
+        style={{
+          width: '80vw',
+          justifyContent: 'center',
+        }}
       />
       {
         event &&
@@ -41,6 +45,10 @@ const ItineraryEventForm = ({ event }) => {
         defaultValue={get(event, 'startTime', '')}
         model="startTime"
         placeholder="Start Time"
+        style={{
+          width: '80vw',
+          justifyContent: 'center',
+        }}
       />
       {
         event &&
@@ -52,6 +60,10 @@ const ItineraryEventForm = ({ event }) => {
         defaultValue={eventType ? getTypeText(eventType) : eventType}
         model="type"
         placeholder="Event Type"
+        style={{
+          width: '80vw',
+          justifyContent: 'center',
+        }}
       />
       {
         event &&
@@ -63,6 +75,10 @@ const ItineraryEventForm = ({ event }) => {
         defaultValue={get(event, 'description', '')}
         model="description"
         placeholder="Event Description"
+        style={{
+          width: '80vw',
+          justifyContent: 'center',
+        }}
       />
       {
         event &&
@@ -74,6 +90,10 @@ const ItineraryEventForm = ({ event }) => {
         defaultValue={get(event, 'pricePerPerson.price', '')}
         model="pricePerPerson.price"
         placeholder="Price Per Person"
+        style={{
+          width: '80vw',
+          justifyContent: 'center',
+        }}
         type="number"
       />
       {
@@ -86,6 +106,10 @@ const ItineraryEventForm = ({ event }) => {
         defaultValue={get(event, 'pricePerPerson.for', '')}
         model="pricePerPerson.for"
         placeholder="What for?"
+        style={{
+          width: '80vw',
+          justifyContent: 'center',
+        }}
       />
     </Form>
   )

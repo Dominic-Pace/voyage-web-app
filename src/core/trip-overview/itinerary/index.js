@@ -39,10 +39,10 @@ class ItineraryView extends React.Component {
 
   render() {
     const { selectedEvent } = this.state
-    const { trip } = this.props
+    const { isMobileView, trip } = this.props
     return (
       <Grid className="itinerary-container">
-        <ItineraryBanner trip={trip} />
+        <ItineraryBanner isMobileView={isMobileView} trip={trip} />
         <DaysUntil trip={trip} />
         <ItineraryDayCard
           handleEventClick={this.handleEventClick}

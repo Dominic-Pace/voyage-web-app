@@ -39,13 +39,13 @@ class TripOverview extends React.Component {
   }
 
   render() {
-    const { currentTrip } = this.props
+    const { currentTrip, isMobileView } = this.props
     return (
       <React.Fragment>
         {
           currentTrip
             ?
-            <ItineraryView trip={this.formatTripToArray()}/>
+            <ItineraryView isMobileView={isMobileView} trip={this.formatTripToArray()}/>
             :
             <Spinner name="three-bounce" />
         }
@@ -56,6 +56,7 @@ class TripOverview extends React.Component {
 
 
 const mapStateToProps = ({ auth, dashboard, explore, trips }) => {
+  const { isMobileView } = auth
   const { categories } = dashboard
   const {
     isRequesting,
@@ -65,6 +66,7 @@ const mapStateToProps = ({ auth, dashboard, explore, trips }) => {
   return {
     categories,
     currentTrip,
+    isMobileView,
     isRequesting,
     packages,
   }
