@@ -22,7 +22,7 @@ const StepCard = ({ description, icon, iconStyle, isMobileView, step }) => (
         type={icon}
       />
     </Row>
-    <Row>
+    <Row style={{ justifyContent: 'center', marginTop: -40 }}>
       <Text
         color="#949494"
         style={{ fontStyle: 'italic' }}

@@ -110,27 +110,34 @@
   justify-content: center;
 }
 
-.top-section-btn {
-  margin: 20px;
-  @media #{$mobile-device} {
-    margin: 10px;
+.top-section {
+  &-btn {
+    margin: 20px;
+    @media #{$mobile-device} {
+      margin: 10px;
+    }
+  }
+  &-form-container {
+    width: 100%;
+    height: 200px;
+    border: 1px solid red;
   }
 }
 
-.voyago {
-  &-footer {
-    &-text {
-      color: $voyago-light-grey;
-      font-size: 2.5rem;
-      font-style: italic;
-      &-go {
-        color: $voyago-primary;
-        font-weight: 600;
+  .voyago {
+    &-footer {
+      &-text {
+        color: $voyago-light-grey;
+        font-size: 2.5rem;
+        font-style: italic;
+        &-go {
+          color: $voyago-primary;
+          font-weight: 600;
+        }
+      }
+      &-logo {
+        margin-top: -32px;
+        width: 25vw;
       }
     }
-    &-logo {
-      margin-top: -32px;
-      width: 25vw;
-    }
   }
-}

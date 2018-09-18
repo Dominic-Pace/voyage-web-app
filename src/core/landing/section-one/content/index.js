@@ -8,10 +8,12 @@ import { Row } from 'react-bootstrap'
 
 const SectionOneContent = ({ isMobileView }) => (
   <Row className="centered-container">
-    <H1>Book your next getaway with us!</H1>
-    <Text>Voyago's mission is to provide you with a service just as easy as booking a cruise, but anywhere in the world.
-      We also strive to allow your getaways to be 100% customizable!
-      All of this at a comparable price that you could book it on your own!
+    <H1>Best Prices + Quality Travel Guaranteed!</H1>
+    <Text center>
+      We guarantee the absolute best price out there. If we don't find you a better price, we will book you for what
+      you were expecting to pay AND give you $20! We will honor the top 7 booking websites out there:
+      Expedia, Travelocity, Priceline, Kayak, Orbitz, Trip Advisor, and Booking.com. Don't believe us?
+      Give us a try, we would love to earn your business!
     </Text>
     <RoundedButton
       className="top-section-btn"

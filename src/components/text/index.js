@@ -71,13 +71,15 @@ export const H3 = ({ bold, center, className, color, children, rowClassName, sty
   </Row>
 )
 
-export const Text = ({ bold, center, color, children, className, size, style }) => (
+export const Text = ({ bold, center, color, children, className, rowClassName, size, style }) => (
   <Row
+    className={rowClassName}
     md={12}
     style={{
       alignItems: center ? 'center' : null,
       height: '100%',
       justifyContent: center ? 'center' : null,
+      width: '100%'
     }}
   >
     <p
